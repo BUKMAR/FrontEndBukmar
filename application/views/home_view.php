@@ -2,11 +2,15 @@
 <html>
 <head>
     <?php require_once(APPPATH .'views/include/include.php'); ?>
+    <style type="text/css">
+    	.navbar {
+    		margin-bottom: 0px;
+    	}
+    </style>
 </head>
 <body screen_capture_incject="true">
 	<div id="skippy">
 	</div>
-	
 	<header>
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="container-fluid">
@@ -30,26 +34,17 @@
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Search" style="width: 500px;">
 						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
+						<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Cari</button>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Link</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li><a href="#">Separated link</a></li>
-							</ul>
-						</li>
+						<li><a href="#">Keranjang Belanja</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div>
 		</nav>
+		<?php require_once(APPPATH .'views/templates/navigasi.php'); ?>
 	</header><!-- /header -->
-	
-	<div id="carousel-id" class="carousel slide" data-ride="carousel">
+	<div id="carousel-id" class="carousel slide" style="height: 550px;" data-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-target="#carousel-id" data-slide-to="0" class=""></li>
 			<li data-target="#carousel-id" data-slide-to="1" class=""></li>
@@ -57,7 +52,7 @@
 		</ol>
 		<div class="carousel-inner">
 			<div class="item">
-				<img class="image-slide" data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+				<img class="image-slide" style="height: 550px;" width="100%" data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="<?php echo base_url("assets/images/blue.jpg"); ?>">
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>Example headline.</h1>
@@ -67,7 +62,7 @@
 				</div>
 			</div>
 			<div class="item">
-				<img class="image-slide" data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="<?php echo base_url("assets/images/purple.jpg"); ?>">
+				<img class="image-slide" style="height: 550px;" width="100%" data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="<?php echo base_url("assets/images/purple.jpg"); ?>">
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>Another example headline.</h1>
@@ -77,7 +72,7 @@
 				</div>
 			</div>
 			<div class="item active">
-				<img class="image-slide" data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="<?php echo base_url("assets/images/red.jpg"); ?>">
+				<img class="image-slide" style="height: 550px;" width="100%" data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="<?php echo base_url("assets/images/red.jpg"); ?>">
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>One more for good measure.</h1>
