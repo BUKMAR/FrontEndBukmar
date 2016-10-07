@@ -37,7 +37,7 @@
 						<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Cari</button>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Keranjang Belanja</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="badge" style="margin-bottom: 0px; margin-top: -20px; margin-left: -2px; background-color: red; color: #000;">35</span></span></a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div>
@@ -85,6 +85,84 @@
 		<a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
 		<a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 	</div>
+	
+	<br>
+	<br>
+	<br>
+	<footer id="footerWrapper" class="footer2">
+	<section id="mainFooter">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-6">
+					<div class="footerWidget">
+						<img src="<?php echo base_url("assets/images/logo.png"); ?>" alt="latest Little Neko news" id="footerLogo">
+						<p align="justify"><a href="http://www.little-neko.com" title="Little Neko, website template creation">BUKMAR</a> Halaman Merupakan sarana berbagi informasi update kebutuhan harian dapur anda, sebagai penyedia layanan, kami menjamin pengalaman belanja yang aman, terpercaya, dan pastinya gak ribet. Dapatkan penawaran terbaik melalui website kapan saja. </p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="footerWidget">
+						<h3>Latest works</h3>
+						<ul class="list-unstyled worksList">
+							<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works1.jpg" alt="works"></a></li>
+							<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works3.jpg" alt="works"></a></li>
+							<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works5.jpg" alt="works"></a></li>
+							<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works2.jpg" alt="works"></a></li>
+							<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works4.jpg" alt="works"></a></li>
+							<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works6.jpg" alt="works"></a></li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="footerWidget">
+						<h3>Latest news</h3>
+						<ul class="list-unstyled iconList">
+							<li><a href="#">Solace of a lonely highway</a></li>
+							<li><a href="#">Write with purpose</a></li>
+							<li><a href="#">Tree on a lake</a></li>
+							<li><a href="#">Don’t stop questioning</a></li>
+							<li><a href="#">Overheard this morning</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="footerWidget">
+						<h3>Little BUKMAR</h3>
+						<address>
+							<p>
+								<i class="icon-location"></i>&nbsp;Widoro, Rt 40 Rw12 Sragen Wetan<br>
+								Sragen, Jawa Tengah, Indonesia<br>
+								<i class="icon-phone"></i>&nbsp;0857-2864-8065 <br>
+								<i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">bukmarwidoro@gmail.com</a>
+								<i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">http://www.bukmar.com/</a>
+							</p>
+						</address>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="footerRights">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<ul class="socialNetwork">
+						<li><a href="#" class="tips" title="follow me on Facebook"><i class="icon-facebook-1 iconRounded"></i></a></li>
+						<li><a href="#" class="tips" title="follow me on Twitter"><i class="icon-twitter-bird iconRounded"></i></a></li>
+						<li><a href="#" class="tips" title="follow me on Google+"><i class="icon-gplus-1 iconRounded"></i></a></li>
+						<li><a href="#" class="tips" title="follow me on Linkedin"><i class="icon-linkedin-1 iconRounded"></i></a></li>
+						<li><a href="#" class="tips" title="follow me on Dribble"><i class="icon-dribbble iconRounded"></i></a></li>
+					</ul>     
+				</div>
+				<div class="col-md-12">
+					<p>Copyright © 2014 <a href="http://www.little-neko.com" target="blank">Bukmar.com</a> / All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</footer>
+
+
 
 </body>
 </html>

@@ -2,6 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background: #dedede;
+    font-family: 'PT Sans', sans-serif;
 }
 
 #skippy {
@@ -240,3 +241,106 @@ header {
         }
 
         .megamenu-headline { padding: 0 32px; }
+
+
+/* FOOTER 
+================================================== */
+
+.footerWidget #footerLogo {
+    width: 100px;
+    height: 80px;
+}
+
+footer {
+    color:#777;
+    background:#222;
+    border-top:2px solid #444;
+}
+
+footer h1,footer h2,footer h3,footer h4{
+    color:#ddd;
+    font-weight:300;
+}
+
+#footerRights {
+    background-color:#333;
+    color:#999;
+    border-top:1px solid #1b1b1b;
+}
+
+footer{padding:44px 0 0 0;}
+#footerLogo {margin-bottom: 22px;}
+#footerRights {padding-top:22px;padding-bottom:22px;margin-top:22px; text-align: center; font-size:10px;}
+.footerWidget {margin-bottom: 22px}
+
+/* footer 1 */
+.worksList li{display:inline-block; margin: 0 10px 10px 0;}
+
+/* footer 4 */
+.footer4 #footerRights {text-align: left; background:#333;}
+.bigTitle.bigTitleFooter {font-size: 2em; margin-bottom: 0;}
+
+
+@media(min-width:992px){
+    /* footer 4 */
+    .footer4 #footerRights .quickMenu {float:right;}
+    /* footer 5 */
+    .footer5 #footerRights p{float: left;}
+    .footer5 #footerRights .socialNetwork{float: right;}
+}
+
+ul.socialNetwork {padding:0; display: block; margin-bottom: 0;}
+ul.socialNetwork li {display:inline-block; list-style-type: none; margin-top: 0.8em;}
+
+/*** icons ***/
+.iconRounded{
+    border-radius:50%;
+    width: 40px;
+    height: 40px;
+    display: block;
+    text-align: center;
+    font-size:18px; 
+}
+
+.iconRounded:before{margin: auto;text-align: center; line-height: 40px; }
+.iconBig{
+    font-size: 40px;
+}
+
+.iconBig.iconRounded{
+    width:100px;
+    height: 100px;
+}
+
+.iconBig.iconRounded:before{
+    line-height: 100px; 
+}
+
+.iconMedium {
+    font-size: 33px;
+}
+
+.iconMedium.iconRounded{
+    width: 66px;
+    height: 66px;
+}
+
+.iconMedium.iconRounded:before{
+    line-height: 66px;  
+}
+
+.iconSmall:before {
+    font-size: 10px;
+}
+
+.iconSmall.iconRounded{
+    width: 26px;
+    height: 26px;
+}
+
+.iconSmall.iconRounded:before{
+    line-height: 26px;  
+}
+
+/* END FOOTER 
+================================================== */
