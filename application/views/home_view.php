@@ -6,9 +6,42 @@
     	.navbar {
     		margin-bottom: 0px;
     	}
+
+    	* {
+	      box-sizing: border-box;
+	    }
+
+	    .slider {
+	        width: 95%;
+	        margin: 0px auto;
+	        margin-top: 40px;
+	    }
+
+	    .slick-slide {
+	      margin: 0px 0px;
+	    }
+
+	    .slick-slide img {
+	      width: 350px;
+	      height: 220px;
+	    }
+
+	    .row {
+	    	background-color: #ffffff;
+	    	height: 290px;
+	    	padding-bottom: 0px;
+	    }
+
+	    .isi h2 {
+	    	padding-left: 35px;
+	    }
     </style>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>  
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
+ 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css
+">
 </head>
-<body screen_capture_incject="true">
+<body screen_capture_incject="true" style="background-color: #dedede;">
 	<div id="skippy">
 	</div>
 	<header>
@@ -85,6 +118,90 @@
 		<a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
 		<a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 	</div>
-
+	<div class="isi">
+		<h2 style="font-family: Roboto, sans-serif;">Brands</h2>
+		<div class="row slick ">
+		  <section class="center slider">
+		    <div>
+		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		    </div>
+		  </section>
+		</div>
+	</div>
+	<div class="isi">
+		<h2 style="font-family: Roboto, sans-serif;">Produk Terlaris</h2>
+		<div class="row slick ">
+		  <section class="center slider">
+		    <div>
+		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		    </div>
+		    <div>
+		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		    </div>
+		  </section>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	$(function() {
+	      $(".center").slick({
+		       dots: true,
+		       infinite: true,
+		       centerMode: true,
+		       slidesToShow: 3,
+		       slidesToScroll: 3
+	      });
+	      $('.carousel-content').slick({
+		       prevArrow:"sjdns",
+		       nextArrow:"dsbndsh"
+  		  });
+	    });
+  	</script>
 </body>
 </html>
