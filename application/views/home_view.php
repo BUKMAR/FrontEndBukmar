@@ -130,11 +130,11 @@
 						<h3>Little BUKMAR</h3>
 						<address>
 							<p>
-								<i class="icon-location"></i>&nbsp;Widoro, Rt 40 Rw12 Sragen Wetan<br>
+								<i class="icon-location"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></i>&nbsp;Widoro, Rt 40 Rw12 Sragen Wetan
 								Sragen, Jawa Tengah, Indonesia<br>
-								<i class="icon-phone"></i>&nbsp;0857-2864-8065 <br>
+								<i class="icon-phone"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></i>&nbsp;0857-2864-8065 <br>
 								<i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">bukmarwidoro@gmail.com</a>
-								<i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">http://www.bukmar.com/</a>
+								<i class="icon-mail-alt"> </i>&nbsp;<a href="mailto:little@little-neko.com">http://www.bukmar.com/</a>
 							</p>
 						</address>
 					</div>
