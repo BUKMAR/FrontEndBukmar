@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title></title>
-
-	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" type="text/css" href="node_modules/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="node_modules/slick/slick-theme.css">
-
-	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="node_modules/bootstrap/js/carousel.js"></script>
-	
+    <?php require_once(APPPATH .'views/include/include.php'); ?>
 </head>
 <body screen_capture_incject="true">
 	<div id="skippy">
@@ -70,7 +57,7 @@
 		</ol>
 		<div class="carousel-inner">
 			<div class="item">
-				<img class="image-slide" data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="images/blue.jpg">
+				<img class="image-slide" data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="<?php echo base_url("assets/images/blue.jpg"); ?>">
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>Example headline.</h1>
@@ -80,7 +67,7 @@
 				</div>
 			</div>
 			<div class="item">
-				<img class="image-slide" data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="images/red.jpg">
+				<img class="image-slide" data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="<?php echo base_url("assets/images/purple.jpg"); ?>">
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>Another example headline.</h1>
@@ -90,7 +77,7 @@
 				</div>
 			</div>
 			<div class="item active">
-				<img class="image-slide" data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="images/purple.jpg">
+				<img class="image-slide" data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="<?php echo base_url("assets/images/red.jpg"); ?>">
 				<div class="container">
 					<div class="carousel-caption">
 						<h1>One more for good measure.</h1>
