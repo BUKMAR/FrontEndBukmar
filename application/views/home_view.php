@@ -26,10 +26,11 @@
 	      height: 220px;
 	    }
 
-	    .row {
+	    .slider-row {
 	    	background-color: #ffffff;
-	    	height: 290px;
 	    	padding-bottom: 0px;
+	    	padding-top: 10px;
+	    	padding-bottom: 10px;
 	    }
 
 	    .isi h2 {
@@ -40,8 +41,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
  	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css
 ">
+  	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
-<body screen_capture_incject="true" style="background-color: #dedede;">
+<body screen_capture_incject="true" style="background-color: #fff;">
 	<div id="skippy">
 	</div>
 	<header>
@@ -70,7 +72,7 @@
 						<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Cari</button>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Keranjang Belanja</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="badge" style="margin-bottom: 0px; margin-top: -20px; margin-left: -2px; background-color: red; color: #000;">35</span></span></a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div>
@@ -118,9 +120,14 @@
 		<a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
 		<a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 	</div>
+
 	<div class="isi">
-		<h2 style="font-family: Roboto, sans-serif;">Brands</h2>
-		<div class="row slick ">
+		<div class="label-containter">
+    		<div class="label">
+      			<h3 style="text-align: left;" class="label-title"><img class="img-label" src="<?php echo base_url("assets/images/bm.png"); ?>"/> All Brands</h3>
+   			 </div>
+  		</div>
+		<div class="slider-row slick">
 		  <section class="center slider">
 		    <div>
 		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
@@ -153,8 +160,12 @@
 		</div>
 	</div>
 	<div class="isi">
-		<h2 style="font-family: Roboto, sans-serif;">Produk Terlaris</h2>
-		<div class="row slick ">
+		<div class="label-containter">
+    		<div class="label">
+      			<h3 style="text-align: left;" class="label-title"><img class="img-label" src="<?php echo base_url("assets/images/bm.png"); ?>"/> Produk Terlaris</h3>
+   			 </div>
+  		</div>
+		<div class="slider-row slick ">
 		  <section class="center slider">
 		    <div>
 		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
@@ -197,11 +208,82 @@
 		       slidesToShow: 3,
 		       slidesToScroll: 3
 	      });
-	      $('.carousel-content').slick({
-		       prevArrow:"sjdns",
-		       nextArrow:"dsbndsh"
-  		  });
 	    });
   	</script>
+	<br>
+	<br>
+	<br>
+	<footer id="footerWrapper" class="footer2" style="margin-top: 145px;">
+		<section id="mainFooter">
+			<div class="container">
+				<div class="row" style="background-color: #222;">
+					<div class="col-md-3 col-sm-6">
+						<div class="footerWidget">
+							<img src="<?php echo base_url("assets/images/logo.png"); ?>" alt="latest Little Neko news" id="footerLogo">
+							<p align="justify"><a href="http://www.little-neko.com" title="Little Neko, website template creation">BUKMAR</a> Halaman Merupakan sarana berbagi informasi update kebutuhan harian dapur anda, sebagai penyedia layanan, kami menjamin pengalaman belanja yang aman, terpercaya, dan pastinya gak ribet. Dapatkan penawaran terbaik melalui website kapan saja. </p>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<div class="footerWidget">
+							<h3>Latest works</h3>
+							<ul class="list-unstyled worksList">
+								<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works1.jpg" alt="works"></a></li>
+								<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works3.jpg" alt="works"></a></li>
+								<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works5.jpg" alt="works"></a></li>
+								<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works2.jpg" alt="works"></a></li>
+								<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works4.jpg" alt="works"></a></li>
+								<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works6.jpg" alt="works"></a></li>
+
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<div class="footerWidget">
+							<h3>Latest news</h3>
+							<ul class="list-unstyled iconList">
+								<li><a href="#">Solace of a lonely highway</a></li>
+								<li><a href="#">Write with purpose</a></li>
+								<li><a href="#">Tree on a lake</a></li>
+								<li><a href="#">Don’t stop questioning</a></li>
+								<li><a href="#">Overheard this morning</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<div class="footerWidget">
+							<h3>Little BUKMAR</h3>
+							<address>
+								<p>
+									<i class="icon-location"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></i>&nbsp;Widoro, Rt 40 Rw12 Sragen Wetan
+									Sragen, Jawa Tengah, Indonesia<br>
+									<i class="icon-phone"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></i>&nbsp;0857-2864-8065 <br>
+									<i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">bukmarwidoro@gmail.com</a>
+									<i class="icon-mail-alt"> </i>&nbsp;<a href="mailto:little@little-neko.com">http://www.bukmar.com/</a>
+								</p>
+							</address>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="footerRights">
+			<div class="container">
+				<div class="row" style="background-color: #222; height: 90px;">
+					<div class="col-md-12">
+						<ul class="socialNetwork">
+							<li><a href="#" class="tips" title="follow me on Facebook"><i class="icon-facebook-1 iconRounded"></i></a></li>
+							<li><a href="#" class="tips" title="follow me on Twitter"><i class="icon-twitter-bird iconRounded"></i></a></li>
+							<li><a href="#" class="tips" title="follow me on Google+"><i class="icon-gplus-1 iconRounded"></i></a></li>
+							<li><a href="#" class="tips" title="follow me on Linkedin"><i class="icon-linkedin-1 iconRounded"></i></a></li>
+							<li><a href="#" class="tips" title="follow me on Dribble"><i class="icon-dribbble iconRounded"></i></a></li>
+						</ul>     
+					</div>
+					<div class="col-md-12">
+						<p>Copyright © 2014 <a href="http://www.little-neko.com" target="blank">Bukmar.com</a> / All rights reserved.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</footer>
 </body>
 </html>
