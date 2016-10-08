@@ -12,9 +12,10 @@
 	    }
 
 	    .slider {
-	        width: 95%;
-	        margin: 0px auto;
+	        width: 100%;
 	        margin-top: 40px;
+	        padding-left: 25px;
+	        padding-right: 25px;
 	    }
 
 	    .slick-slide {
@@ -22,8 +23,8 @@
 	    }
 
 	    .slick-slide img {
-	      width: 350px;
-	      height: 220px;
+	      width: 250px;
+	      height: 280px;
 	    }
 
 	    .slider-row {
@@ -124,11 +125,12 @@
 	<div class="isi">
 		<div class="label-containter">
     		<div class="label">
-      			<h3 style="text-align: left;" class="label-title"><img class="img-label" src="<?php echo base_url("assets/images/bm.png"); ?>"/> All Brands</h3>
+      			<h3 style="text-align: left;" class="label-title">
+      			<img class="img-label" src="<?php echo base_url("assets/images/bm.png"); ?>"/> All Brands</h3>
    			 </div>
   		</div>
 		<div class="slider-row slick">
-		  <section class="center slider">
+		  <section class="brands slider">
 		    <div>
 		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
 		    </div>
@@ -160,8 +162,8 @@
 		</div>
 	</div>
 	<div class="isi">
-		<div class="label-containter">
-    		<div class="label">
+		<div class="label-containter" style="border-bottom: 4px solid #689F38;">
+    		<div class="label bg-green">
       			<h3 style="text-align: left;" class="label-title"><img class="img-label" src="<?php echo base_url("assets/images/bm.png"); ?>"/> Produk Terlaris</h3>
    			 </div>
   		</div>
@@ -197,17 +199,34 @@
 		  </section>
 		</div>
 	</div>
+
+	<!-- SEMUA PRODUK -->
+	<div class="isi">
+		<div class="label-containter" style="border-bottom: 4px solid #1976D2;">
+    		<div class="label bg-blue">
+      			<h3 style="text-align: left;" class="label-title"><img class="img-label" src="<?php echo base_url("assets/images/bm.png"); ?>"/> Semua Produk</h3>
+   			 </div>
+  		</div>
+	</div>
 	<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
     	$(function() {
-	      $(".center").slick({
+    		$(".brands").slick({
 		       dots: true,
 		       infinite: true,
 		       centerMode: true,
 		       slidesToShow: 3,
 		       slidesToScroll: 3
-	      });
+	      	});
+
+	      	$(".center").slick({
+		       dots: true,
+		       infinite: true,
+		       centerMode: true,
+		       slidesToShow: 5,
+		       slidesToScroll: 5
+	     	 });
 	    });
   	</script>
 	<br>

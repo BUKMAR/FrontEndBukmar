@@ -373,3 +373,13 @@ ul.socialNetwork li {display:inline-block; list-style-type: none; margin-top: 0.
       height: 20px;
       width: 20px;
     }
+
+    .bg-green {
+        border-top: 0px solid #689F38;
+        border-bottom: 60px solid #689F38;
+    }
+
+    .bg-blue {
+        border-top: 0px solid #1976D2;
+        border-bottom: 60px solid #1976D2;
+    }
