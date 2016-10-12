@@ -36,7 +36,56 @@ div {
 }
 
 header {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+/*
+* untuk logo pada mobile
+*/
+@media screen and (min-width: 100px) and (max-width: 900px) {
+  #first-logo {
+    display: none;
+  }
+
+  #first-nav {
+    display: none;
+  }
+
+  #second-logo {
+    display: inline;
+  }
+
+  #second-cart {
+    display: inline;
+  }
+
+  #carousel-id {
+    display: none;
+  }
+  .a {
+    background-color: rgb(255, 255, 255);
+  }
+ 
+}
+
+
+@media screen and (min-width: 901px) and (max-height: 2000px) {
+  #second-logo {
+    display: none;
+  }
+
+  #second-form {
+    display: none;
+  }
+
+  #second-cart {
+    display: none;
+  }
+
+ .a {
+    background-color: rgb(0, 0, 0);
+  }
+
 }
 
     /*

@@ -11,31 +11,27 @@
 	      box-sizing: border-box;
 	    }
 
-	    .slider {
-	        width: 100%;
-	        margin-top: 40px;
-	        padding-left: 25px;
-	        padding-right: 25px;
-	    }
-
-	    .slick-slide {
-	      margin: 0px 0px;
-	    }
-
-	    .slick-slide img {
-	      width: 250px;
-	      height: 280px;
-	    }
-
 	    .slider-row {
 	    	background-color: #ffffff;
 	    	padding-bottom: 0px;
 	    	padding-top: 10px;
 	    	padding-bottom: 10px;
+	    	padding-left: 10px;
+	    	padding-right: 10px;
+	    }
+
+	    .slider-row img {
+	    	height: 320px;
+	    	width: 220px;
+	    	margin-right: 9px;
 	    }
 
 	    .isi h2 {
 	    	padding-left: 35px;
+	    }
+
+	    .panel-body a:hover {
+	    	text-decoration: none;
 	    }
     </style>
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>  
@@ -50,7 +46,7 @@
 	<div id="skippy">
 	</div>
 	<header>
-		<nav class="navbar navbar-default" role="navigation">
+		<nav id="first-nav" class="navbar navbar-default" role="navigation">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -62,7 +58,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					-->
-					<a class="navbar-brand" href="#">BRAND LOGO</a>
+					<a id="first-logo" class="navbar-brand" href="#">Bukmar</a>
 				</div>
 		
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -136,33 +132,33 @@
    			 </div>
   		</div>
 		<div class="slider-row slick">
-		  <section class="brands slider">
+		  <section class="center slider">
 		    <div>
-		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+		      <img class="img-responsive" src="<?php echo base_url("assets/images/blue.jpg"); ?>">
 		    </div>
 		    <div>
-		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		      <img class="img-responsive" class="img-responsive"  src="<?php echo base_url("assets/images/red.jpg"); ?>">
 		    </div>
 		    <div>
-		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+		      <img class="img-responsive" src="<?php echo base_url("assets/images/blue.jpg"); ?>">
 		    </div>
 		    <div>
-		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+		      <img class="img-responsive" src="<?php echo base_url("assets/images/blue.jpg"); ?>">
 		    </div>
 		    <div>
-		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		      <img class="img-responsive" src="<?php echo base_url("assets/images/red.jpg"); ?>">
 		    </div>
 		    <div>
-		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		      <img class="img-responsive" src="<?php echo base_url("assets/images/red.jpg"); ?>">
 		    </div>
 		    <div>
-		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		      <img class="img-responsive" src="<?php echo base_url("assets/images/red.jpg"); ?>">
 		    </div>
 		    <div>
-		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		      <img class="img-responsive" src="<?php echo base_url("assets/images/red.jpg"); ?>">
 		    </div>
 		    <div>
-		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		      <img class="img-responsive" src="<?php echo base_url("assets/images/red.jpg"); ?>">
 		    </div>
 		  </section>
 		</div>
@@ -175,32 +171,129 @@
   		</div>
 		<div class="slider-row slick ">
 		  <section class="center slider">
-		    <div>
-		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+		  	<div class="panel panel-default" style="margin-right: 6px;">
+			    <div class="panel-body" style="height: 320px;">
+			      	<img class="img-responsive" style="height: 205px; width: 186px;" 
+			      	src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTdhMjNkZGY1ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1N2EyM2RkZjVmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjY5NTMxMjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" />
+			      	<div>
+					    <h4><small>Nama Barang</small></h4>
+			  			<h4 style="color: red; margin-top: -4px;">Rp. 50.000,-</h4>
+			  			<h5><small><s>Rp. 50.000</s></small></h5>
+			  			<h5 style="margin-left: 60px; margin-top: -4px; margin-top: -25px;"><small>80%</small></h5>
+			      	</div>
+	  			</div>
 		    </div>
-		    <div>
-		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		  	<div class="panel panel-default" style="margin-right: 6px;">
+			    <div class="panel-body" style="height: 320px;">
+			    	<a href="#">
+				    	<img class="img-responsive" style="height: 205px; width: 186px;" 
+				      	src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTdhMjNkZGY1ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1N2EyM2RkZjVmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjY5NTMxMjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" />
+				      	<div>
+						    <h4><small>Nama Barang</small></h4>
+				  			<h4 style="color: red; margin-top: -4px;">Rp. 50.000,-</h4>
+				  			<h5><small><s>Rp. 50.000</s></small></h5>
+				  			<h5 style="margin-left: 60px; margin-top: -4px; margin-top: -25px;"><small>80%</small></h5>
+				      	</div>
+			    	</a>
+	  			</div>
 		    </div>
-		    <div>
-		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+		  	<div class="panel panel-default" style="margin-right: 6px;">
+			    <div class="panel-body" style="height: 320px;">
+			    	<a href="#">
+				    	<img class="img-responsive" style="height: 205px; width: 186px;" 
+				      	src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTdhMjNkZGY1ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1N2EyM2RkZjVmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjY5NTMxMjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" />
+				      	<div>
+						    <h4><small>Nama Barang</small></h4>
+				  			<h4 style="color: red; margin-top: -4px;">Rp. 50.000,-</h4>
+				  			<h5><small><s>Rp. 50.000</s></small></h5>
+				  			<h5 style="margin-left: 60px; margin-top: -4px; margin-top: -25px;"><small>80%</small></h5>
+				      	</div>
+			    	</a>
+	  			</div>
 		    </div>
-		    <div>
-		      <img src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+		  	<div class="panel panel-default" style="margin-right: 6px;">
+			    <div class="panel-body" style="height: 320px;">
+			    	<a href="#">
+				    	<img class="img-responsive" style="height: 205px; width: 186px;" 
+				      	src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTdhMjNkZGY1ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1N2EyM2RkZjVmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjY5NTMxMjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" />
+				      	<div>
+						    <h4><small>Nama Barang</small></h4>
+				  			<h4 style="color: red; margin-top: -4px;">Rp. 50.000,-</h4>
+				  			<h5><small><s>Rp. 50.000</s></small></h5>
+				  			<h5 style="margin-left: 60px; margin-top: -4px; margin-top: -25px;"><small>80%</small></h5>
+				      	</div>
+			    	</a>
+	  			</div>
 		    </div>
-		    <div>
-		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		  	<div class="panel panel-default" style="margin-right: 6px;">
+			    <div class="panel-body" style="height: 320px;">
+			    	<a href="#">
+				    	<img class="img-responsive" style="height: 205px; width: 186px;" 
+				      	src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTdhMjNkZGY1ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1N2EyM2RkZjVmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjY5NTMxMjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" />
+				      	<div>
+						    <h4><small>Nama Barang</small></h4>
+				  			<h4 style="color: red; margin-top: -4px;">Rp. 50.000,-</h4>
+				  			<h5><small><s>Rp. 50.000</s></small></h5>
+				  			<h5 style="margin-left: 60px; margin-top: -4px; margin-top: -25px;"><small>80%</small></h5>
+				      	</div>
+			    	</a>
+	  			</div>
 		    </div>
-		    <div>
-		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		  	<div class="panel panel-default" style="margin-right: 6px;">
+			    <div class="panel-body" style="height: 320px;">
+			    	<a href="#">
+				    	<img class="img-responsive" style="height: 205px; width: 186px;" 
+				      	src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTdhMjNkZGY1ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1N2EyM2RkZjVmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjY5NTMxMjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" />
+				      	<div>
+						    <h4><small>Nama Barang</small></h4>
+				  			<h4 style="color: red; margin-top: -4px;">Rp. 50.000,-</h4>
+				  			<h5><small><s>Rp. 50.000</s></small></h5>
+				  			<h5 style="margin-left: 60px; margin-top: -4px; margin-top: -25px;"><small>80%</small></h5>
+				      	</div>
+			    	</a>
+	  			</div>
 		    </div>
-		    <div>
-		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		  	<div class="panel panel-default" style="margin-right: 6px;">
+			    <div class="panel-body" style="height: 320px;">
+			    	<a href="#">
+				    	<img class="img-responsive" style="height: 205px; width: 186px;" 
+				      	src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTdhMjNkZGY1ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1N2EyM2RkZjVmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjY5NTMxMjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" />
+				      	<div>
+						    <h4><small>Nama Barang</small></h4>
+				  			<h4 style="color: red; margin-top: -4px;">Rp. 50.000,-</h4>
+				  			<h5><small><s>Rp. 50.000</s></small></h5>
+				  			<h5 style="margin-left: 60px; margin-top: -4px; margin-top: -25px;"><small>80%</small></h5>
+				      	</div>
+			    	</a>
+	  			</div>
 		    </div>
-		    <div>
-		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		  	<div class="panel panel-default" style="margin-right: 6px;">
+			    <div class="panel-body" style="height: 320px;">
+			    	<a href="#">
+				    	<img class="img-responsive" style="height: 205px; width: 186px;" 
+				      	src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTdhMjNkZGY1ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1N2EyM2RkZjVmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjY5NTMxMjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" />
+				      	<div>
+						    <h4><small>Nama Barang</small></h4>
+				  			<h4 style="color: red; margin-top: -4px;">Rp. 50.000,-</h4>
+				  			<h5><small><s>Rp. 50.000</s></small></h5>
+				  			<h5 style="margin-left: 60px; margin-top: -4px; margin-top: -25px;"><small>80%</small></h5>
+				      	</div>
+			    	</a>
+	  			</div>
 		    </div>
-		    <div>
-		      <img src="<?php echo base_url("assets/images/red.jpg"); ?>">
+		  	<div class="panel panel-default" style="margin-right: 6px;">
+			    <div class="panel-body" style="height: 320px;">
+			    	<a href="#">
+				    	<img class="img-responsive" style="height: 205px; width: 186px;" 
+				      	src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTdhMjNkZGY1ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1N2EyM2RkZjVmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjY5NTMxMjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" />
+				      	<div>
+						    <h4><small>Nama Barang</small></h4>
+				  			<h4 style="color: red; margin-top: -4px;">Rp. 50.000,-</h4>
+				  			<h5><small><s>Rp. 50.000</s></small></h5>
+				  			<h5 style="margin-left: 60px; margin-top: -4px; margin-top: -25px;"><small>80%</small></h5>
+				      	</div>
+			    	</a>
+	  			</div>
 		    </div>
 		  </section>
 		</div>
@@ -242,40 +335,49 @@
   					</div>
   				</div>
   				<?php endfor ?>
-
-  				<ul class="pagination" style="margin-left: 565px;">
-  					<li><a href="#">&laquo;</a></li>
-  					<li><a href="#">1</a></li>
-  					<li><a href="#">2</a></li>
-  					<li><a href="#">3</a></li>
-  					<li><a href="#">4</a></li>
-  					<li><a href="#">5</a></li>
-  					<li><a href="#">&raquo;</a></li>
-  				</ul>
-
+  			</div>
+  			<div class="row">
+  				<div class="col-md-12" style="text-align: center;">
+	  				<ul class="pagination">
+		  				<li><a href="#">&laquo;</a></li>
+		  				<li><a href="#">1</a></li>
+		  				<li><a href="#">2</a></li>
+		  				<li><a href="#">3</a></li>
+		  				<li><a href="#">4</a></li>
+		  				<li><a href="#">5</a></li>
+		  				<li><a href="#">&raquo;</a></li>
+	  				</ul>
+  				</div>
   			</div>
   		</div>
 	</div>
+
 	<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
     	$(function() {
-    		$(".brands").slick({
-		       dots: true,
-		       infinite: true,
-		       centerMode: true,
-		       slidesToShow: 3,
-		       slidesToScroll: 3
-	      	});
+    		$('.slider').slick({
+    			slidesToScroll: 4, 
+    			slidesToShow: 4, variableWidth: true, infinite: true});
 
-	      	$(".center").slick({
-		       dots: true,
-		       infinite: true,
-		       centerMode: true,
-		       slidesToShow: 4,
-		       slidesToScroll: 4
-	     	 });
+    		checkSize();
+    		$(window).resize(checkSize);
 	    });
+
+	    function checkSize(){
+		    if ($(".a").css("background-color") == "rgb(255, 255, 255)"){
+		        // your code here
+		        $(".brands").slick({
+			       dots: true,
+			       infinite: true,
+			       centerMode: true,
+			       slidesToShow: 2,
+			       slidesToScroll: 3
+		      	});
+
+		      	$("a").css({"height": "55px", "width": "45px"}); 
+		    }
+		}
   	</script>
 	<br>
 	<br>

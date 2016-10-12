@@ -8,9 +8,20 @@
 		          <span class="icon-bar"></span>
 		          <span class="icon-bar"></span>
 		          </button>
-		          <a class="navbar-brand" href="#"></a>
+		          <a id="second-logo" class="navbar-brand" href="#">Bukmar</a>
 		        </div>
 	            <nav class="collapse navbar-collapse"  id="bs-megadropdown-tabs">
+	            	<form id="second-form" class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search" style="width: 500px;">
+						</div>
+						<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Cari</button>
+					</form>
+					<ul id="second-cart" class="nav navbar-nav navbar-left">
+						<li>
+						<a href="#">
+						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="badge" style="margin-bottom: 0px; margin-top: -20px; margin-left: -2px; background-color: red; color: #fff;">35</span></span></a></li>
+					</ul>   
 	                <ul class="nav navbar-nav">
 					    <li><a href="#top">Beranda</a></li>
 	                    <li class="dropdown">
@@ -172,14 +183,34 @@
 	 						<b class="caret"></b>
 	 						</a>
 	                    </li>                                         
-					</ul><!-- /.nav -->           
+					</ul><!-- /.nav -->       
+					<ul class="nav navbar-nav">
+				        <li class="dropdown" id="nav-fashion" style="display: none;">
+				          <a class="dropdown-toggle" data-toggle="dropdown">Fashion <b class="caret"></b></a>
+				          <ul class="dropdown-menu">
+				            <li><a href="#">Action</a></li>
+				            <li><a href="#">Another action</a></li>
+				            <li><a href="#">Something else here</a></li>
+				            <li><a href="#">Separated link</a></li>
+				          </ul>
+				        </li>
+				        <li class="dropdown" id="nav-bayi-dan-anak">
+				          <a class="dropdown-toggle" data-toggle="dropdown" id="nav-fashion">F <b class="caret"></b></a>
+				          <ul class="dropdown-menu">
+				            <li><a href="#">Action</a></li>
+				            <li><a href="#">Another action</a></li>
+				            <li><a href="#">Something else here</a></li>
+				            <li><a href="#">Separated link</a></li>
+				          </ul>
+				        </li>
+				    </ul> 
 	            </nav><!--/.nav-collapse -->  
 	        </div><!-- /.container -->
-	</nav><!-- /.nav-inner -->
+</nav><!-- /.nav-inner -->
 	<script type="text/javascript">
 		// Dropdown Menu Fade    
 		jQuery(document).ready(function(){
-		    $(".dropdown").hover(
+		    $(".dropdown").click(
 		        function() { $('.dropdown-menu', this).fadeIn("fast");
 		        },
 		        function() { $('.dropdown-menu', this).fadeOut("fast");
