@@ -38,13 +38,7 @@
 	    	padding-left: 35px;
 	    }
     </style>
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>  
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
- 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css
-">
-  	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
- 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="jQuery.loadScroll.js"></script>
+    
 </head>
 <body screen_capture_incject="true" style="background-color: #fff;">
 	<div id="skippy">
@@ -86,6 +80,7 @@
 		</nav>
 		<?php require_once(APPPATH .'views/templates/navigasi.php'); ?>
 	</header><!-- /header -->
+	
 	<div id="carousel-id" class="carousel slide" style="height: 550px;" data-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-target="#carousel-id" data-slide-to="0" class=""></li>

@@ -61,6 +61,16 @@
 		}
 
   </style>
+  <script type="text/javascript">
+      $(document).ready(function() {
+         $(".jqzoom").jqzoom({
+         	zoomType: 'standard',
+         	lens: true,
+         	preloadImages: false,
+         	alwaysOn: false
+         });
+      });
+   </script>
 
   <body screen_capture_incject="true" style="background-color: #fff;">
   	<div id="skippy">
@@ -120,18 +130,46 @@
 			<div class="row">
 				<!-- bagian content -->
 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-					<a class="text-success" style="font-size: 20px; font-weight: bold; line-height: 12px;" href="#" >Milo Complete Mix 960g</a>
+					<a class="text-success" style="font-size: 20px; font-weight: bold; text-decoration: none; line-height: 12px;" href="#" >Milo Complete Mix 960g</a>
 					<br>
 					<br>
 						<div class="row">
 							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								<img data-src="<?php echo base_url("assets/images/blue.jpg"); ?>" class="img-thumbnail" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTdhMjNkZGY1ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1N2EyM2RkZjVmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjY5NTMxMjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" class="img-responsive" alt="Image" width="500">
 
-								<br><br>
-								<div class="panel panel-default">
-									<div class="panel-body">
-										Basic panel example
-									</div>
+							<!-- include zoomimage -->
+							<link rel="stylesheet" href="<?php echo base_url("assets/jqzoom/css/jquery.jqzoom.css"); ?>">
+							<script type="text/javascript" src="<?php echo base_url("assets/jqzoom/js/jquery.jqzoom-core.js"); ?>"></script>
+
+								<!-- bagian detail gambar produk -->
+								<div class="clearfix">
+									<a href="<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_big1.jpg"); ?>" class='jqzoom' rel='gal1'>
+				                    <img src="<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_big1.jpg"); ?>" height="400" class="img-responsive" alt="Image" width="500">
+				                </a>
+								</div>
+								<br>
+								<div class="clearfix">
+
+									<ul id="thumblist" class="clearfix" >
+					               <li>
+					               	<a rel="{gallery: 'gal1', smallimage: '<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_small1.jpg"); ?>',largeimage: '<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_big1.jpg"); ?>'}">
+					               		<img class='imgThum-small' src=' <?php echo base_url("assets/jqzoom/demos/imgProd/thumbs/triumph_thumb1.jpg"); ?>'>
+					               	</a>
+					               </li>
+
+					               <li>
+					               	<a rel="{gallery: 'gal1', smallimage: '<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_small2.jpg"); ?>',largeimage: '<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_big2.jpg"); ?>'}">
+					               		<img class='imgThum-small' src=' <?php echo base_url("assets/jqzoom/demos/imgProd/thumbs/triumph_thumb2.jpg"); ?>'>
+					               	</a>
+					               </li>
+
+					               <li>
+					               	<a rel="{gallery: 'gal1', smallimage: '<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_small3.jpg"); ?>',largeimage: '<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_big3.jpg"); ?>'}">
+					               		<img class='imgThum-small' src=' <?php echo base_url("assets/jqzoom/demos/imgProd/thumbs/triumph_thumb3.jpg"); ?>'>
+					               	</a>
+					               </li>
+
+					            </ul>
+
 								</div>
 							</div> <!-- end coll load image -->
 
@@ -141,9 +179,6 @@
 										<ul class="nav nav-tabs" role="tablist">
 											<li role="presentation" class="active">
 												<a href="#informasi-produk" aria-controls="informasi-produk" role="tab" data-toggle="tab">Informasi Produk</a>
-											</li>
-											<li role="presentation">
-												<a href="#menu-tab1" aria-controls="tab" role="tab" data-toggle="tab">Diskusi (20) </a>
 											</li>
 										</ul>
 										
@@ -174,19 +209,11 @@
 													</tbody>
 												</table>
 											</div>
-											<div role="tabpanel" class="tab-pane" id="menu-tab1" style="text-align: justify;">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-												tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-												quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-												consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-												cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-												proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-											</div>
 										</div>
 								</div>
 
 								<span style="margin-top: 10px;">
-										<p style="text-align: left; font-size: 20px;">Deskripsi</p>
+										<p style="text-align: left; font-size: 20px;">Deskripsi Produk</p>
 										<p style="color: #606060;">
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -242,18 +269,19 @@
 							</span>
 							<div class="input-group">
 						      <span class="input-group-btn">
-						        <button class="btn btn-default" type="button">+</button>
-						      </span>
-						      <input type="text" class="form-control" placeholder="Qty" value="1">
-						      <span class="input-group-btn">
 						        <button class="btn btn-default" type="button">-</button>
+						      </span>
+						      <input type="text" class="form-control" style="text-align: center;" placeholder="Qty" value="1">
+						      <span class="input-group-btn">
+						        <button class="btn btn-default" type="button">+</button>
 						      </span>
 						   </div><!-- /input-group -->
 				   	</div>
 					</div>
 					<br>
-					<button type="button" class="btn btn-warning btn-block"> <span class="glyphicon glyphicon-shopping-cart"></span> BELI </button>
-					<button type="button" class="btn btn-block"> <span class="glyphicon glyphicon-heart"></span> Tambahkan Ke Wishlist </button>
+					<button type="button" class="btn btn-warning btn-block"> BELI </button>
+					<button type="button" class="btn btn-success btn-block"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Tambahkan ke Keranjang </button>
+					<button type="button" class="btn btn-block"> <span class="glyphicon glyphicon-heart"></span> &nbsp; Tambahkan Ke Wishlist </button>
 				</div>
 			</div>
 
