@@ -36,7 +36,68 @@ div {
 }
 
 header {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+/*
+* untuk logo pada mobile
+*/
+@media screen and (min-width: 100px) and (max-width: 900px) {
+  #first-logo {
+    display: none;
+  }
+
+  #first-nav {
+    display: none;
+  }
+
+  #second-logo {
+    display: inline;
+  }
+
+  #second-cart {
+    display: inline;
+  }
+
+  #carousel-id {
+    display: none;
+  }
+  .a {
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .large-product {
+    display: none;
+  }
+
+  .small-produk {
+    display: inline;
+  }
+
+}
+
+
+@media screen and (min-width: 901px) and (max-height: 2000px) {
+  #second-logo {
+    display: none;
+  }
+
+  #second-form {
+    display: none;
+  }
+
+  #second-cart {
+    display: none;
+  }
+
+ .a {
+    background-color: rgb(0, 0, 0);
+  }
+
+  .small-produk {
+    display: none;
+  }
+
 }
 
     /*
@@ -240,6 +301,20 @@ header {
           background: #fff;
         }
 
+        .dropdown-img-sembako {
+          height: 165px;
+          width: 160px;
+          float: left;
+        }
+
+        .judul-sembako {
+          margin-top: 0px;
+        }
+
+        .dropdown-detail-sembako {
+          margin-left: 185px;
+        }
+
         .megamenu-headline { padding: 0 32px; }
 
 
@@ -400,4 +475,8 @@ ul.socialNetwork li {display:inline-block; list-style-type: none; margin-top: 0.
 .imgThum-small {
   width: 40px;
   height: 40px;
+}
+
+.ket-produk {
+  line-height: 15px;
 }

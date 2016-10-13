@@ -22,6 +22,18 @@ class Home extends CI_Controller {
 		$this->load->view('home_view');
 	}
 
+	public function registrasi() {
+		$this->load->view('registrasi_view');
+	}
+
+	public function login() {
+		$this->load->view('login_view');
+	}
+
+	public function troli() {
+		$this->load->view('keranjang_belanja_view');
+	}
+
 	public function detail_produk() {
 		$this->load->view('detail_produk_view');
 	}

@@ -4,9 +4,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<link rel="icon" href="<?php echo base_url("assets/images/logo.png"); ?>">
+<link rel="icon" href="<?php echo base_url("assets/images/logo_2.png"); ?>">
 
 <link rel="stylesheet" href=" <?php echo base_url("assets/css/style.css"); ?> ">
 
