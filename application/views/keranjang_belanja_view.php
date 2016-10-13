@@ -164,7 +164,7 @@
 											   	</div><!-- /input-group -->
 											</div>
 										</div>
-										<a href="" style="text-decoration: none;" ><p style="margin-top: 10px;"> <span class="glyphicon glyphicon-heart-empty"></span> &nbsp; Pindahkan ke Wishlist</p></a>
+										<a href="#" style="text-decoration: none;" ><p style="margin-top: 10px;"> <span class="glyphicon glyphicon-heart-empty"></span> &nbsp; Pindahkan ke Wishlist</p></a>
 									</div>
 								</div>
 								<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="margin-top: 50px;">
