@@ -88,7 +88,7 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="item">
-					<img class="image-slide" style="height: 550px;" width="100%" data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="<?php echo base_url("assets/images/blue.jpg"); ?>">
+					<img class="image-slide" style="height: 550px;" width="100%" data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="<?php echo base_url("assets/images/backround.jpg"); ?>">
 					<div class="container">
 						<div class="carousel-caption">
 							<h1>Example headline.</h1>
