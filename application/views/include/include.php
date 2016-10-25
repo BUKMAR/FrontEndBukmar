@@ -1,10 +1,11 @@
-<title></title>
+<title>BUKMAR</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.11.0.js'></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 
 <link rel="icon" href="<?php echo base_url("assets/images/logo_2.png"); ?>">
 
@@ -32,3 +33,12 @@
 <script type="text/javascript" src="<?php echo base_url("assets/jqzoom/js/jquery-1.5.js"); ?>"></script>
 <link rel="stylesheet" href="<?php echo base_url("assets/jqzoom/css/jquery.jqzoom.css"); ?>">
 <script type="text/javascript" src="<?php echo base_url("assets/jqzoom/js/jquery.jqzoom-core.js"); ?>"></script>
+
+<!-- include clock -->
+<link rel="stylesheet" href="<?php echo base_url("assets/clockpicker/dist/bootstrap-clockpicker.min.css"); ?>">
+
+<script type="text/javascript" src="<?php echo base_url("assets/clockpicker/dist/bootstrap-clockpicker.min.js"); ?>"></script>
+
+<script src="//cdn.ckeditor.com/4.5.11/basic/ckeditor.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>

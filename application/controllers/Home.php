@@ -34,8 +34,16 @@ class Home extends CI_Controller {
 		$this->load->view('keranjang_belanja_view');
 	}
 
-	public function detail_produk() {
-		$this->load->view('detail_produk_view');
+	public function detail_produk_paket() {
+		$this->load->view('detail_produk_paket_view');
+	}
+
+	public function detail_produk_satuan() {
+		$this->load->view('detail_produk_satuan_view');
+	}
+
+	public function cekout() {
+		$this->load->view('cekout_view');
 	}
 
 }

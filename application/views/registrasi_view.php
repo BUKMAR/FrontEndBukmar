@@ -81,7 +81,7 @@
 						
 						<!-- Tab panes -->
 						<div class="tab-content">
-							<div role="tabpanel" class="tab-pane active" id="login" style="border: 1px dotted #C2C2C2; padding: 15px;">
+							<div role="tabpanel" class="tab-pane" id="login" style="border: 1px dotted #C2C2C2; padding: 15px;">
 								<!-- bagian login -->
 								<form role="form" class="form-horizontal">
 									<div class="form-group">
@@ -109,13 +109,55 @@
 									</div>
 								</form>
 							</div>
-							<div role="tabpanel" class="tab-pane" id="register" style="border: 1px dotted #C2C2C2; padding: 15px;">
+							<div role="tabpanel" class="tab-pane active" id="register" style="border: 1px dotted #C2C2C2; padding: 15px;">
 								<form role="form" class="form-horizontal">
+									<div class="form-group">
+										<label for="username" class="col-sm-3 control-label">
+										User Name</label>
+										<div class="col-sm-8">
+											<input type="text" name="username" class="form-control" required="required" placeholder="User Name">
+										</div>
+									</div>
 									<div class="form-group">
 										<label for="nama-lengkap" class="col-sm-3 control-label">
 										Nama Lengkap</label>
 										<div class="col-sm-8">
 											<input type="text" name="nama-lengkap" class="form-control" required="required" placeholder="Nama Lengkap">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="alamat" class="col-sm-3 control-label">
+										Alamat</label>
+										<div class="col-sm-8">
+											<textarea name="alamat_member" id="alamat_member" class="form-control" rows="3" placeholder="Alamat Lengkap" required="required"></textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="Kelurahan" class="col-sm-3 control-label">
+										Kelurahan</label>
+										<div class="col-sm-8">
+											<input type="text" name="kelurahan" class="form-control" required="required" placeholder="Kelurahan">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="kecamatan" class="col-sm-3 control-label">
+										Kecamatan</label>
+										<div class="col-sm-8">
+											<input type="text" name="kecamatan" class="form-control" required="required" placeholder="Kecamatan">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="kabupaten" class="col-sm-3 control-label">
+										Kabupaten</label>
+										<div class="col-sm-8">
+											<input type="text" name="kabupaten" class="form-control" required="required" placeholder="Kabupaten">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="provinsi" class="col-sm-3 control-label">
+										Provinsi</label>
+										<div class="col-sm-8">
+											<input type="text" name="provinsi" class="form-control" required="required" placeholder="Provinsi">
 										</div>
 									</div>
 									<div class="form-group">
@@ -126,24 +168,24 @@
 										</div>
 									</div>
 									<div class="form-group">
+										<label for="jumlah-anggota" class="col-sm-3 control-label">
+										Jumlah Anggota Keluarga</label>
+										<div class="col-sm-8">
+											<input type="number" name="jumlah-anggota" class="form-control" required="required" placeholder="Jumlah Anggota">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="pekerjaan" class="col-sm-3 control-label">
+										Pekerjaan</label>
+										<div class="col-sm-8">
+											<input type="text" name="pekerjaan" class="form-control" required="required" placeholder="Pekerjaan">
+										</div>
+									</div>
+									<div class="form-group">
 										<label for="email" class="col-sm-3 control-label">
 										Alamat Email</label>
 										<div class="col-sm-8">
 											<input type="text" name="email" class="form-control" required="required" placeholder="Alamat Email">
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="password" class="col-sm-3 control-label">
-										Kata Sandi</label>
-										<div class="col-sm-8">
-											<input type="password" name="password" class="form-control" required="required" placeholder="Kata Sandi">
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="confir-password" class="col-sm-3 control-label">
-										Ulang Kata Sandi</label>
-										<div class="col-sm-8">
-											<input type="text" name="confir-password" class="form-control" required="required" placeholder="Ulang Kata Sandi">
 										</div>
 									</div>
 									<div class="form-group">
@@ -168,24 +210,42 @@
 										Tanggal Lahir</label>
 										<div class="col-sm-8">
 											<div class="row">
-												<div class="col-sm-4">
+												<div class="col-sm-3 col-md-3">
 													<select name="tgl-lahir" class="form-control" required="required">
-														<option value=""></option>
+														<?php for ($i = 1; $i <= 31; $i++): ?>
+															<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+														<?php endfor ?>
+															<option value="00" selected="selected">Tanggal</option>
 													</select>
 												</div>
-												<div class="col-sm-4">
+												<div class="col-sm-4 col-md-4">
 													<select name="tgl-lahir" class="form-control" required="required">
-														<option value=""></option>
+														<?php $bulan = array('Januari', 'Febuary', 'Maret', 'April', 'Mei', 'Juni', 'Juli',
+															'Agustus', 'September', 'November', 'Desember');
+														$count = count($bulan);
+														for ($i = 0; $i < $count; $i++): ?>
+															<option value="<?php echo $bulan[$i]; ?>"><?php echo $bulan[$i]; ?></option>
+														<?php endfor ?>
+															<option value="00" selected>Bulan</option>
 													</select>
 												</div>
-												<div class="col-sm-4">
+												<div class="col-sm-5 col-md-5">
 													<select name="tgl-lahir" class="form-control" required="required">
-														<option value=""></option>
+														<?php 
+																$currently_select = date('Y');
+																$earliest_year = 1950;
+																$latest_year = date('Y');
+														 ?>
+														 <?php foreach (range( $latest_year, $earliest_year ) as $i):
+														 		print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
+														  endforeach ?>
+														  <option value="00" selected>Tahun</option>
 													</select>
 												</div>
 											</div>
 										</div>
 									</div>
+
 									<div class="row">
 										<div class="col-sm-3"></div>
 										<div class="col-sm-8">
