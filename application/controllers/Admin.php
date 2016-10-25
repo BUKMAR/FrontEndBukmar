@@ -13,7 +13,6 @@ class Admin extends CI_Controller {
 	 * view load page
 	 *
 	 */
-	
 
 	public function index()
 	{
@@ -47,6 +46,7 @@ class Admin extends CI_Controller {
 
 		$jumlah_data = $register_model->count_all();
 		$data_ku = $register_model->fetch_all();
+		
 		$this->data['jumlah_data'] = $jumlah_data;
 		$this->data['data_register'] = $data_ku;
 		// load view list data member dan sent data
@@ -60,10 +60,7 @@ class Admin extends CI_Controller {
 	 * tambah  submit data
 	 *
 	 */
-	
-
-	public function submit_tambah_barang_paket() 
-	{
+	public function submit_tambah_barang_paket() {
 		// $nama_paket 	= $this->input->post("nama-paket");
 		// $keterangan 	= $this->input->post("keterangan");
 		// $stok_barang 	= $this->input->post("stok-barang");
@@ -151,11 +148,6 @@ class Admin extends CI_Controller {
 
 		$id_register = $register_model->tambah_data_member($data_tambah_register);
 	}
-
-	
-	
-
-	
 
 }
 

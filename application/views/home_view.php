@@ -88,7 +88,7 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="item">
-					<img class="image-slide" style="height: 550px;" width="100%" data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="<?php echo base_url("assets/images/backround.jpg"); ?>">
+					<img class="image-slide" style="height: inherit; width: inherit;" alt="First slide" src="<?php echo base_url("assets/images/slide1.jpg"); ?>">
 					<div class="container">
 						<div class="carousel-caption">
 							<!-- <h1>Example headline.</h1>
@@ -98,22 +98,16 @@
 					</div>
 				</div>
 				<div class="item">
-					<img class="image-slide" style="height: 550px;" width="100%" data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="<?php echo base_url("assets/images/purple.jpg"); ?>">
+					<img class="image-slide" style="height: inherit; width: inherit;" alt="First slide" src="<?php echo base_url("assets/images/slide2.jpg"); ?>">
 					<div class="container">
 						<div class="carousel-caption">
-							<h1>Another example headline.</h1>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-							<p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
 						</div>
 					</div>
 				</div>
 				<div class="item active">
-					<img class="image-slide" style="height: 550px;" width="100%" data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="<?php echo base_url("assets/images/red.jpg"); ?>">
+					<img class="image-slide" style="height: inherit; width: inherit;" alt="First slide" src="<?php echo base_url("assets/images/slide3.jpg"); ?>">
 					<div class="container">
 						<div class="carousel-caption">
-							<h1>One more for good measure.</h1>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-							<p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
 						</div>
 					</div>
 				</div>
@@ -171,19 +165,7 @@
 				<section class="center slider">
 					<div class="panel panel-default" style="margin-right: 6px;">
 						<div class="panel-body" style="height: 320px;">
-							<img class="img-responsive a" style="height: 205px; width: 186px;"
-											src="<?php echo base_url('assets/images/s/teh_2s.png'); ?>" />
-							<div>
-								<h4><small>Nama Barang</small></h4>
-								<h4 style="color: red; margin-top: -4px;">Rp. 50.000,-</h4>
-								<h5><small><s>Rp. 50.000</s></small></h5>
-								<h5 style="margin-left: 60px; margin-top: -4px; margin-top: -25px;"><small>80%</small></h5>
-							</div>
-						</div>
-					</div>
-					<div class="panel panel-default" style="margin-right: 6px;">
-						<div class="panel-body" style="height: 320px;">
-							<a href="#">
+							<a href="<?php echo base_url('index.php/home/detail_produk_satuan'); ?>">
 								<img class="img-responsive" style="height: 205px; width: 186px;"
 													src="<?php echo base_url('assets/images/s/teh_2s.png'); ?>" />
 								<div>
@@ -197,21 +179,7 @@
 					</div>
 					<div class="panel panel-default" style="margin-right: 6px;">
 						<div class="panel-body" style="height: 320px;">
-							<a href="#">
-								<img class="img-responsive a" style="height: 205px; width: 186px;"
-													src="<?php echo base_url('assets/images/s/teh_2s.png'); ?>" />
-								<div>
-									<h4><small>Nama Barang</small></h4>
-									<h4 style="color: red; margin-top: -4px;">Rp. 50.000,-</h4>
-									<h5><small><s>Rp. 50.000</s></small></h5>
-									<h5 style="margin-left: 60px; margin-top: -4px; margin-top: -25px;"><small>80%</small></h5>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="panel panel-default" style="margin-right: 6px;">
-						<div class="panel-body" style="height: 320px;">
-							<a href="#">
+							<a href="<?php echo base_url('index.php/home/detail_produk_satuan'); ?>">
 								<img class="img-responsive" style="height: 205px; width: 186px;"
 													src="<?php echo base_url('assets/images/s/teh_2s.png'); ?>" />
 								<div>
@@ -225,7 +193,21 @@
 					</div>
 					<div class="panel panel-default" style="margin-right: 6px;">
 						<div class="panel-body" style="height: 320px;">
-							<a href="#">
+							<a href="<?php echo base_url('index.php/home/detail_produk_satuan'); ?>">
+								<img class="img-responsive" style="height: 205px; width: 186px;"
+													src="<?php echo base_url('assets/images/s/teh_2s.png'); ?>" />
+								<div>
+									<h4><small>Nama Barang</small></h4>
+									<h4 style="color: red; margin-top: -4px;">Rp. 50.000,-</h4>
+									<h5><small><s>Rp. 50.000</s></small></h5>
+									<h5 style="margin-left: 60px; margin-top: -4px; margin-top: -25px;"><small>80%</small></h5>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="panel panel-default" style="margin-right: 6px;">
+						<div class="panel-body" style="height: 320px;">
+							<a href="<?php echo base_url('index.php/home/detail_produk_satuan'); ?>">
 								<img class="img-responsive" style="height: 205px; width: 186px;"
 									src="<?php echo base_url('assets/images/s/teh_2s.png'); ?>" />
 								<div>
@@ -239,7 +221,7 @@
 					</div>
 					<div class="panel panel-default" style="margin-right: 6px;">
 						<div class="panel-body" style="height: 320px;">
-							<a href="#">
+							<a href="<?php echo base_url('index.php/home/detail_produk_satuan'); ?>">
 								<img class="img-responsive" style="height: 205px; width: 186px;"
 									src="<?php echo base_url('assets/images/s/teh_2s.png'); ?>" />
 								<div>
@@ -253,7 +235,7 @@
 					</div>
 					<div class="panel panel-default" style="margin-right: 6px;">
 						<div class="panel-body" style="height: 320px;">
-							<a href="#">
+							<a href="<?php echo base_url('index.php/home/detail_produk_satuan'); ?>">
 								<img class="img-responsive" style="height: 205px; width: 186px;"
 									src="<?php echo base_url('assets/images/s/teh_2s.png'); ?>" />
 								<div>
@@ -267,7 +249,7 @@
 					</div>
 					<div class="panel panel-default" style="margin-right: 6px;">
 						<div class="panel-body" style="height: 320px;">
-							<a href="#">
+							<a href="<?php echo base_url('index.php/home/detail_produk_satuan'); ?>">
 								<img class="img-responsive" style="height: 205px; width: 186px;"
 									src="<?php echo base_url('assets/images/s/teh_2s.png'); ?>" />
 								<div>
@@ -281,7 +263,7 @@
 					</div>
 					<div class="panel panel-default" style="margin-right: 6px;">
 						<div class="panel-body" style="height: 320px;">
-							<a href="#">
+							<a href="<?php echo base_url('index.php/home/detail_produk_satuan'); ?>">
 								<img class="img-responsive" style="height: 205px; width: 186px;"
 									src="<?php echo base_url('assets/images/s/teh_2s.png'); ?>" />
 								<div>
@@ -306,7 +288,7 @@
 				</div>
 			</div>
 			<div>
-				<div class="large-product">
+				<div class="big-produk">
 					<?php for ($i = 0; $i < 6; $i++): ?>
 						<div class="row" style="padding: 10px; margin-top: 10px;">
 							<?php for ($j = 0; $j < 6; $j++): ?>
@@ -337,8 +319,8 @@
 						</div>
 					<?php endfor ?>
 				</div>
-				<div class="small-product">
-					<?php for ($i = 0; $i < 6; $i++): ?>
+				<div class="small-produk">
+					<?php for ($i = 0; $i < 2; $i++): ?>
 						<div class="row" style="padding: 10px; margin-top: 10px;">
 							<?php for ($j = 0; $j < 2; $j++): ?>
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">

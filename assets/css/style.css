@@ -62,16 +62,33 @@ header {
   #carousel-id {
     display: none;
   }
+
   .a {
     background-color: rgb(255, 255, 255);
   }
   
-  .large-product {
+  .big-produk {
     display: none;
   }
 
   .small-produk {
     display: inline;
+  }
+
+  #mega-dropdown-sembako {
+    display: none;
+  }
+
+  #mega-dropdown-minimarket {
+    display: none;
+  }
+
+  #large-produk-serupa {
+    display: none;
+  }
+
+  #large-info-harga-barang {
+    display: none;
   }
 
 }
@@ -98,7 +115,20 @@ header {
     display: none;
   }
 
+  #small-minimarket {
+    display: none;
+  }
+
+  #small-produk-serupa {
+    display: none;
+  }
+
+  #small-info-harga-barang {
+    display: none;
+  }
+
 }
+
 
     /*
     Credits:
