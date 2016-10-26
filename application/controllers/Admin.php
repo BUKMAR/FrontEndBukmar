@@ -14,18 +14,15 @@ class Admin extends CI_Controller {
 	 *
 	 */
 
-	public function index()
-	{
+	public function index() {
 		$this->load->view('admin/home_admin_view');
 	}
 
-	public function barang_paket() 
-	{
+	public function barang_paket() {
 		$this->load->view('admin/in_barang_paket_view');
 	}
 
-	public function barang_satuan() 
-	{
+	public function barang_satuan() {
 		$this->load->view('admin/in_barang_nonpaket_view');
 	}
 
@@ -54,55 +51,63 @@ class Admin extends CI_Controller {
 		$this->load->view("admin/list_member_view", $this->data);
 	}
 
+	
+	public function submit_tambah_barang() {
+		$nama_barang = $this->input->post("nama-barang");
+		$keterangan = $this->input->post("keterangan");
+		$stok_barang = $this->input->post("stok-barang");
+		$id_brand = $this->input->post("id_brand");
+		$harga_beli = $this->input->post("harga-beli");
+		$harga_jual = $this->input->post("harga-jual");
+		$harga_tawar = $this->input->post("harga-tawar");
+		$foto_produk_1 = $this->input->post("foto-produk-1");
+		$foto_produk_2 = $this->input->post("foto-produk-2");
+		$foto_produk_3 = $this->input->post("foto-produk-3");
 
-	/**
-	 *
-	 * tambah  submit data
-	 *
-	 */
-	public function submit_tambah_barang_paket() {
-		// $nama_paket 	= $this->input->post("nama-paket");
-		// $keterangan 	= $this->input->post("keterangan");
-		// $stok_barang 	= $this->input->post("stok-barang");
-		// $harga_beli 	= $this->input->post("harga-beli");
-		// $harga_jual 	= $this->input->post("harga-jual");
+		$path = realpath(APPPATH . '../assets/uploads');
 
-		// $path = realpath(APPPATH. '../assets/uploads');
+		$config['upload_path'] = $path;
+		$config['allowed_types'] = 'gif|jpg|jpeg|png|ico';
+		$config['max_size'] = 1000;
+		$config['max_width'] = 1024;
+		$config['max_height'] = 1024;
 
-		// $config['upload_path'] 		= $path;
-		// $config['allowed_types'] 	= 'gif|jpg|jpeg|png|ico';
-		// $config['max_size']  		= 1000;
-		// $config['max_width']  		= 1024;
-		// $config['max_height']  		= 1024;
+		$this->load->library('upload', $config);
 		
-		// $this->load->library('upload', $config);
+		if (!$this->upload->do_upload('foto-produk-1') && empty($foto_produk_1)) {
+			$error = array('error' => $this->upload->display_errors());
+
+			print_r($error);
+		}
+		else {
+			$upload_data_produk_1 = $this->upload->data();
+			$file_name_produk_1 = 'assets/uploads/'. $upload_data_produk_1['file_name'];
+						
+			if(!empty($foto_produk_2) && !empty($foto_produk_3)) {
+				
+			}
+
+			$date = date('Y-m-d');
+
+			$data_barang = array(
+				"nama_barang" => $nama_barang,
+				"keterangan" => $keterangan,
+				"tgl_upload" => $date,
+				"foto" => $file_name_produk_1,
+				"harga_beli" => $harga_beli,
+				"harga_jual" => $harga_jual,
+				"stok" => $stok_barang
+			);
+
+			$this->load->model("Barang_Model");
+
+			$barang_model = new Barang_Model();
+
+			$id_barang = $barang_model->insert($data_barang);
+
+			redirect(site_url() ."admin/list_data_barang");
+		}
 		
-		// if ( !$this->upload->do_upload('foto-barang')){
-		// 	$error = array('error' => $this->upload->display_errors());
-		// 	print_r($error);
-		// }
-		// else{
-		// 	$upload_data = $this->upload->data();
-
-		// 	$file_name = '../assets/uploads'. $upload_data['file_name'];
-		// 	$date = date('Y-m-d');
-
-		// 	$data_barang = array(
-		// 			"nama_paket"  => $nama_paket,
-		// 			"deskripsi"   => $keterangan,
-		// 			"harga_beli"  => $harga_beli,
-		// 			"harga_jual"  => $harga_jual,
-		// 			"stok_barang" => $stok_barang,
-		// 			"foto" 		  => $file_name,
-		// 			"tgl_upload"  => $date
-		// 		);
-
-		// 	$this->load->model("Barang_model");
-
-		// 	$barang_model = new Barang_model(); // create object Barang_Model
-		// 	// call function insert();
-		// 	$id_barang = $barang_model->insert($data_barang);
-		// }
 	}
 
 	public function submit_tambah_register() {

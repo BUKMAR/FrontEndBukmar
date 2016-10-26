@@ -1,19 +1,19 @@
 <?php
-	class Barang_Model extends CI_Model {
+	class Kategori_Model extends CI_Model {
 
-		private $table = 'barang';
+		private $table = 'kategori';
 		private $column_order = 
-		array(null, 'id_barang','nama_paket','tgl_upload','harga_jual', 'harga_jual', 'foto'); //set column field database for datatable orderable
+		array(null, 'id_kategori','nama_kategori'); //set column field database for datatable orderable
 		private $column_search = 
-		array('id_barang','nama_paket','tgl_upload','harga_jual', 'harga_jual', 'foto'); //set column field database for datatable searchable 
-		private $order = array('id_barang' => 'asc'); // default order 
+		array('id_kategori','nama_kategori'); //set column field database for datatable searchable 
+		private $order = array('id_kategori' => 'asc'); // default order 
 
 		public function __construct() {
 			parent::__construct();
 		}
 
 		public function insert($data) {
-			$this->db->insert("barang", $data);
+			$this->db->insert("kategori", $data);
 
 			$insert_id = $this->db->insert_id();
 
@@ -21,27 +21,27 @@
 		}
 
 		public function delete($id) {
-			$this->db->where("id_barang", $id);
-			$this->db->delete("barang");
+			$this->db->where("id_kategori", $id);
+			$this->db->delete("kategori");
 		}
 
 		public function update($id, $data) {
-			$this->db->where("id_barang", $id);
-			$this->db->update("barang", $data);
+			$this->db->where("id_kategori", $id);
+			$this->db->update("kategori", $data);
 		}
 
  		public function fetch_all() {
  			$this->db->select("*");
- 			$this->db->from("barang");
+ 			$this->db->from("kategori");
  			$query = $this->db->get();
 
  			return $query->result_array();
  		}
 
- 		public function fetch_by_id($id_barang) {
+ 		public function fetch_by_id($id_kategori) {
  			$this->db->select("*");
- 			$this->db->from("barang");
- 			$this->db->where("id_barang=$id_barang");
+ 			$this->db->from("kategori");
+ 			$this->db->where("id_kategori=$id_kategori");
 
  			$query = $this->db->get();
 
@@ -54,7 +54,7 @@
  		}
 
 	    private function _get_datatables_query() {
-	        $this->db->from("barang");
+	        $this->db->from("kategori");
 	        $i = 0;
 	        
 	     	// loop column 
