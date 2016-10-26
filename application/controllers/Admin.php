@@ -38,6 +38,33 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/in_barang_nonpaket_view');
 	}
 
+
+	public function daftar_diskon_barang_paket() {
+		$this->load->view("admin/list_diskon_barang_paket_view");
+	}
+
+	public function daftar_diskon_barang_satuan() {
+		$this->load->view("admin/");
+	}
+
+	public function stok_barang_paket() {
+		$this->load->view("admin/");
+	}
+
+	public function stok_barang_satuan() {
+		$this->load->view("admin/");
+	}
+
+	public function masukan_kategori_barang() {
+		$this->load->view("admin/");
+	}
+
+	public function daftar_kategori_barang() {
+		$this->load->view("admin/");
+	}
+
+
+
 	public function register_member() {
 		$this->load->view('admin/register_member_view');
 	}
