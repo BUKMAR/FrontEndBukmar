@@ -7,7 +7,9 @@
 		<?php require_once(APPPATH .'views/admin/template/menu_nav.php'); ?>
 		<div class="container-fluid">
 			<div class="side-body">
-				<h1>Register Member</h1>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<legend><h1><small><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Register</small></h1></legend>
+				</div>
 				<form action="submit_tambah_register" method="POST" role="form" class="form-horizontal">
 					<div class="form-group">
 						<label for="username" class="col-sm-3 control-label">

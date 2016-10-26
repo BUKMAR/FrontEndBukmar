@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>BUKMAR</title>
+		<?php require_once(APPPATH .'views/include/include.php'); ?>
 	</head>
 	<style type="text/css" media="screen">
 		.huge {

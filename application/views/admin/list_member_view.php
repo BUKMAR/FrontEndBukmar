@@ -7,7 +7,9 @@
 	<?php require_once(APPPATH .'views/admin/template/menu_nav.php'); ?>
 	<div class="container-fluid">
       <div class="side-body">
-      	<h1>List Member View</h1>
+      	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <legend><h1><small><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> List Member View</small></h1></legend>
+        </div>
       	<div class="table-responsive">
       		<table class="table table-hover">
       			<thead>

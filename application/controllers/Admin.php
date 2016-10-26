@@ -20,53 +20,50 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/home_admin_view');
 	}
 
-	public function barang_paket() 
+	public function input_barang_paket() 
 	{
-		$this->load->view('admin/in_barang_paket_view');
+		$this->load->view("admin/input_barang_paket_view");
 	}
 
 	public function daftar_barang_satuan() {
-		$this->load->view('admin/daftar_barang_satuan');
+		$this->load->view("admin/daftar_barang_satuan");
 	}
 
 	public function daftar_barang_paket() {
-		$this->load->view('admin/daftar_barang_paket');
+		$this->load->view("admin/daftar_barang_paket");
 	}
 
-	public function barang_satuan() 
+	public function input_barang_satuan() 
 	{
-		$this->load->view('admin/in_barang_nonpaket_view');
+		$this->load->view("admin/input_barang_nonpaket_view");
 	}
-
 
 	public function daftar_diskon_barang_paket() {
 		$this->load->view("admin/list_diskon_barang_paket_view");
 	}
 
 	public function daftar_diskon_barang_satuan() {
-		$this->load->view("admin/");
+		$this->load->view("admin/list_diskon_barang_satuan_view");
 	}
 
 	public function stok_barang_paket() {
-		$this->load->view("admin/");
+		$this->load->view("admin/list_stok_barang_paket_view");
 	}
 
 	public function stok_barang_satuan() {
-		$this->load->view("admin/");
+		$this->load->view("admin/list_stok_barang_satuan_view");
 	}
 
 	public function masukan_kategori_barang() {
-		$this->load->view("admin/");
+		$this->load->view("admin/input_kategori_barang_view");
 	}
 
 	public function daftar_kategori_barang() {
-		$this->load->view("admin/");
+		$this->load->view("admin/list_kategori_barang_view");
 	}
 
-
-
 	public function register_member() {
-		$this->load->view('admin/register_member_view');
+		$this->load->view("admin/register_member_view");
 	}
 
 	/**

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<?php require_once(APPPATH .'views/include/include.php'); ?>
+		<title>BUKMAR</title>
 	</head>
 	<style type="text/css" media="screen">
 		.huge {
@@ -13,7 +13,7 @@
 		<div class="container-fluid">
 			<div class="side-body">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<legend><h1><small><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> List Stok Barang Paket</small></h1></legend>
+					<legend><h1><small><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> Input Kategori Barang</small></h1></legend>
 				</div>
 			</div>
 		</div>

@@ -327,6 +327,11 @@
     margin: 0;
   }
 }
+
+.glyphicon {
+  color: #1B5E20;
+}
+
 </style>
 <script type="text/javascript">
   $(function () {
@@ -425,8 +430,22 @@
                                 <div id="masukan-barang" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="<?php echo base_url(); ?>index.php/admin/barang_paket">Barang Paket</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/admin/barang_satuan">Barang Satuan</a></li>
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/input_barang_paket">Barang Paket</a></li>
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/input_barang_satuan">Barang Satuan</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="panel panel-default" id="dropdown">
+                                <a data-toggle="collapse" href="#daftar-barang">
+                                    <span class="glyphicon glyphicon-plus"></span> Daftar Barang <span class="caret"></span>
+                                </a>
+                                <div id="daftar-barang" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/daftar_barang_paket">Barang Paket</a></li>
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/daftar_barang_satuan">Barang Satuan</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -440,8 +459,8 @@
                                 <div id="diskon-barang" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="#">Diskon Barang Paket</a></li>
-                                            <li><a href="#">Diskon Barang Satuan</a></li>
+                                            <li><a href="<?php echo base_url();?>index.php/admin/daftar_diskon_barang_paket">Diskon Barang Paket</a></li>
+                                            <li><a href="<?php echo base_url();?>index.php/admin/daftar_barang_satuan">Diskon Barang Satuan</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -455,8 +474,8 @@
                                 <div id="stok-barang" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="#">Stok Barang Paket</a></li>
-                                            <li><a href="#">Stok Barang Satuan</a></li>
+                                            <li><a href="<?php echo base_url();?>index.php/admin/stok_barang_paket">Stok Barang Paket</a></li>
+                                            <li><a href="<?php echo base_url();?>index.php/admin/stok_barang_satuan">Stok Barang Satuan</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -470,8 +489,8 @@
                                 <div id="kategori-barang" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="#">Masukan Kategori Barang</a></li>
-                                            <li><a href="#">Daftar Kategori Barang</a></li>
+                                            <li><a href="<?php echo base_url();?>index.php/masukan_kategori_barang">Masukan Kategori Barang</a></li>
+                                            <li><a href="<?php echo base_url();?>index.php/daftar_kategori_barang">Daftar Kategori Barang</a></li>
                                         </ul>
                                     </div>
                                 </div>
