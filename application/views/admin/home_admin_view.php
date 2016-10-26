@@ -59,13 +59,13 @@
           	<!-- Nav tabs -->
           	<ul class="nav nav-tabs" role="tablist">
           		<li role="presentation" class="active">
-          			<a href="#barang_paket" aria-controls="barang_paket" role="tab" data-toggle="tab">Barang Paket</a>
+          			<a href="#barang_paket" aria-controls="barang_paket" role="tab" data-toggle="tab">Penjualan Paket</a>
           		</li>
           		<li role="presentation">
-          			<a href="#jumlah_barang_satuan" aria-controls="tab" role="tab" data-toggle="tab">Barang Satuan</a>
+          			<a href="#jumlah_barang_satuan" aria-controls="tab" role="tab" data-toggle="tab">Penjualan Satuan</a>
           		</li>
           		<li role="presentation">
-          			<a href="#data_penjualan" aria-controls="tab" role="tab" data-toggle="tab">Penjualan</a>
+          			<a href="#data_penjualan" aria-controls="tab" role="tab" data-toggle="tab">Penjualan Keseluruhan</a>
           		</li>
           	</ul>
         	</div>

@@ -25,6 +25,14 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/in_barang_paket_view');
 	}
 
+	public function daftar_barang_satuan() {
+		$this->load->view('admin/daftar_barang_satuan');
+	}
+
+	public function daftar_barang_paket() {
+		$this->load->view('admin/daftar_barang_paket');
+	}
+
 	public function barang_satuan() 
 	{
 		$this->load->view('admin/in_barang_nonpaket_view');
