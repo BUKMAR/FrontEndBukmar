@@ -16,10 +16,9 @@
           <legend><h1><small><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Dashboard</small></h1></legend>
         </div>
 
-
-        	<div class="row">
-					  <div class="col-md-5 col-md-offset-3">
-							<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<!-- <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10"> -->
 								<div class="panel panel-success">
 									<div class="panel-heading">
 										<div class="row">
@@ -33,10 +32,10 @@
 										</div>
 									</div>
 								</div>
-							</div>
-					  </div>
-					  <div class="col-md-5 col-md-offset-3">
-						  <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+							<!-- </div> -->
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<!-- <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10"> -->
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<div class="row">
@@ -45,15 +44,16 @@
 											</div>
 											<div class="col-xs-9 text-right">
 												<div class="huge">540</div>
-												<div>Jumlah Member</div>
+												<div>Total Jumlah Member</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-					  </div>
+							<!-- </div> -->
+						</div>
 					</div>
 
+        	
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         	<div role="tabpanel">
           	<!-- Nav tabs -->

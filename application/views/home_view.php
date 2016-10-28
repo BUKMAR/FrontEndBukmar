@@ -28,6 +28,43 @@
 			.panel-body a:hover {
 				text-decoration: none;
 			}
+
+		.fa-3x {
+    	font-size: 1.4em;
+		}
+
+		.navbar .divider-vertical {
+		  height: 50px;
+		  margin: 0 9px;
+		  border-left: 1px solid #f2f2f2;
+		  border-right: 1px solid #ffffff;
+		}
+
+		.input-group-btn {
+		    position: relative;
+		    font-size: 0;
+		    white-space: nowrap;
+		}
+
+		.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 3px 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #373a3c;
+    text-align: inherit;
+    white-space: nowrap;
+    background: 0 0;
+    border: 0;
+}
+
+    .btn-secondary {
+    color: #373a3c;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
 		</style>
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
@@ -64,16 +101,34 @@
 							<li><a href="#"></a></li>
 						</ul>
 							<form class="navbar-form navbar-left" role="search">
-								<div class="form-group">
-										<input type="text" class="form-control" placeholder="Search" style="width: 500px;">
-								</div>
-								<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Cari</button>
-							</form>
+						<div class="input-group">
+						<div class="input-group-btn">
+		        <button type="button" style="width: 150px; border-radius: 0px;" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          Kategori produk &nbsp;
+			          <b class="caret"></b>
+			        </button>
+			        <div class="dropdown-menu">
+			          <a class="dropdown-item" href="#">Action</a>
+			          <a class="dropdown-item" href="#">Another action</a>
+			          <a class="dropdown-item" href="#">Something else here</a>
+			          <div role="separator" class="dropdown-divider"></div>
+			          <a class="dropdown-item" href="#">Separated link</a>
+			        </div>
+			      </div>
+				      <input type="text" class="form-control" style="width: 670px; border-radius: 0px;" placeholder="Cari Sembako di Bukmar... ">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" style="border-radius: 0px;" type="button">
+				        	<span class="glyphicon glyphicon-search"></span>
+				        </button>
+				      </span>
+				    </div><!-- /input-group -->
+					</form>
 						<ul class="nav navbar-nav navbar-right">
-							<li>
-								<a href="#">
-									<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="badge" style="margin-bottom: 0px; margin-top: -20px; margin-left: -2px; background-color: red; color: #fff;">35</span></span></a>
-							</li>
+							<li class="divider-vertical"></li>
+							<li><a href="#"><span class="glyphicon glyphicon-shopping-cart fa-3x" aria-hidden="true"></span> <span class="badge" style="margin-top: -30px; margin-left: -10px;">4</span> </a></li>
+							<li class="divider-vertical"></li>
+							<li><a href="#">Masuk <span class="glyphicon glyphicon-log-in fa-3x"></span></a></li>
+							<li class="divider-vertical"></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
 				</div>
@@ -419,7 +474,7 @@
 					<div class="row" style="background-color: #222;">
 						<div class="col-md-3 col-sm-6">
 							<div class="footerWidget">
-								<img src="<?php echo base_url("assets/images/logo.png"); ?>" alt="latest Little Neko news" id="footerLogo">
+								<img src="<?php echo base_url("assets/images/MAR.png"); ?>" alt="logo bukmar" width="250" height="70" >
 								<p align="justify"><a href="http://www.little-neko.com" title="Little Neko, website template creation">BUKMAR</a> Halaman Merupakan sarana berbagi informasi update kebutuhan harian dapur anda, sebagai penyedia layanan, kami menjamin pengalaman belanja yang aman, terpercaya, dan pastinya gak ribet. Dapatkan penawaran terbaik melalui website kapan saja. </p>
 							</div>
 						</div>
