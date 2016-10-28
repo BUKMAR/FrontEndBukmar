@@ -40,10 +40,10 @@ class Barang_Paket extends CI_Controller {
 
 			$date_time = new DateTime();
 
-			$id_barang = "BG"+ $date_time->getTimestamp();
+			$id_barang_paket = "BG"+ $date_time->getTimestamp();
 
 			$data_barang = array(
-				"id_barang_paket" => $id_barang,
+				"id_barang_paket" => $id_barang_paket,
 				"nama_paket" => $nama_paket,
 				"keterangan" => $keterangan,
 				"tgl_upload" => $date,
@@ -55,12 +55,84 @@ class Barang_Paket extends CI_Controller {
 
 			$this->load->model("Barang_paket_model");
 
-			$barang_paket_model = new Barang_Paket_Model();
+			$barang_paket_paket_model = new Barang_Paket_Model();
 
-			$id_barang = $barang_paket_model->insert($data_barang);
+			$id_barang_paket = $barang_paket_paket_model->insert($data_barang);
 
 			redirect(site_url() ."/admin/home");
 		}
 	}
 
+	public function daftar_barang_paket() {
+		$this->load->view("admin/daftar_barang_paket_view");
+	}
+
+	public function ajax_list_barang_paket() {
+		$this->load->model("Barang_paket_model");
+
+		$barang_paket_paket_model = new Barang_Paket_Model();
+
+		$list = $barang_paket_paket_model->get_datatables();
+	    $data = array();
+	    $no = $_POST['start'];
+
+	    //i berfungsi untuk id modal untuk data target
+	    $i = 0;
+	    foreach ($list as $barang_paket) {
+	        $no++;
+	        $row = array();
+
+	        $date_formated = date_format(date_create($barang_paket->tgl_upload), "d-m-Y");
+	        $harga_jual = "Rp. ". number_format($barang_paket->harga_jual, 0, ".", ".");
+	        $harga_beli = "Rp. ". number_format($barang_paket->harga_beli, 0, ".", ".");
+
+	        $row[] = $no;
+	        $row[] = $barang_paket->id_barang_paket;
+	        $row[] = $barang_paket->nama_paket;
+	        $row[] = $date_formated;
+	        $row[] = $harga_jual;
+	        $row[] = $harga_beli;
+	        $row[] = "<img style='
+	            			height: 58px;
+	            			width: 75px;
+	            			padding: 5px 5px 5px 5px;
+	            			border: 1px solid #dedede;
+	            			border-radius: 3px 3px 3px 3px;' src='". base_url($barang_paket->foto_barang) ."' />";
+	        $row[] = "<button class='btn btn-sm btn-info' data-toggle='modal' data-target='#id-$i'>
+ 						   <span class='glyphicon glyphicon-pencil'></span>
+	             		   </button>
+
+	             		   <button class='btn btn-sm btn-danger brg-delete'
+	             		   data-brg-id='". $barang_paket->id_barang_paket ."'
+	             		   data-brg-nama-paket='". $barang_paket->nama_paket ."'>
+	             		   <span class='glyphicon glyphicon-trash'></span></button>
+
+	             		   <button class='btn btn-sm btn-success'>
+						   <span class='glyphicon glyphicon-zoom-in'></span>
+	             		   </button>";
+
+	        $data[] = $row;
+	        $i++;
+	    }
+
+	    $output = array(
+	       	"draw" => $_POST['draw'],
+	        "recordsTotal" => $barang_paket_paket_model->count_all(),
+	        "recordsFiltered" => $barang_paket_paket_model->count_filtered(),
+	        "data" => $data,
+	    );
+
+	    //output to json format
+	    echo json_encode($output);
+	}
+
+	public function ajax_delete_barang_paket() {
+		$this->load->model("Barang_paket_model");
+
+		$barang_model = new Barang_Paket_Model();
+
+		$barang_model->delete($this->input->post("id"));
+
+		echo json_encode(array("sukses"));
+	}
 }

@@ -434,6 +434,21 @@
 
                             <!-- Dropdown level 2 Diskon Diskon Barang -->
                             <li class="panel panel-default" id="dropdown">
+                                <a data-toggle="collapse" href="#daftar-barang">
+                                   Daftar Barang <span class="caret"></span>
+                                </a>
+                                <div id="daftar-barang" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/barang_paket/daftar_barang_paket">Daftar Barang Paket</a></li>
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/barang_paket/daftar_barang_satuan">Daftar Barang Satuan</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Dropdown level 2 Diskon Diskon Barang -->
+                            <li class="panel panel-default" id="dropdown">
                                 <a data-toggle="collapse" href="#diskon-barang">
                                    Diskon Barang <span class="caret"></span>
                                 </a>
@@ -525,7 +540,7 @@
                     <div class="panel-body">
                         <ul class="nav navbar-nav">
                             <li><a href="#">Laporan Barang</a></li>
-                            <li><a href="#">Laporan Penjualan</a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/admin/laporan/laporan_penjualan">Laporan Penjualan</a></li>
                             <li><a href="#">Laporan Transakasi</a></li>
                             <li><a href="#">Laporan Stok Barang</a></li>
                         </ul>
