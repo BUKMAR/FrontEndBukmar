@@ -27,13 +27,13 @@
             <div role="tabpanel" class="tab-pane active" id="manual">
               <!-- content input barang paket -->
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <form action="submit_tambah_barang_paket" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">
+                  <form action="<?php echo base_url('index.php/admin/barang_paket/submit_tambah_barang') ?>" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">
                      <div class="container-fluid">
                         <div class="form-group">
                           <div class="row">
                              <div class="col-md-10">
                                 <label>Nama Paket</label>
-                                <input type="text" name="nama-paket" class="form-control" id="" placeholder="Nama paket" required>
+                                <input type="text" name="nama-paket" class="form-control" id="" placeholder="Nama paket">
                              </div>
                           </div>
                         </div>
@@ -42,7 +42,7 @@
                            <div class="row">
                             <div class="col-md-11">
                                 <label >Keterangan</label>
-                                <textarea id="keterangan" name="keterangan" class="form-control" required></textarea>
+                                <textarea id="keterangan" name="keterangan" class="form-control"></textarea>
                                    <script>
                                       CKEDITOR.replace( 'keterangan' );
                                    </script>
@@ -54,7 +54,7 @@
                            <div class="row">
                               <div class="col-md-4">
                                 <label>Foto Barang</label>
-                                <input type="file" name="foto-barang" placeholder="Foto Barang" required>
+                                <input type="file" name="foto-barang" placeholder="Foto Barang">
                               </div>
                            </div>
                         </div>
@@ -63,7 +63,7 @@
                            <div class="row">
                             <div class="col-md-7">
                                 <label>Harga Beli</label>
-                                <input type="text" name="harga-beli" class="form-control" id="" placeholder="Harga beli terhadap produsen" required>
+                                <input type="text" name="harga-beli" class="form-control" id="" placeholder="Harga beli terhadap produsen">
                               </div>
                            </div>
                         </div>
@@ -72,7 +72,7 @@
                            <div class="row">
                               <div class="col-md-7">
                                 <label>Harga Jual</label>
-                                <input type="text" name="harga-jual" class="form-control" id="" placeholder="Harga jual terhadap konsumen" required>
+                                <input type="text" name="harga-jual" class="form-control" id="" placeholder="Harga jual terhadap konsumen">
                               </div>
                            </div>
                         </div>
@@ -81,7 +81,7 @@
                            <div class="row">
                               <div class="col-md-5">
                                 <label>Stok Barang</label>
-                                <input type="number" name="stok-barang" class="form-control" placeholder="Jumlah stok tersedia" required>
+                                <input type="number" name="stok-barang" class="form-control" placeholder="Jumlah stok tersedia">
                               </div>
                            </div>
                         </div>
@@ -101,7 +101,7 @@
               
                     <div class="form-group">
                       <label>Import file extensi .excel</label>
-                      <input type="file" class="form-control" id="" required="required">
+                      <input type="file" class="form-control" id="">
                     </div>
                   
                     <button type="submit" class="btn btn-primary">Upload file</button>

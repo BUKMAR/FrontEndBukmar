@@ -407,7 +407,7 @@
      <div class="side-menu-container">
         <ul class="nav navbar-nav">
 
-            <li><a href="<?php echo base_url(); ?>index.php/admin"><span class="glyphicon glyphicon-dashboard"></span> Dasboard</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/admin/home"><span class="glyphicon glyphicon-dashboard"></span> Dasboard</a></li>
 
             <!-- Dropdown untuk data barang-->
             <li class="panel panel-default" id="dropdown">
@@ -425,11 +425,12 @@
                             <!-- Dropdown level 2 Masukan Barang -->
                             <li class="panel panel-default" id="dropdown">
                                 <a data-toggle="collapse" href="#masukan-barang">
-                                    <span class="glyphicon glyphicon-plus"></span> Masukan Barang <span class="caret"></span>
+                                    Masukan Barang <span class="caret"></span>
                                 </a>
                                 <div id="masukan-barang" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
+<<<<<<< HEAD
                                             <li><a href="<?php echo base_url(); ?>index.php/admin/input_barang_paket">Barang Paket</a></li>
                                             <li><a href="<?php echo base_url(); ?>index.php/admin/input_barang_satuan">Barang Satuan</a></li>
                                         </ul>
@@ -446,6 +447,10 @@
                                         <ul class="nav navbar-nav">
                                             <li><a href="<?php echo base_url(); ?>index.php/admin/daftar_barang_paket">Barang Paket</a></li>
                                             <li><a href="<?php echo base_url(); ?>index.php/admin/daftar_barang_satuan">Barang Satuan</a></li>
+=======
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/barang_paket">Barang Paket</a></li>
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/barang_satuan">Barang Satuan</a></li>
+>>>>>>> eb6141ce77c21df456ff25001e44f93f25178829
                                         </ul>
                                     </div>
                                 </div>
@@ -454,7 +459,7 @@
                             <!-- Dropdown level 2 Diskon Diskon Barang -->
                             <li class="panel panel-default" id="dropdown">
                                 <a data-toggle="collapse" href="#diskon-barang">
-                                    <span class="glyphicon glyphicon-plus"></span> Diskon Barang <span class="caret"></span>
+                                   Diskon Barang <span class="caret"></span>
                                 </a>
                                 <div id="diskon-barang" class="panel-collapse collapse">
                                     <div class="panel-body">
@@ -469,13 +474,18 @@
                             <!-- Dropdown level 2 Stok Barang -->
                             <li class="panel panel-default" id="dropdown">
                                 <a data-toggle="collapse" href="#stok-barang">
-                                    <span class="glyphicon glyphicon-plus"></span> Stok Barang <span class="caret"></span>
+                                   </span> Stok Barang <span class="caret"></span>
                                 </a>
                                 <div id="stok-barang" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
+<<<<<<< HEAD
                                             <li><a href="<?php echo base_url();?>index.php/admin/stok_barang_paket">Stok Barang Paket</a></li>
                                             <li><a href="<?php echo base_url();?>index.php/admin/stok_barang_satuan">Stok Barang Satuan</a></li>
+=======
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/stok_barang_paket">Stok Barang Paket</a></li>
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/stok_barang_satuan">Stok Barang Satuan</a></li>
+>>>>>>> eb6141ce77c21df456ff25001e44f93f25178829
                                         </ul>
                                     </div>
                                 </div>
@@ -484,13 +494,18 @@
                             <!-- Dropdown level 2 Daftar Kategori Barang -->
                             <li class="panel panel-default" id="dropdown">
                                 <a data-toggle="collapse" href="#kategori-barang">
-                                    <span class="glyphicon glyphicon-plus"></span> Kategori Barang <span class="caret"></span>
+                                  Kategori Barang <span class="caret"></span>
                                 </a>
                                 <div id="kategori-barang" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
+<<<<<<< HEAD
                                             <li><a href="<?php echo base_url();?>index.php/masukan_kategori_barang">Masukan Kategori Barang</a></li>
                                             <li><a href="<?php echo base_url();?>index.php/daftar_kategori_barang">Daftar Kategori Barang</a></li>
+=======
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/kategori_barang/input_kategori_barang">Masukan Kategori Barang</a></li>
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/kategori_barang/daftar_kategori_barang">Daftar Kategori Barang</a></li>
+>>>>>>> eb6141ce77c21df456ff25001e44f93f25178829
                                         </ul>
                                     </div>
                                 </div>
@@ -513,8 +528,8 @@
                 <div id="dropdown-member" class="panel-collapse collapse">
                     <div class="panel-body">
                         <ul class="nav navbar-nav">
-                            <li><a href="<?php echo base_url(); ?>index.php/admin/register_member">Daftarkan Member</a></li>
-                            <li><a href="<?php echo base_url(); ?>index.php/admin/list_member">List Data Member</a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/register_member">Daftarkan Member</a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/list_member">List Data Member</a></li>
                         </ul>
                     </div>
                 </div>
@@ -528,8 +543,8 @@
                 <div id="dropdown-komisi" class="panel-collapse collapse">
                     <div class="panel-body">
                         <ul class="nav navbar-nav">
-                            <li><a href="<?php echo base_url(); ?>index.php/admin/status_komisi">Status Komisi</a></li>
-                            <li><a href="<?php echo base_url(); ?>index.php/admin/history_belanja">History Bonus</a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/status_komisi">Status Komisi</a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/history_belanja">History Bonus</a></li>
                         </ul>
                     </div>
                 </div>
@@ -552,9 +567,9 @@
                 </div>
             </li>
 
-            <li><a href="<?php echo base_url(); ?>index.php/admin/informasi_jaringan"><span class="glyphicon glyphicon-grain"></span> Informasi Jaringan</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/admin/informasi"><span class="glyphicon glyphicon-bullhorn"></span> Informasi</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/admin/logout"><span class="glyphicon glyphicon-off"></span> Lougout</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/admin/home/informasi_jaringan"><span class="glyphicon glyphicon-grain"></span> Informasi Jaringan</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/admin/home/informasi"><span class="glyphicon glyphicon-bullhorn"></span> Informasi</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/admin/home/logout"><span class="glyphicon glyphicon-off"></span> Lougout</a></li>
 
         </ul>
     </div><!-- /.navbar-collapse -->
