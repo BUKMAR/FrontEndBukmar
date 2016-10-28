@@ -1,19 +1,19 @@
 <?php
-	class Kategori_Model extends CI_Model {
+	class Barang_Paket_Model extends CI_Model {
 
-		private $table = 'kategori';
+		private $table = 'barang_paket';
 		private $column_order = 
-		array(null, 'id_kategori','nama_kategori'); //set column field database for datatable orderable
+		array(null, 'id_barang_paket','nama_paket','tgl_upload','harga_jual', 'harga_jual', 'foto', 'keterangan'); //set column field database for datatable orderable
 		private $column_search = 
-		array('id_kategori','nama_kategori'); //set column field database for datatable searchable 
-		private $order = array('id_kategori' => 'asc'); // default order 
+		array('id_barang_paket','nama_paket','tgl_upload','harga_jual', 'harga_jual', 'foto', 'keterangan'); //set column field database for datatable searchable 
+		private $order = array('id_barang_paket' => 'asc'); // default order 
 
 		public function __construct() {
 			parent::__construct();
 		}
 
 		public function insert($data) {
-			$this->db->insert("kategori", $data);
+			$this->db->insert("barang_paket", $data);
 
 			$insert_id = $this->db->insert_id();
 
@@ -21,27 +21,27 @@
 		}
 
 		public function delete($id) {
-			$this->db->where("id_kategori", $id);
-			$this->db->delete("kategori");
+			$this->db->where("id_barang_paket", $id);
+			$this->db->delete("barang_paket");
 		}
 
 		public function update($id, $data) {
-			$this->db->where("id_kategori", $id);
-			$this->db->update("kategori", $data);
+			$this->db->where("id_barang_paket", $id);
+			$this->db->update("barang_paket", $data);
 		}
 
  		public function fetch_all() {
  			$this->db->select("*");
- 			$this->db->from("kategori");
+ 			$this->db->from("barang_paket");
  			$query = $this->db->get();
 
  			return $query->result_array();
  		}
 
- 		public function fetch_by_id($id_kategori) {
+ 		public function fetch_by_id($id_barang_paket) {
  			$this->db->select("*");
- 			$this->db->from("kategori");
- 			$this->db->where("id_kategori='$id_kategori'");
+ 			$this->db->from("barang_paket");
+ 			$this->db->where("id_barang_paket=$id_barang_paket");
 
  			$query = $this->db->get();
 
@@ -54,7 +54,7 @@
  		}
 
 	    private function _get_datatables_query() {
-	        $this->db->from("kategori");
+	        $this->db->from("barang_paket");
 	        $i = 0;
 	        
 	     	// loop column 

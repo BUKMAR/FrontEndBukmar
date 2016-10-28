@@ -7,6 +7,7 @@
 		private $column_search = 
 		array('id_detail_kategori','nama_detail_kategori'); //set column field database for datatable searchable 
 		private $order = array('id_detail_kategori' => 'asc'); // default order 
+		private $id_kategori = 0;
 
 		public function __construct() {
 			parent::__construct();
@@ -38,6 +39,26 @@
  			return $query->result_array();
  		}
 
+ 		public function fetch_by_id($id_detail_kategori) {
+ 			$this->db->select("	`detail_kategori`.`id_detail_kategori`,
+								`detail_kategori`.`nama_detail_kategori`,
+								`kategori`.`id_kategori`,
+								`kategori`.`nama_kategori`");
+ 			$this->db->from("`detail_kategori`,`kategori`");
+ 			$this->db->where("`detail_kategori`.`id_detail_kategori` = $id_detail_kategori
+AND
+	`detail_kategori`.`id_kategori` = `kategori`.`id_kategori`");
+
+ 			$query = $this->db->get();
+
+ 			$tmp = $query->result_array();
+
+ 			if(count($tmp) > 0)
+ 				return $tmp[0];
+ 			else 
+				return $tmp;
+ 		}
+
  		public function fetch_by_id_kategori($id_kategori) {
  			$this->db->select("*");
  			$this->db->from("detail_kategori");
@@ -47,14 +68,12 @@
 
  			$tmp = $query->result_array();
 
- 			if(count($tmp) > 0)
- 				return $tmp[0];
- 			else 
- 				return $tmp;
+			return $tmp;
  		}
 
-	    private function _get_datatables_query() {
+	    private function _get_datatables_query($id_kategori) {
 	        $this->db->from("detail_kategori");
+	        $this->db->where("id_kategori='$id_kategori'");
 	        $i = 0;
 	        
 	     	// loop column 
@@ -87,8 +106,9 @@
 	        }
 	    }
 	 
-	    function get_datatables() {
-	        $this->_get_datatables_query();
+	    function get_datatables($id_kategori) {
+	    	$this->id_kategori = $id_kategori;
+	        $this->_get_datatables_query($id_kategori);
 	        
 	        if(isset($_POST['length']) != -1 && isset($_POST['start'])) {
 	        	$this->db->limit($_POST['length'], $_POST['start']);
@@ -100,7 +120,7 @@
 	    }
 	 
 	    function count_filtered() {
-	        $this->_get_datatables_query();
+	        $this->_get_datatables_query($this->id_kategori);
 	        $query = $this->db->get();
 
 	        return $query->num_rows();
