@@ -28,6 +28,43 @@
 			.panel-body a:hover {
 				text-decoration: none;
 			}
+
+		.fa-3x {
+    	font-size: 1.4em;
+		}
+
+		.navbar .divider-vertical {
+		  height: 50px;
+		  margin: 0 9px;
+		  border-left: 1px solid #f2f2f2;
+		  border-right: 1px solid #ffffff;
+		}
+
+		.input-group-btn {
+		    position: relative;
+		    font-size: 0;
+		    white-space: nowrap;
+		}
+
+		.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 3px 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #373a3c;
+    text-align: inherit;
+    white-space: nowrap;
+    background: 0 0;
+    border: 0;
+}
+
+    .btn-secondary {
+    color: #373a3c;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
 		</style>
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
@@ -41,44 +78,8 @@
 		<div id="skippy">
 		</div>
 		<header>
-			<nav id="first-nav" class="navbar navbar-default" role="navigation">
-				<div class="container-fluid">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-					<!--
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					-->
-					<a id="first-logo" class="navbar-brand" href="#">
-						<a class="navbar-brand" href="#" style="margin-top: -5px; margin-left: -30px;"><img src="<?php echo base_url("assets/images/BUK.png"); ?>" class="img-responsive" alt="Logo" style="width: 150px; height: 40px;"></a>
-					</a>
-					</div>
-							
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse navbar-ex1-collapse">
-						<ul class="nav navbar-nav">
-							<li><a href="#"></a></li>
-						</ul>
-							<form class="navbar-form navbar-left" role="search">
-								<div class="form-group">
-										<input type="text" class="form-control" placeholder="Search" style="width: 500px;">
-								</div>
-								<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Cari</button>
-							</form>
-						<ul class="nav navbar-nav navbar-right">
-							<li>
-								<a href="#">
-									<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="badge" style="margin-bottom: 0px; margin-top: -20px; margin-left: -2px; background-color: red; color: #fff;">35</span></span></a>
-							</li>
-						</ul>
-					</div><!-- /.navbar-collapse -->
-				</div>
-			</nav>
-			<?php require_once(APPPATH .'views/templates/navigasi.php'); ?>
+			<?php require_once(APPPATH .'views\templates\first_nav.php'); ?>
+			<?php require_once(APPPATH .'views\templates\navigasi.php'); ?>
 		</header><!-- /header -->
 		<div id="carousel-id" class="carousel slide" style="height: 550px;" data-ride="carousel">
 			<ol class="carousel-indicators">
@@ -431,76 +432,8 @@
 		<br>
 		<br>
 		<br>
-		<footer id="footerWrapper" class="footer2" style="margin-top: 145px;">
-			<section id="mainFooter">
-				<div class="container">
-					<div class="row" style="background-color: #222;">
-						<div class="col-md-3 col-sm-6">
-							<div class="footerWidget">
-								<img src="<?php echo base_url("assets/images/logo.png"); ?>" alt="latest Little Neko news" id="footerLogo">
-								<p align="justify"><a href="http://www.little-neko.com" title="Little Neko, website template creation">BUKMAR</a> Halaman Merupakan sarana berbagi informasi update kebutuhan harian dapur anda, sebagai penyedia layanan, kami menjamin pengalaman belanja yang aman, terpercaya, dan pastinya gak ribet. Dapatkan penawaran terbaik melalui website kapan saja. </p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<div class="footerWidget">
-								<h3>Latest works</h3>
-								<ul class="list-unstyled worksList">
-									<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works1.jpg" alt="works"></a></li>
-									<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works3.jpg" alt="works"></a></li>
-									<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works5.jpg" alt="works"></a></li>
-									<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works2.jpg" alt="works"></a></li>
-									<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works4.jpg" alt="works"></a></li>
-									<li><a href="#" class="tips" title="Little Neko work"><img src="http://seattle-bootstrap3-website-template.little-neko.com/v1/images/theme-pics/works6.jpg" alt="works"></a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<div class="footerWidget">
-								<h3>Latest news</h3>
-								<ul class="list-unstyled iconList">
-									<li><a href="#">Solace of a lonely highway</a></li>
-									<li><a href="#">Write with purpose</a></li>
-									<li><a href="#">Tree on a lake</a></li>
-									<li><a href="#">Don’t stop questioning</a></li>
-									<li><a href="#">Overheard this morning</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<div class="footerWidget">
-								<h3>Little BUKMAR</h3>
-								<address>
-									<p>
-										<i class="icon-location"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></i>&nbsp;Widoro, Rt 40 Rw12 Sragen Wetan
-															Sragen, Jawa Tengah, Indonesia<br>
-										<i class="icon-phone"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></i>&nbsp;0857-2864-8065 <br>
-										<i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">bukmarwidoro@gmail.com</a>
-										<i class="icon-mail-alt"> </i>&nbsp;<a href="mailto:little@little-neko.com">http://www.bukmar.com/</a>
-									</p>
-								</address>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section id="footerRights">
-				<div class="container">
-					<div class="row" style="background-color: #222; height: 90px;">
-						<div class="col-md-12">
-							<ul class="socialNetwork">
-								<li><a href="#" class="tips" title="follow me on Facebook"><i class="icon-facebook-1 iconRounded"></i></a></li>
-								<li><a href="#" class="tips" title="follow me on Twitter"><i class="icon-twitter-bird iconRounded"></i></a></li>
-								<li><a href="#" class="tips" title="follow me on Google+"><i class="icon-gplus-1 iconRounded"></i></a></li>
-								<li><a href="#" class="tips" title="follow me on Linkedin"><i class="icon-linkedin-1 iconRounded"></i></a></li>
-								<li><a href="#" class="tips" title="follow me on Dribble"><i class="icon-dribbble iconRounded"></i></a></li>
-							</ul>
-						</div>
-						<div class="col-md-12">
-							<p>Copyright © 2014 <a href="http://www.little-neko.com" target="blank">Bukmar.com</a> / All rights reserved.</p>
-						</div>
-					</div>
-				</div>
-			</section>
-		</footer>
+
+		<?php require_once(APPPATH .'views/templates/footer.php'); ?>
+
 	</body>
 </html>

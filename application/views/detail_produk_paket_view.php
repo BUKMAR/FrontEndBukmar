@@ -52,6 +52,42 @@
 			margin: 3px 0;
 		}
 
+		.fa-3x {
+    	font-size: 1.4em;
+		}
+
+		.navbar .divider-vertical {
+		  height: 50px;
+		  margin: 0 9px;
+		  border-left: 1px solid #f2f2f2;
+		  border-right: 1px solid #ffffff;
+		}
+
+		.input-group-btn {
+		    position: relative;
+		    font-size: 0;
+		    white-space: nowrap;
+		}
+
+		.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 3px 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #373a3c;
+    text-align: inherit;
+    white-space: nowrap;
+    background: 0 0;
+    border: 0;
+}
+
+    .btn-secondary {
+    color: #373a3c;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
 		.red-label {
 			color: #fff;
 			font-size: 12px;
@@ -88,7 +124,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					-->
-					<a class="navbar-brand" href="#">BRAND LOGO</a>
+					<a class="navbar-brand" href="#" style="margin-top: -5px; margin-left: -30px;"><img src="<?php echo base_url("assets/images/BUK.png"); ?>" class="img-responsive" alt="Logo" style="width: 150px; height: 40px;"></a>
 				</div>
 		
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -97,15 +133,34 @@
 						<li><a href="#"></a></li>
 					</ul>
 					<form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search" style="width: 500px;">
-						</div>
-						<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Cari</button>
+						<div class="input-group">
+						<div class="input-group-btn">
+		        <button type="button" style="width: 150px; border-radius: 0px;" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          Kategori produk &nbsp;
+			          <b class="caret"></b>
+			        </button>
+			        <div class="dropdown-menu">
+			          <a class="dropdown-item" href="#">Action</a>
+			          <a class="dropdown-item" href="#">Another action</a>
+			          <a class="dropdown-item" href="#">Something else here</a>
+			          <div role="separator" class="dropdown-divider"></div>
+			          <a class="dropdown-item" href="#">Separated link</a>
+			        </div>
+			      </div>
+				      <input type="text" class="form-control" style="width: 700px; border-radius: 0px;" placeholder="Cari Sembako di Bukmar... ">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" style="border-radius: 0px;" type="button">
+				        	<span class="glyphicon glyphicon-search"></span>
+				        </button>
+				      </span>
+				    </div><!-- /input-group -->
 					</form>
 					<ul class="nav navbar-nav navbar-right">
-						<li>
-						<a href="#">
-						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="badge" style="margin-bottom: 0px; margin-top: -20px; margin-left: -2px; background-color: red; color: #fff;">35</span></span></a></li>
+					  <li class="divider-vertical"></li>
+						<li><a href="#"><span class="glyphicon glyphicon-shopping-cart fa-3x" aria-hidden="true"></span> <span class="badge" style="margin-top: -30px; margin-left: -10px;">4</span> </a></li>
+						<li class="divider-vertical"></li>
+						<li><a href="#">Masuk <span class="glyphicon glyphicon-log-in fa-3x"></span></a></li>
+						<li class="divider-vertical"></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div>
@@ -326,6 +381,8 @@
 
 		</div>
 	</content>
+
+	<?php require_once(APPPATH .'views/templates/footer.php'); ?>
 	
   </body>
   </html>

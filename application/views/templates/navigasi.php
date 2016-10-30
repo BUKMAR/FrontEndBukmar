@@ -20,7 +20,7 @@
 					<ul id="second-cart" class="nav navbar-nav navbar-left">
 						<li>
 						<a href="#">
-						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="badge" style="margin-bottom: 0px; margin-top: -20px; margin-left: -2px; background-color: red; color: #fff;">35</span></span></a></li>
+						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="badge" style="margin-bottom: 0px; margin-top: -20px; margin-left: -2px; background-color: red; color: #fff;">35</span></span> <span class="badge">4</span></a></li>
 					</ul>   
 	                <ul class="nav navbar-nav">
 					    <li><a href="#top">Beranda</a></li>

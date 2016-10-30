@@ -33,7 +33,8 @@ class Home extends CI_Controller {
 		$barang_satuan_model = new Barang_Satuan_Model();
 
 		$barang_satuan = $barang_satuan_model->fetch_all();
-		//echo json_encode($barang_satuan);
+
+		$this->data['jumlah_keranjang'] = $this->shopping_cart->countItems();
 		$this->data['barang_satuan'] = $barang_satuan;
 		
 		$this->load->view("home_view", $this->data);
@@ -48,6 +49,46 @@ class Home extends CI_Controller {
 	}
 
 	public function troli() {
+		$keranjang = $this->shopping_cart->fetch_all();
+
+		if(count($keranjang) > 0) {
+			$id_barang_array = array();
+			$total = 0;
+			
+			$this->load->model("Barang_satuan_model");
+			$this->load->model("Member_model");
+			$this->load->model("Foto_barang_satuan_model");
+				
+			$barang_satuan_model = new Barang_Satuan_Model();
+			$member_model = new Member_Model();
+			$foto_barang_satuan_model = new Foto_Barang_Satuan_Model();
+
+			foreach($keranjang as $item) {
+				$id_barang = $item['id'];
+				$qty = $item['qty'];
+				$subtotal = $item['subtotal'];
+
+				$tmp = $barang_satuan_model->fetch_by_id($id_barang);
+
+				$foto_barang_satuan = $foto_barang_satuan_model->fetch_by_id_barang_satuan($id_barang);
+
+				$tmp['foto_barang'] = $foto_barang_satuan['foto_barang'];
+				$tmp['qty'] = $qty;
+				$tmp['subtotal'] = $subtotal;
+
+				$total += $subtotal;
+				$barang[] = $tmp;
+			}
+
+			$member = $member_model->fetch_by_id('M-20160929-1475153193');
+
+			$this->data['member'] = $member;
+			$this->data['total'] = $total;
+			$this->data['barang'] = $barang;
+			$this->data['jumlah_keranjang'] = $this->shopping_cart->countItems();
+
+			$this->load->view("keranjang_belanja_view", $this->data);
+		}
 	}
 
 	public function tambah_ke_keranjang() {
@@ -69,7 +110,7 @@ class Home extends CI_Controller {
 		);
 
 		if($this->shopping_cart->ifExist($id_barang)) 
-			$this->shopping_cart->updateCart($id_barang, $quantitas);
+			$this->shopping_cart->updateCart($id_barang, $kuantitas);
 		else 
 			$this->shopping_cart->addToCart($data);
 
@@ -79,7 +120,9 @@ class Home extends CI_Controller {
 	}
 
 	public function detail_produk_paket() {
-		$this->load->view('detail_produk_paket_view');
+		$this->data['jumlah_keranjang'] = $this->shopping_cart->countItems();
+		
+		$this->load->view('detail_produk_paket_view', $this->data);
 	}
 
 	public function detail_produk() {
@@ -101,8 +144,10 @@ class Home extends CI_Controller {
 			)
 		);
 
+		$this->data['jumlah_keranjang'] = $this->shopping_cart->countItems();
 		$this->data['foto_barang_satuan'] = $foto_barang_satuan;
 		$this->data['barang_satuan'] = $barang_satuan;
+
 		$this->load->view('detail_produk_satuan_view', $this->data);
 	}
 

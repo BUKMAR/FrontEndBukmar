@@ -62,45 +62,48 @@
 			display: inline;
 		}
 
+		.fa-3x {
+    	font-size: 1.4em;
+		}
+
+		.navbar .divider-vertical {
+		  height: 50px;
+		  margin: 0 9px;
+		  border-left: 1px solid #f2f2f2;
+		  border-right: 1px solid #ffffff;
+		}
+
+		.input-group-btn {
+		    position: relative;
+		    font-size: 0;
+		    white-space: nowrap;
+		}
+
+		.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 3px 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #373a3c;
+    text-align: inherit;
+    white-space: nowrap;
+    background: 0 0;
+    border: 0;
+}
+
+    .btn-secondary {
+    color: #373a3c;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
   </style>
   <body screen_capture_incject="true" style="background-color: #fff;">
   	<div id="skippy">
 	</div>
 	<header>
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<!--
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					-->
-					<a class="navbar-brand" href="#">BRAND LOGO</a>
-				</div>
-		
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse navbar-ex1-collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="#"></a></li>
-					</ul>
-					<form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search" style="width: 500px;">
-						</div>
-						<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Cari</button>
-					</form>
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-						<a href="#">
-						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="badge" style="margin-bottom: 0px; margin-top: -20px; margin-left: -2px; background-color: red; color: #fff;">35</span></span></a></li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div>
-		</nav>
+		<?php require_once(APPPATH .'views\templates\first_nav.php'); ?>
 		<?php require_once(APPPATH .'views/templates/navigasi.php'); ?>
 	</header><!-- /header -->
 
@@ -240,10 +243,28 @@
 						<!-- bagian testimoni -->
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<!-- list command -->
+								<legend style="border-top:1px dotted #1b1b1b;">Berikan Komentar Produk</legend>
+								<div class="panel panel-default" style="border-radius: 0px;">
+									<div class="panel-footer">
+										Panel footer
+									</div>
+								</div>
+
 								<div class="panel panel-default">
 									<div class="panel-body">
 										<label><span class="glyphicon glyphicon-pencil"></span> &nbsp; Tinggalkan Komentar </label>
-										<textarea name="comentar" id="inputComentar" placeholder="Add a command..." class="form-control" rows="3" required="required"></textarea>
+										<hr style="border-top:1px dotted #1b1b1b;">
+										<form action="" method="POST" role="form">
+										
+											<div class="form-group">
+												<label>Title Komentar</label>
+												<input type="text" class="form-control" size="40" placeholder="Title Komentar">
+												<br>
+												<textarea name="comentar" id="inputComentar" placeholder="Add a command..." class="form-control" rows="3" required="required"></textarea>
+											</div>
+							
+										</form>										
 									</div>
 									<div class="panel-footer">
 										<div class="row">
@@ -358,5 +379,6 @@
          $("#kuantitas").attr("value", "1");
       });
    </script>
+	<?php require_once(APPPATH .'views/templates/footer.php'); ?>
   </body>
   </html>
