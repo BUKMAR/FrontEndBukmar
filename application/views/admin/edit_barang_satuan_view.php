@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 
 	<head>
@@ -16,53 +16,34 @@
 		<div class="container-fluid">
 			<div class="side-body">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<legend><h1><small><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> Tambah Barang Non Paket</small></h1></legend>
+				<legend><h1><small><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> Edit Barang Non Paket</small></h1></legend>
 			</div>
 				<!-- menu tab input barang 1 dan export excel -->
 				<div role="tabpanel">
-					<!-- Nav tabs -->
-					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active">
-							<a href="#manual" aria-controls="home" role="tab" data-toggle="tab">Masukan Barang Manual
-							</a>
-						</li>
-						<li role="presentation">
-							<a href="#import" aria-controls="tab" role="tab" data-toggle="tab">Masukan Barang File Excel
-							</a>
-						</li>
-					</ul>
-
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="manual">
 							<div class="row">
+								<input type="hidden" name="id-barang" value="<?php echo $barang_satuan['id_barang_satuan']; ?>" >
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-									<form action="<?php echo base_url('index.php/admin/barang_satuan/submit_tambah_barang') ?>" method="POST" enctype="multipart/form-data" role="form">
+									<form action="<?php echo base_url('index.php/admin/barang_satuan/edit_barang_satuan') ?>" method="POST" role="form">
 
 										<div class="form-group">
 											<label>Nama Barang
 											</label>
-											<input type="text" name="nama-barang" class="form-control" placeholder="Nama Barang" >
+											<input value="<?php echo $barang_satuan['nama_barang']; ?>" type="text" name="nama-barang" class="form-control" placeholder="Nama Barang" >
 										</div>
 
 										<div class="form-group">
-											<label>Nama Brand
+											<label>ID Brand
 											</label>
-											<select name="id-brand" class="form-control" >
-												<option disabled="" selected="selected">Pilih Kategori Barang
-												</option>
-												<?php
-													foreach($brands as $item) {
-														echo "<option value='". $item['id_brand'] ."'>". $item['nama_brand'] ."</option>";
-													}
-												?>
-											</select>
+											<input type="text" value="<?php echo $barang_satuan['id_brand']; ?>" name="id-brand" class="form-control" placeholder="Nama Barang" >
 										</div>
 
 										<div class="form-group">
 											<label>Keterangan
 											</label>
-											<textarea name="keterangan" class="form-control" id="keterangan" rows="3" placeholder="Keterangan Produk" required="required">
+											<textarea name="keterangan" class="form-control" id="keterangan" rows="3" placeholder="Keterangan Produk" required="required"><?php echo $barang_satuan['keterangan']; ?>"
 											</textarea>
 											<script>
 												CKEDITOR.replace( 'keterangan' );
@@ -73,7 +54,7 @@
 										<div class="input-group">
 											<span class="input-group-addon">Rp
 											</span>
-											<input type="text" name="harga-jual" id="input" class="form-control" >
+											<input type="text" value="<?php echo $barang_satuan['harga_jual']; ?>" name="harga-jual" id="input" class="form-control" >
 										</div><br>
 
 										<label>Harga Beli
@@ -81,7 +62,7 @@
 										<div class="input-group">
 											<span class="input-group-addon">Rp
 											</span>
-											<input type="text" name="harga-beli" id="input" class="form-control" >
+											<input type="text" value="<?php echo $barang_satuan['harga_beli']; ?>" name="harga-beli" id="input" class="form-control" >
 										</div><br>
 
 										<label>Harga Tawar
@@ -89,12 +70,12 @@
 										<div class="input-group">
 											<span class="input-group-addon">Rp
 											</span>
-											<input type="text" name="harga-tawar" id="input" class="form-control" >
+											<input type="text" value="<?php echo $barang_satuan['harga_tawar']; ?>" name="harga-tawar" id="input" class="form-control" >
 										</div><br>
 										<div class="form-group">
 											<label>Stok Barang
 											</label>
-											<input type="text" name="stok-barang" id="stok-barang" class="form-control" >
+											<input type="text" value="<?php echo $barang_satuan['stok']; ?>" name="stok-barang" id="stok-barang" class="form-control" >
 										</div>
 
 										<div class="form-group">
@@ -126,7 +107,7 @@
 										<div class="form-group">
 											<label>Tanggal Kadaluarsa
 											</label>
-											<input required id="tgl" type="date" name="tgl-kadaluarsa" class="form-control" >
+											<input value="<?php echo date_format(date_create($barang_satuan['tgl_kadaluarsa']), date('d-m-Y')); ?>" required id="tgl" type="date" name="tgl-kadaluarsa" class="form-control" >
 										</div>
 										<div class="form-group">
 											<label>Kategori Barang
@@ -136,12 +117,18 @@
 												</option>
 												<?php
 													foreach($kategori as $item) {
-														echo "<option value='". $item['id_kategori'] ."'>". $item['nama_kategori'] ."</option>";
+
+														if($barang_satuan['id_kategori'] == $item['id_kategori']) {
+															echo "<option selected value='". $item['id_kategori'] ."'>". $item['nama_kategori'] ."</option>";
+														} else {
+															echo "<option value='". $item['id_kategori'] ."'>". $item['nama_kategori'] ."</option>";
+														}
 													}
 												?>
 											</select>
 										</div>
-										<div class="form-group" style="display: none;" id="detail"></div>
+										<div class="form-group" style="display: none;" id="detail">
+										</div>
 										<div class="form-group">
 											<label>Kategori Usia
 											</label>
@@ -201,17 +188,18 @@
 					selectOtherMonths: true
 				});
 				
+				var urlKategori = "ajax_fetch_detail_kategori?id_kategori="; 
+				
 				$("#kategori").change(function() {
 					$("#detail").css("display", "inline");
-
-					var detailUrl = '<?php echo base_url('index.php/admin/barang_satuan/ajax_fetch_detail_kategori?id_kategori='); ?>' + $("#kategori").val();
+					
     				$.ajax({
 					    type: 'POST',
 					    contentType : 'json',
-					    url: detailUrl,
+					    url: urlKategori + $("#kategori").val(),
 					    success: function(msg){
 					    	var detailKategori = JSON.parse(msg);
-					    	var options = "";
+					    	var options = ""
 
 					    	for(var i = 0; i < detailKategori.length; i++) {
 					    		var itemDetailKategori = detailKategori[i]; 

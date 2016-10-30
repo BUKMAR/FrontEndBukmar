@@ -60,6 +60,18 @@
  			else 
  				return $tmp;
  		}
+
+ 		 public function fetch_all_by_id_barang_satuan($id_barang_satuan) {
+ 			$this->db->select("*");
+ 			$this->db->from("foto_barang_satuan");
+ 			$this->db->where("id_barang='$id_barang_satuan'");
+
+ 			$query = $this->db->get();
+
+ 			$tmp = $query->result_array();
+
+ 			return $tmp;
+ 		}
 	 
 	    public function count_all() {
 	        $this->db->from($this->table);

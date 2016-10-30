@@ -1,19 +1,19 @@
-<?php
-	class Barang_Satuan_Model extends CI_Model {
+    <?php
+	class Brand_Model extends CI_Model {
 
-		private $table = 'barang_satuan';
+		private $table = 'brand';
 		private $column_order = 
-		array(null, 'id_barang_satuan','nama_satuan','tgl_upload','harga_jual', 'harga_jual', 'foto', 'stok'); //set column field database for datatable orderable
+		array(null, 'id_brand','nama_brand'); //set column field database for datatable orderable
 		private $column_search = 
-		array('id_barang_satuan','nama_paket','tgl_upload','harga_jual', 'harga_jual', 'foto', 'stok'); //set column field database for datatable searchable 
-		private $order = array('id_barang_satuan' => 'asc'); // default order 
+		array('id_brand','nama_brand'); //set column field database for datatable searchable 
+		private $order = array('id_brand' => 'asc'); // default order 
 
 		public function __construct() {
 			parent::__construct();
 		}
 
 		public function insert($data) {
-			$this->db->insert("barang_satuan", $data);
+			$this->db->insert("brand", $data);
 
 			$insert_id = $this->db->insert_id();
 
@@ -21,46 +21,27 @@
 		}
 
 		public function delete($id) {
-			$this->db->where("id_barang_satuan", $id);
-			$this->db->delete("barang_satuan");
+			$this->db->where("id_brand", $id);
+			$this->db->delete("brand");
 		}
 
 		public function update($id, $data) {
-			$this->db->where("id_barang_satuan", $id);
-			$this->db->update("barang_satuan", $data);
+			$this->db->where("id_brand", $id);
+			$this->db->update("brand", $data);
 		}
 
  		public function fetch_all() {
- 			$this->db->select("	`barang_satuan`.`id_barang_satuan`,
-								`barang_satuan`.`nama_barang`,
-								`barang_satuan`.`harga_jual`,
-								`barang_satuan`.`harga_tawar`,
-								`diskon`.`diskon`");
- 			$this->db->from("barang_satuan");
- 			$this->db->join("diskon", "`barang_satuan`.`id_barang_satuan`=`diskon`.`id_barang`", 'left');
- 			
+ 			$this->db->select("*");
+ 			$this->db->from("brand");
  			$query = $this->db->get();
- 			
- 			$this->load->model("Foto_barang_satuan_model");
 
- 			$foto_barang_model = new Foto_Barang_Satuan_Model();
-
- 			foreach($query->result() as $item) {
- 				$foto_barang = $foto_barang_model->fetch_by_id_barang_satuan($item->id_barang_satuan);
-
- 				if(isset($foto_barang['foto_barang']))
-					$item->{"foto_barang"} = $foto_barang['foto_barang'];
-
- 				$data[] = $item;
- 			}
-
- 			return $data;
+ 			return $query->result_array();
  		}
 
- 		public function fetch_by_id($id_barang_satuan) {
+ 		public function fetch_by_id($id_brand) {
  			$this->db->select("*");
- 			$this->db->from("barang_satuan");
- 			$this->db->where("id_barang_satuan='$id_barang_satuan'");
+ 			$this->db->from("brand");
+ 			$this->db->where("id_brand='$id_brand'");
 
  			$query = $this->db->get();
 
@@ -73,7 +54,7 @@
  		}
 
 	    private function _get_datatables_query() {
-	        $this->db->from("barang_satuan");
+	        $this->db->from("brand");
 	        $i = 0;
 	        
 	     	// loop column 

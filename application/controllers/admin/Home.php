@@ -31,10 +31,13 @@ class Home extends CI_Controller {
 
 	public function barang_satuan() {
 		$this->load->model("Kategori_model");
+		$this->load->model("Brand_model");
 
 		$kategori_model = new Kategori_Model();
+		$brand_model = new Brand_Model();
 
 		$this->data['kategori'] = $kategori_model->fetch_all();
+		$this->data['brands'] = $brand_model->fetch_all();
 
 		$this->load->view('admin/in_barang_nonpaket_view', $this->data);
 	}

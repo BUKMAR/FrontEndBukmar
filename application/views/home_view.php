@@ -289,32 +289,68 @@
 			</div>
 			<div>
 				<div class="big-produk">
-					<?php for ($i = 0; $i < 6; $i++): ?>
+					<?php 
+						$idx = 0;
+						$per_page = 16;
+						$column = 8 
+					?>
+					<?php for ($i = 0; $i < ($per_page / $column); $i++): ?>
 						<div class="row" style="padding: 10px; margin-top: 10px;">
-							<?php for ($j = 0; $j < 6; $j++): ?>
-							<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-								<div class="panel panel-default">
-									<div class="panel-body">
-										<div class="row">
-											<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-												<a href="<?php echo base_url('index.php/home/detail_produk_satuan'); ?>" title="" style="text-decoration:none">
-													<img data-src="<?php echo base_url("assets/images/blue.jpg"); ?>" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTdhMjNkZGY1ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1N2EyM2RkZjVmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjY5NTMxMjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" class="img-responsive" alt="Image" width="500">
-												</a>
-											</div>
-											<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top: 5px;">
-												<h4><small>Nama Barang</small></h4>
-												<p style="margin-top: -4px;">
-													<h4 style="color: red;">Rp. 50.000,-</h4>
-												</p>
-												<p style="margin-top: -4px;">
-													<h5><small><s>Rp. 50.000</s></small></h5>
-													<h5 style="margin-left: 60px; margin-top: -25px;"><small>80%</small></h5>
-												</p>
+							<?php for ($j = 0; $j < $column; $j++): ?>
+							<?php 
+								if (array_key_exists($idx, $barang_satuan)) {
+									$barang = $barang_satuan[$idx];
+									?>
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+										<div class="panel panel-default">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+														<a 
+														href="
+														<?php 
+															echo base_url('index.php/home/detail_produk?id_produk='. $barang->id_barang_satuan); 
+														?>" title="" style="text-decoration:none"
+															class="img-responsive" alt="Image" width="500">
+															<img src="
+															<?php 
+															if(isset($barang->foto_barang)) {
+																echo base_url($barang->foto_barang); 
+															} else {
+																echo "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTdhMjNkZGY1ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1N2EyM2RkZjVmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjY5NTMxMjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=";
+															}
+															?>" class="img-responsive" alt="Image" height="800" width="500">
+														</a>
+													</div>
+													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" 
+													style="margin-top: 5px;">
+														<h4><small><?php echo $barang->nama_barang; ?></small></h4>
+														<p style="margin-top: -4px;">
+															<?php 
+																$harga_jual = "Rp. ". number_format($barang->harga_jual, 0, ".", ".");
+															?>
+															<h4 style="font-size: 21px;"><?php echo $harga_jual; ?></h4>
+														</p>
+														<?php 
+															if(!empty($barang->diskon)) {
+																?>
+																	<p style="margin-top: -4px;">
+																	<h5><small><s style="color: red;">Rp. 50.000</s></small></h5>
+																	<h5 style="margin-left: 60px; margin-top: -25px;">
+																	<small><?php echo $barang->diskon ?></small></h5>
+																	</p>
+																<?php
+															}
+														?>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-							</div>
+									<?php
+									$idx++;
+								}
+							?>
 							<?php endfor ?>
 						</div>
 					<?php endfor ?>

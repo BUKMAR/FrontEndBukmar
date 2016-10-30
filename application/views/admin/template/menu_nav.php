@@ -441,7 +441,7 @@
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li><a href="<?php echo base_url(); ?>index.php/admin/barang_paket/daftar_barang_paket">Daftar Barang Paket</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/admin/barang_paket/daftar_barang_satuan">Daftar Barang Satuan</a></li>
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/barang_satuan/daftar_barang_satuan">Daftar Barang Satuan</a></li>
                                         </ul>
                                     </div>
                                 </div>
