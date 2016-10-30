@@ -403,7 +403,23 @@
             <li><a href="<?php echo base_url(); ?>index.php/member"><span class="glyphicon glyphicon-dashboard"></span> Dasboard</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/history_belanja"><span class="glyphicon glyphicon-book"></span> History Belanja</a></li>
-            <!-- Dropdown-->
+
+            <!-- Dropdown Daftarkan Member-->
+            <li class="panel panel-default" id="dropdown">
+                <a data-toggle="collapse" href="#dropdown-lvl1">
+                    <span class="glyphicon glyphicon-user"></span> Member <span class="caret"></span>
+                </a>
+                <!-- Dropdown level 1 -->
+                <div id="dropdown-lvl1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul class="nav navbar-nav">
+                            <li><a href="<?php echo base_url(); ?>index.php/member/register_member">Daftarkan Member</a></li>
+                            <li><a href="<?php echo base_url(); ?>index.php/member/list_member">List Data Member</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <!-- Dropdown Komisi-->
             <li class="panel panel-default" id="dropdown">
                 <a data-toggle="collapse" href="#dropdown-lvl1">
                     <span class="glyphicon glyphicon-piggy-bank"></span> Komisi <span class="caret"></span>
@@ -418,6 +434,8 @@
                     </div>
                 </div>
             </li>
+
+
 
             <li><a href="<?php echo base_url(); ?>index.php/member/informasi_jaringan"><span class="glyphicon glyphicon-grain"></span> Informasi Jaringan</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/informasi"><span class="glyphicon glyphicon-bullhorn"></span> Informasi</a></li>

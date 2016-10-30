@@ -309,10 +309,28 @@
 						<!-- bagian testimoni -->
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<!-- list command -->
+								<legend style="border-top:1px dotted #1b1b1b;">Berikan Komentar Produk</legend>
+								<div class="panel panel-default" style="border-radius: 0px;">
+									<div class="panel-footer">
+										Panel footer
+									</div>
+								</div>
+
 								<div class="panel panel-default">
 									<div class="panel-body">
 										<label><span class="glyphicon glyphicon-pencil"></span> &nbsp; Tinggalkan Komentar </label>
-										<textarea name="comentar" id="inputComentar" placeholder="Add a command..." class="form-control" rows="3" required="required"></textarea>
+										<hr style="border-top:1px dotted #1b1b1b;">
+										<form action="" method="POST" role="form">
+										
+											<div class="form-group">
+												<label>Title Komentar</label>
+												<input type="text" class="form-control" size="40" placeholder="Title Komentar">
+												<br>
+												<textarea name="comentar" id="inputComentar" placeholder="Add a command..." class="form-control" rows="3" required="required"></textarea>
+											</div>
+							
+										</form>										
 									</div>
 									<div class="panel-footer">
 										<div class="row">
@@ -384,6 +402,8 @@
 
 		</div>
 	</content>
+
+	<?php require_once(APPPATH .'views/templates/footer.php'); ?>
 	
   </body>
   </html>

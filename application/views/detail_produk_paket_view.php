@@ -381,6 +381,8 @@
 
 		</div>
 	</content>
+
+	<?php require_once(APPPATH .'views/templates/footer.php'); ?>
 	
   </body>
   </html>

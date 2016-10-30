@@ -81,5 +81,9 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- footer -->
+	<?php require_once(APPPATH .'views/templates/footer.php'); ?>
+
 </body>
 </html>
