@@ -50,7 +50,7 @@
 					</form>
 						<ul class="nav navbar-nav navbar-right">
 							<li class="divider-vertical"></li>
-								<li><a href="#"><span style="color: #827717;" class="glyphicon glyphicon-shopping-cart fa-3x" aria-hidden="true"></span> <span class="badge" style="margin-top: -30px; margin-left: -10px;">4</span> </a></li>
+								<li><a href="#"><span style="color: #827717;" class="glyphicon glyphicon-shopping-cart fa-3x" aria-hidden="true"></span> <span class="badge" style="margin-top: -30px; margin-left: -10px;"><?php echo $jumlah_keranjang; ?></span> </a></li>
 								<li class="divider-vertical"></li>
 								<li><a href="#">Masuk <span style="color: #827717;" class="glyphicon glyphicon-log-in fa-3x"></span></a></li>
 								<li class="divider-vertical"></li>
