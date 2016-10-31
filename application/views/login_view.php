@@ -65,49 +65,35 @@
                 </div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-8" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
-					<div role="tabpanel">
-						<!-- Nav tabs -->
-						<ul class="nav nav-tabs" role="tablist">
-							<li role="presentation" class="active">
-								<a href="#login" aria-controls="login" role="tab" data-toggle="tab">Login</a>
-							</li>
-							<li role="presentation">
-								<a href="#register" aria-controls="tab" role="tab" data-toggle="tab">Daftar</a>
-							</li>
-						</ul>
-						
-						<!-- Tab panes -->
-						<div class="tab-content">
-							<div role="tabpanel" class="tab-pane" id="login" style="border: 1px dotted #C2C2C2; padding: 15px;">
-								<!-- bagian login -->
-								<form role="form" class="form-horizontal">
-									<div class="form-group">
-										<label for="email" class="col-sm-2 control-label">
-										User name</label>
-										<div class="col-sm-10">
-											<input type="email" class="form-control" id="email1" placeholder="User name" />
+			<div class="row" style="margin-top: 100px;">
+				<div class="col-sm-12">
+					<div class="panel panel-default">
+						<div class="panel-body">
+								<form action="#" method="POST" class="form-horizontal">
+										<div class="form-group">
+											<label for="email" class="col-sm-2 control-label">
+											User name</label>
+											<div class="col-sm-10">
+												<input type="email" class="form-control"  placeholder="User name" />
+											</div>
 										</div>
-									</div>
-									<div class="form-group">
-										<label for="exampleInputPassword1" class="col-sm-2 control-label">
-										Password</label>
-										<div class="col-sm-10">
-											<input type="password" class="form-control" id="exampleInputPassword1" placeholder="password" />
+										<div class="form-group">
+											<label for="exampleInputPassword1" class="col-sm-2 control-label">
+											Password</label>
+											<div class="col-sm-10">
+												<input type="password" class="form-control"  placeholder="password" />
+											</div>
 										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-2">
+										<div class="row">
+											<div class="col-sm-2">
+											</div>
+											<div class="col-sm-10">
+												<button type="submit" class="btn btn-primary btn-md">
+												Login</button>
+												<a href="javascript:;">Kamu lupa password ?</a>
+											</div>
 										</div>
-										<div class="col-sm-10">
-											<button type="submit" class="btn btn-primary btn-md">
-											Login</button>
-											<a href="javascript:;">Kamu lupa password ?</a>
-										</div>
-									</div>
 								</form>
-							</div>
 						</div>
 					</div>
 				</div>
