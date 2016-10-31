@@ -13,7 +13,7 @@
 			</a>
 			<a id="second-logo">
 				<span style="color: #827717; margin-left: 60px; margin-top: 13px;" class="glyphicon glyphicon-shopping-cart fa-3x-colapse" aria-hidden="true"></span>
-				<span class="badge" style="margin-left: -15px; margin-top: -40px;">4</span>
+				<span class="badge" style="margin-left: -10px; margin-top: -40px;"><?php echo $jumlah_keranjang; ?></span>
 			</a>
 		</div>
 		

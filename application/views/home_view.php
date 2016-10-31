@@ -72,14 +72,13 @@
 			<script src="jQuery.loadScroll.js"></script>
 	</head>
 	<body screen_capture_incject="true" style="background-color: #fff;">
-		<div id="skippy">
-		</div>
 		<header>
 			<?php require_once(APPPATH .'views/templates/first_nav.php'); ?>
 			<?php require_once(APPPATH .'views/templates/navigasi.php'); ?>
 		</header><!-- /header -->
+		
 
-		<?php //require_once(APPPATH .'views/templates/slide_show.php'); ?>
+		<?php require_once(APPPATH .'views/templates/slide_show.php'); ?>
 		
 		<!-- slide content -->
 
@@ -273,7 +272,7 @@
 									$barang = $barang_satuan[$idx];
 									?>
 									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-										<div class="panel panel-default" style="border-radius: 0px; height: 360px;">
+										<div class="panel panel-default" style="border-radius: 0px; height: 270px;">
 											<div class="panel-body">
 												<div class="row">
 													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -283,7 +282,8 @@
 															echo base_url('index.php/home/detail_produk?id_produk='. $barang->id_barang_satuan); 
 														?>" title="" style="text-decoration:none"
 															class="img-responsive" alt="Image" height="800" width="500">
-															<img src="
+															
+															<img style="margin-top: -10px; height: 200px;" src="
 															<?php 
 															if(isset($barang->foto_barang)) {
 																echo base_url($barang->foto_barang); 
@@ -295,12 +295,12 @@
 													</div>
 													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" 
 													style="margin-top: -15px;">
-														<h4><small><?php echo $barang->nama_barang; ?></small></h4>
+														<h4><small style="font-size: 12px;"><?php echo $barang->nama_barang; ?></small></h4>
 														<p style="margin-top: -4px;">
 															<?php 
 																$harga_jual = "Rp. ". number_format($barang->harga_jual, 0, ".", ".");
 															?>
-															<h4 style="font-size: 18px;"><?php echo $harga_jual; ?></h4>
+															<h4 style="font-size: 15px;"><?php echo $harga_jual; ?>,-</h4>
 														</p>
 														<?php 
 															if(!empty($barang->diskon)) {
