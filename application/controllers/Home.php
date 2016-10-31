@@ -48,6 +48,22 @@ class Home extends CI_Controller {
 		$this->load->view('login_view');
 	}
 
+	public function do_login() {
+		$username = $this->input->post("username");
+		$password = $this->input->post("password");
+		$this->load->model("Member_model");
+
+		$member_model = new Member_Model();
+
+	 	$member = $member_model->login();
+
+	 	if(count($member) > 0) {
+
+	 	} else {
+
+	 	}
+	}
+
 	public function troli() {
 		$keranjang = $this->shopping_cart->fetch_all();
 
@@ -151,6 +167,12 @@ class Home extends CI_Controller {
 		$this->data['barang_satuan'] = $barang_satuan;
 
 		$this->load->view('detail_produk_satuan_view', $this->data);
+	}
+
+	function is_member_logged_in() {
+		$state = $this->session->userdata('username');
+		 
+		return !empty($state) ? true : false;
 	}
 
 	public function checkout() {
