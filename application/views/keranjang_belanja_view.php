@@ -134,7 +134,7 @@
 							<br>
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-									<a href="" class="btn btn-block btn-warning">LANJUTKAN KE PEMBAYARAN</a>
+									<a href="<?php echo base_url('index.php/home/checkout'); ?>" class="btn btn-block btn-warning">LANJUTKAN KE PEMBAYARAN</a>
 								</div>
 							</div>
 						</div>

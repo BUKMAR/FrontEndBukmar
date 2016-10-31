@@ -28,16 +28,35 @@ class Home extends CI_Controller {
 	}
 
 	public function index() {
-		$this->load->model("Barang_satuan_model");
+		if($this->is_member_logged_in()) {
+			$this->load->model("Member_model");
+			$member_model = new Member_Model();
 
-		$barang_satuan_model = new Barang_Satuan_Model();
+			$id_member = $this->session->userdata('id_member');
+			
+			$this->data['member'] = $member_model->fetch_by_id($id_member);
+			$this->load->model("Barang_satuan_model");
 
-		$barang_satuan = $barang_satuan_model->fetch_all();
+			$barang_satuan_model = new Barang_Satuan_Model();
 
-		$this->data['jumlah_keranjang'] = $this->shopping_cart->countItems();
-		$this->data['barang_satuan'] = $barang_satuan;
-		
-		$this->load->view("home_view", $this->data);
+			$barang_satuan = $barang_satuan_model->fetch_all();
+
+			$this->data['jumlah_keranjang'] = $this->shopping_cart->countItems();
+			$this->data['barang_satuan'] = $barang_satuan;
+			
+			$this->load->view("home_view", $this->data);
+		} else {
+			$this->load->model("Barang_satuan_model");
+
+			$barang_satuan_model = new Barang_Satuan_Model();
+
+			$barang_satuan = $barang_satuan_model->fetch_all();
+
+			$this->data['jumlah_keranjang'] = $this->shopping_cart->countItems();
+			$this->data['barang_satuan'] = $barang_satuan;
+			
+			$this->load->view("home_view", $this->data);
+		}
 	}
 
 	public function registrasi() {
@@ -55,10 +74,21 @@ class Home extends CI_Controller {
 
 		$member_model = new Member_Model();
 
-	 	$member = $member_model->login();
+		$member = $member_model->login(
+			$this->input->post("username"),
+			$this->input->post("password")
+		);
 
 	 	if(count($member) > 0) {
+			$item = $member[0];
 
+			$this->session->set_userdata(array(
+				"id_member" => $item['id_member'],
+				"nama_depan" => $item['nama_depan'],
+				"username" => $item['username']
+			));
+				
+			redirect(site_url());
 	 	} else {
 
 	 	}
@@ -217,7 +247,8 @@ class Home extends CI_Controller {
 				$barang[] = $tmp;
 			}
 
-			$member = $member_model->fetch_by_id('M-20160929-1475153193');
+			$id_member = $this->session->userdata('id_member');
+			$member = $member_model->fetch_by_id($id_member);
 
 			$this->data['member'] = $member;
 			$this->data['total'] = $total;

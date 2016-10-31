@@ -32,6 +32,12 @@
 										</span>
 		                			</div>
             					</div>
+            					<div class="form-group">
+		                			<div class='input-group'>
+		                				<label>Alamat Pengririman</label>
+										<textarea name="alamat-pengiriman" class="form-control"></textarea>
+		                			</div>
+            					</div>
             					<script type="text/javascript">
 									$(function () {
 										$('#datetimepicker1').datetimepicker();
