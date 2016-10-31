@@ -88,6 +88,8 @@ class Home extends CI_Controller {
 			$this->data['jumlah_keranjang'] = $this->shopping_cart->countItems();
 
 			$this->load->view("keranjang_belanja_view", $this->data);
+		} else {
+			$this->load->view("keranjang_belanja_view");
 		}
 	}
 
@@ -151,8 +153,59 @@ class Home extends CI_Controller {
 		$this->load->view('detail_produk_satuan_view', $this->data);
 	}
 
-	public function cekout() {
-		$this->load->view('cekout_view');
+	public function checkout() {
+		$keranjang = $this->shopping_cart->fetch_all();
+
+		if(count($keranjang) > 0) {
+			$id_barang_array = array();
+			$total = 0;
+			
+			$this->load->model("Barang_satuan_model");
+			$this->load->model("Member_model");
+			$this->load->model("Foto_barang_satuan_model");
+			$this->load->model("Diskon_model");
+				
+			$barang_satuan_model = new Barang_Satuan_Model();
+			$member_model = new Member_Model();
+			$foto_barang_satuan_model = new Foto_Barang_Satuan_Model();
+			$diskon_model = new Diskon_Model();
+
+			foreach($keranjang as $item) {
+				$id_barang = $item['id'];
+				$qty = $item['qty'];
+				$subtotal = $item['subtotal'];
+
+				$tmp = $barang_satuan_model->fetch_by_id($id_barang);
+
+				$foto_barang_satuan = $foto_barang_satuan_model->fetch_by_id_barang_satuan($id_barang);
+
+				$tmp['foto_barang'] = $foto_barang_satuan['foto_barang'];
+				$diskon = $diskon_model->fetch_by_id($id_barang);
+
+				if(count($diskon) > 0)
+					$tmp['diskon'] = $diskon['diskon'];
+				else
+					$tmp['diskon'] = 0;
+				
+				$tmp['qty'] = $qty;
+				$tmp['tawaran'] = $item['price'];
+				$tmp['subtotal'] = $subtotal;
+
+				$total += $subtotal;
+				$barang[] = $tmp;
+			}
+
+			$member = $member_model->fetch_by_id('M-20160929-1475153193');
+
+			$this->data['member'] = $member;
+			$this->data['total'] = $total;
+			$this->data['barang'] = $barang;
+			$this->data['jumlah_keranjang'] = $this->shopping_cart->countItems();
+
+			$this->load->view("cekout_view", $this->data);
+		} else {
+			$this->load->view('cekout_view');
+		}
 	}
 
 }
