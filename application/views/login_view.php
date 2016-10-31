@@ -69,19 +69,19 @@
 				<div class="col-sm-12">
 					<div class="panel panel-default">
 						<div class="panel-body">
-								<form action="#" method="POST" class="form-horizontal">
+								<form action="<?php echo base_url('index.php/home/do_login'); ?>" method="POST" class="form-horizontal">
 										<div class="form-group">
 											<label for="email" class="col-sm-2 control-label">
 											User name</label>
 											<div class="col-sm-10">
-												<input type="email" class="form-control"  placeholder="User name" />
+												<input type="email" name="username" class="form-control"  placeholder="User name" />
 											</div>
 										</div>
 										<div class="form-group">
 											<label for="exampleInputPassword1" class="col-sm-2 control-label">
 											Password</label>
 											<div class="col-sm-10">
-												<input type="password" class="form-control"  placeholder="password" />
+												<input type="password" name="password" class="form-control"  placeholder="password" />
 											</div>
 										</div>
 										<div class="row">

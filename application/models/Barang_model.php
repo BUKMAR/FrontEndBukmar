@@ -1,19 +1,19 @@
-  <?php
-	class Member_model extends CI_Model {
+<?php
+	class Barang_Model extends CI_Model {
 
-		private $table = 'member';
+		private $table = 'barang';
 		private $column_order = 
-		array(null, 'id_member','nama_depan'); //set column field database for datatable orderable
+		array(null, 'id_barang','nama_paket','tgl_upload','harga_jual', 'harga_jual', 'foto'); //set column field database for datatable orderable
 		private $column_search = 
-		array('id_member','nama_depan'); //set column field database for datatable searchable 
-		private $order = array('id_member' => 'asc'); // default order 
+		array('id_barang','nama_paket','tgl_upload','harga_jual', 'harga_jual', 'foto'); //set column field database for datatable searchable 
+		private $order = array('id_barang' => 'asc'); // default order 
 
 		public function __construct() {
 			parent::__construct();
 		}
 
 		public function insert($data) {
-			$this->db->insert("member", $data);
+			$this->db->insert("barang", $data);
 
 			$insert_id = $this->db->insert_id();
 
@@ -21,38 +21,27 @@
 		}
 
 		public function delete($id) {
-			$this->db->where("id_member", $id);
-			$this->db->delete("member");
+			$this->db->where("id_barang", $id);
+			$this->db->delete("barang");
 		}
 
 		public function update($id, $data) {
-			$this->db->where("id_member", $id);
-			$this->db->update("member", $data);
+			$this->db->where("id_barang", $id);
+			$this->db->update("barang", $data);
 		}
 
  		public function fetch_all() {
  			$this->db->select("*");
- 			$this->db->from("member");
+ 			$this->db->from("barang");
  			$query = $this->db->get();
 
  			return $query->result_array();
  		}
- 		
- 		public function login($username, $password) {
+
+ 		public function fetch_by_id($id_barang) {
  			$this->db->select("*");
- 			$this->db->from("member");
- 			$this->db->where("`username`='". $username ."' AND `password`='". $password."'");
- 			$query = $this->db->get();
-
- 			$rows = $query->result_array();
-
- 			return $rows;
- 		}
-
- 		public function fetch_by_id($id_member) {
- 			$this->db->select("*");
- 			$this->db->from("member");
- 			$this->db->where("id_member='$id_member'");
+ 			$this->db->from("barang");
+ 			$this->db->where("id_barang=$id_barang");
 
  			$query = $this->db->get();
 
@@ -65,7 +54,7 @@
  		}
 
 	    private function _get_datatables_query() {
-	        $this->db->from("member");
+	        $this->db->from("barang");
 	        $i = 0;
 	        
 	     	// loop column 
