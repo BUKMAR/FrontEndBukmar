@@ -6,17 +6,16 @@ body {
 }
 
 #skippy {
-	padding: 1em;
-    padding-top: 1em;
-    padding-right: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    color: #fff;
-    background-color: #6f5499;
-    outline: 0;
-    outline-color: initial;
-    outline-style: initial;
-    outline-width: 0px;
+  padding-top: 0.2em;
+  padding-right: 0em;
+  padding-bottom: 0em;
+  padding-left: 0.2em;
+  color: #827717;
+  background-color: #C0CA33;
+  outline: 0;
+  outline-color: initial;
+  outline-style: initial;
+  outline-width: 0px;
 }
 
 .carousel {
@@ -33,6 +32,10 @@ div {
 
 .image-slide {
 	width: 0px auto;
+}
+
+#second-cart {
+  margin-top: -30px;
 }
 
 header {
