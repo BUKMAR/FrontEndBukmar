@@ -3,72 +3,65 @@
 	<head>
 		<?php require_once(APPPATH .'views/include/include.php'); ?>
 		<style type="text/css">
-			.navbar {
-				margin-bottom: 0px;
-			}
-			* {
-			box-sizing: border-box;
-			}
-			.slider-row {
-				background-color: #ffffff;
-				padding-bottom: 0px;
-				padding-top: 10px;
-				padding-bottom: 10px;
-				padding-left: 10px;
-				padding-right: 10px;
-			}
-			.slider-row img {
-				height: 320px;
-				width: 220px;
-				margin-right: 9px;
-			}
-			.isi h2 {
-				padding-left: 35px;
-			}
-			.panel-body a:hover {
-				text-decoration: none;
-			}
-
+		.navbar {
+		margin-bottom: 0px;
+		}
+		* {
+		box-sizing: border-box;
+		}
+		.slider-row {
+		background-color: #ffffff;
+		padding-bottom: 0px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+		}
+		.slider-row img {
+		height: 320px;
+		width: 220px;
+		margin-right: 9px;
+		}
+		.isi h2 {
+		padding-left: 35px;
+		}
+		.panel-body a:hover {
+		text-decoration: none;
+		}
 		.fa-3x {
-    	font-size: 1.4em;
+		font-size: 1.4em;
 		}
-
 		.fa-3x-colapse {
-				font-size: 2em;
-			}
-
+		font-size: 2em;
+		}
 		.navbar .divider-vertical {
-		  height: 50px;
-		  margin: 0 9px;
-		  border-left: 1px solid #f2f2f2;
-		  border-right: 1px solid #ffffff;
+		height: 50px;
+		margin: 0 9px;
+		border-left: 1px solid #f2f2f2;
+		border-right: 1px solid #ffffff;
 		}
-
 		.input-group-btn {
-		    position: relative;
-		    font-size: 0;
-		    white-space: nowrap;
+		position: relative;
+		font-size: 0;
+		white-space: nowrap;
 		}
-
 		.dropdown-item {
-    display: block;
-    width: 100%;
-    padding: 3px 1.5rem;
-    clear: both;
-    font-weight: 400;
-    color: #373a3c;
-    text-align: inherit;
-    white-space: nowrap;
-    background: 0 0;
-    border: 0;
-}
-
-    .btn-secondary {
-    color: #373a3c;
-    background-color: #fff;
-    border-color: #ccc;
-}
-
+		display: block;
+		width: 100%;
+		padding: 3px 1.5rem;
+		clear: both;
+		font-weight: 400;
+		color: #373a3c;
+		text-align: inherit;
+		white-space: nowrap;
+		background: 0 0;
+		border: 0;
+		}
+		.btn-secondary {
+		color: #373a3c;
+		background-color: #fff;
+		border-color: #ccc;
+		}
 		</style>
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
