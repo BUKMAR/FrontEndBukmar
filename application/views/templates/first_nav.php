@@ -39,7 +39,6 @@
 			          <a class="dropdown-item" href="#">Separated link</a>
 			        </div>
 			      </div>
-
 				      <input type="text" class="form-control" style="width: 630px; border-radius: 0px;" placeholder="Cari Sembako di Bukmar... ">
 				      <span class="input-group-btn">
 				        <button class="btn btn-default" style="border-radius: 0px;" type="button">
@@ -50,15 +49,18 @@
 					</form>
 						<ul class="nav navbar-nav navbar-right">
 							<li class="divider-vertical"></li>
-								<li><a href="<?php echo base_url('index.php/home/troli'); ?>"><span style="color: #827717;" class="glyphicon glyphicon-shopping-cart fa-3x" aria-hidden="true"></span> <span class="badge" style="margin-top: -30px; margin-left: -10px;"><?php echo $jumlah_keranjang; ?></span> </a></li>
+								<li><a href="<?php echo base_url('index.php/home/troli'); ?>"><span style="color: #827717;" class="glyphicon glyphicon-shopping-cart fa-3x" aria-hidden="true"></span> <span class="badge" style="margin-top: -30px;"><?php echo $jumlah_keranjang; ?></span> </a></li>
 								<li class="divider-vertical"></li>
 								<?php if(!isset($member)) { ?>
 								<li>
-								<a href="#">Masuk <span style="color: #827717;" class="glyphicon glyphicon-log-in fa-3x"></span></a>
+								<a href="<?php echo base_url('index.php/home/login'); ?>">Masuk <span style="color: #827717;" class="glyphicon glyphicon-log-in fa-3x"></span></a>
 								</li>
 								<?php } else { ?>
+								<li style='margin-right: 0px;'>
+									<a>Hai <?php echo $member['nama_depan']; ?>, </a>
+								</li>
 								<li>
-								<a href="#">Anda login sebagai <?php echo $member['nama_depan']; ?></a>
+									<a href="<?php echo base_url("index.php/home/logout"); ?>">Logout</a>
 								</li>
 								<?php } ?>
 								<li class="divider-vertical"></li>

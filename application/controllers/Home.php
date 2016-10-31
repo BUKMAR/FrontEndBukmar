@@ -40,9 +40,11 @@ class Home extends CI_Controller {
 			$barang_satuan_model = new Barang_Satuan_Model();
 
 			$barang_satuan = $barang_satuan_model->fetch_all();
+			$jumlah_halaman = ceil(count($barang_satuan) / 16);
 
 			$this->data['jumlah_keranjang'] = $this->shopping_cart->countItems();
 			$this->data['barang_satuan'] = $barang_satuan;
+			$this->data['jumlah_link'] = $jumlah_halaman;
 			
 			$this->load->view("home_view", $this->data);
 		} else {
@@ -54,6 +56,7 @@ class Home extends CI_Controller {
 
 			$this->data['jumlah_keranjang'] = $this->shopping_cart->countItems();
 			$this->data['barang_satuan'] = $barang_satuan;
+			$this->data['jumlah_link'] = ceil(count($barang_satuan) / 16);
 			
 			$this->load->view("home_view", $this->data);
 		}
@@ -65,6 +68,12 @@ class Home extends CI_Controller {
 
 	public function login() {
 		$this->load->view('login_view');
+	}
+
+	public function logout() {
+		$this->session->unset_userdata('username');
+
+		redirect(site_url());
 	}
 
 	public function do_login() {
@@ -140,31 +149,59 @@ class Home extends CI_Controller {
 	}
 
 	public function tambah_ke_keranjang() {
-		$id_barang = $this->input->post("id-barang");
-		$kuantitas = $this->input->post("kuantitas");
-		$harga_tawar = $this->input->post("harga-tawar");
+		if($this->input->post("status") == "false") {
+			$id_barang = $this->input->post("id-barang");
+			$kuantitas = $this->input->post("kuantitas");
+			$harga_tawar = $this->input->post("harga-tawar");
 
-		$this->load->model("Barang_satuan_model");
-		$barang_satuan_model = new Barang_Satuan_Model();
+			$this->load->model("Barang_satuan_model");
+			$barang_satuan_model = new Barang_Satuan_Model();
 
-		$barang = $barang_satuan_model->fetch_by_id($id_barang);
+			$barang = $barang_satuan_model->fetch_by_id($id_barang);
 
-		$data = array(
-		   	'id' => $id_barang,
-		    'name' => $barang['nama_barang'],
-		    'qty' => $kuantitas,
-		    'price' => $harga_tawar,
-		    'options' => array()
-		);
+			$data = array(
+			   	'id' => $id_barang,
+			    'name' => $barang['nama_barang'],
+			    'qty' => $kuantitas,
+			    'price' => $harga_tawar,
+			    'options' => array()
+			);
 
-		if($this->shopping_cart->ifExist($id_barang)) 
-			$this->shopping_cart->updateCart($id_barang, $kuantitas);
-		else 
-			$this->shopping_cart->addToCart($data);
+			if($this->shopping_cart->ifExist($id_barang)) 
+				$this->shopping_cart->updateCart($id_barang, $kuantitas);
+			else 
+				$this->shopping_cart->addToCart($data);
 
-		$chart = $this->shopping_cart->fetch_all();
+			$chart = $this->shopping_cart->fetch_all();
 
-		redirect(site_url());
+			redirect(site_url());
+		} else {
+			$id_barang = $this->input->post("id-barang");
+			$kuantitas = $this->input->post("kuantitas");
+			$harga_tawar = $this->input->post("harga-tawar");
+
+			$this->load->model("Barang_satuan_model");
+			$barang_satuan_model = new Barang_Satuan_Model();
+
+			$barang = $barang_satuan_model->fetch_by_id($id_barang);
+
+			$data = array(
+			   	'id' => $id_barang,
+			    'name' => $barang['nama_barang'],
+			    'qty' => $kuantitas,
+			    'price' => $harga_tawar,
+			    'options' => array()
+			);
+
+			if($this->shopping_cart->ifExist($id_barang)) 
+				$this->shopping_cart->updateCart($id_barang, $kuantitas);
+			else 
+				$this->shopping_cart->addToCart($data);
+
+			$chart = $this->shopping_cart->fetch_all();
+
+			redirect(site_url('home/troli'));
+		}
 	}
 
 	public function detail_produk_paket() {
@@ -176,6 +213,13 @@ class Home extends CI_Controller {
 	public function detail_produk() {
 		$this->load->model("Barang_satuan_model");
 		$this->load->model("Foto_barang_satuan_model");
+		$this->load->model("Member_model");
+
+		$id_member = $this->session->userdata('id_member');
+		
+		$member_model = new Member_Model();
+
+		$this->data['member'] = $member_model->fetch_by_id($id_member);
 
 		$barang_satuan_model = new Barang_Satuan_Model();
 		$foto_barang_satuan_model = new Foto_Barang_Satuan_Model();
@@ -206,58 +250,60 @@ class Home extends CI_Controller {
 	}
 
 	public function checkout() {
-		$keranjang = $this->shopping_cart->fetch_all();
+		if($this->is_member_logged_in()) {
+			$keranjang = $this->shopping_cart->fetch_all();
 
-		if(count($keranjang) > 0) {
-			$id_barang_array = array();
-			$total = 0;
-			
-			$this->load->model("Barang_satuan_model");
-			$this->load->model("Member_model");
-			$this->load->model("Foto_barang_satuan_model");
-			$this->load->model("Diskon_model");
+			if(count($keranjang) > 0) {
+				$id_barang_array = array();
+				$total = 0;
 				
-			$barang_satuan_model = new Barang_Satuan_Model();
-			$member_model = new Member_Model();
-			$foto_barang_satuan_model = new Foto_Barang_Satuan_Model();
-			$diskon_model = new Diskon_Model();
+				$this->load->model("Barang_satuan_model");
+				$this->load->model("Member_model");
+				$this->load->model("Foto_barang_satuan_model");
+				$this->load->model("Diskon_model");
+					
+				$barang_satuan_model = new Barang_Satuan_Model();
+				$member_model = new Member_Model();
+				$foto_barang_satuan_model = new Foto_Barang_Satuan_Model();
+				$diskon_model = new Diskon_Model();
 
-			foreach($keranjang as $item) {
-				$id_barang = $item['id'];
-				$qty = $item['qty'];
-				$subtotal = $item['subtotal'];
+				foreach($keranjang as $item) {
+					$id_barang = $item['id'];
+					$qty = $item['qty'];
+					$subtotal = $item['subtotal'];
 
-				$tmp = $barang_satuan_model->fetch_by_id($id_barang);
+					$tmp = $barang_satuan_model->fetch_by_id($id_barang);
 
-				$foto_barang_satuan = $foto_barang_satuan_model->fetch_by_id_barang_satuan($id_barang);
+					$foto_barang_satuan = $foto_barang_satuan_model->fetch_by_id_barang_satuan($id_barang);
 
-				$tmp['foto_barang'] = $foto_barang_satuan['foto_barang'];
-				$diskon = $diskon_model->fetch_by_id($id_barang);
+					$tmp['foto_barang'] = $foto_barang_satuan['foto_barang'];
+					$diskon = $diskon_model->fetch_by_id($id_barang);
 
-				if(count($diskon) > 0)
-					$tmp['diskon'] = $diskon['diskon'];
-				else
-					$tmp['diskon'] = 0;
-				
-				$tmp['qty'] = $qty;
-				$tmp['tawaran'] = $item['price'];
-				$tmp['subtotal'] = $subtotal;
+					if(count($diskon) > 0)
+						$tmp['diskon'] = $diskon['diskon'];
+					else
+						$tmp['diskon'] = 0;
+					
+					$tmp['qty'] = $qty;
+					$tmp['tawaran'] = $item['price'];
+					$tmp['subtotal'] = $subtotal;
 
-				$total += $subtotal;
-				$barang[] = $tmp;
-			}
+					$total += $subtotal;
+					$barang[] = $tmp;
+				}
 
-			$id_member = $this->session->userdata('id_member');
-			$member = $member_model->fetch_by_id($id_member);
+				$id_member = $this->session->userdata('id_member');
+				$member = $member_model->fetch_by_id($id_member);
 
-			$this->data['member'] = $member;
-			$this->data['total'] = $total;
-			$this->data['barang'] = $barang;
-			$this->data['jumlah_keranjang'] = $this->shopping_cart->countItems();
+				$this->data['member'] = $member;
+				$this->data['total'] = $total;
+				$this->data['barang'] = $barang;
+				$this->data['jumlah_keranjang'] = $this->shopping_cart->countItems();
 
-			$this->load->view("cekout_view", $this->data);
+				$this->load->view("cekout_view", $this->data);
+			} 
 		} else {
-			$this->load->view('cekout_view');
+				$this->load->view('cekout_view');
 		}
 	}
 

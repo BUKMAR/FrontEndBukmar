@@ -170,6 +170,7 @@
 									<input type="hidden" 
 									name="id-barang" value="<?php echo $barang_satuan['id_barang_satuan']; ?>"/>
 									<input type="hidden" id="kuantitas" name="kuantitas" value="1" />
+									<input type="hidden" id="status" name="status" value="false" />
 								</form>
 
 								<div class="row">
@@ -290,7 +291,7 @@
 				<!-- bagian tombol beli -->
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 					<button id="btn-beli" type="button" class="btn btn-warning btn-block"> BELI </button>
-					<button type="button" class="btn btn-success btn-block"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Tambahkan ke Keranjang </button>
+					<button id="btn-masukkan-ke-keranjang" type="button" class="btn btn-success btn-block"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Tambahkan ke Keranjang </button>
 					<button type="button" class="btn btn-block"> <span class="glyphicon glyphicon-heart"></span> &nbsp; Tambahkan Ke Wishlist </button>
 				</div>
 			</div>
@@ -359,6 +360,27 @@
          		$("#qty").val(qty);
          });
 
+         $("#btn-masukkan-ke-keranjang").click(function(event) {
+         	var hargaTawaran =  parseInt($("#input-tawaran").val());
+         	var minTawaran = parseInt($("#harga-tawar").val());
+
+         	if(hargaTawaran < minTawaran) {
+         		sweetAlert("Oops...", "Harga yang anda tawarkan terlalu rendah", "error");
+
+         		event.preventDefault();
+         	} else {
+         		if(!isNaN(hargaTawaran)) {
+	         		swal("Selamat!", "Harga yang anda tawarkan boleh!", "success");
+
+	         		$("#kuantitas").attr("value", $("#qty").val());
+	         		$("#harga-tawar").val($("#input-tawaran").val());
+	         		$("#form").submit();
+         		} else {
+         			sweetAlert("Oops...", "Harga yang anda tawarkan tidak valid", "error");
+         		}
+         	}
+         });
+
          $("#btn-beli").click(function(event) {
          	var hargaTawaran =  parseInt($("#input-tawaran").val());
          	var minTawaran = parseInt($("#harga-tawar").val());
@@ -368,11 +390,16 @@
 
          		event.preventDefault();
          	} else {
-         		swal("Selamat!", "Harga yang anda tawarkan boleh!", "success");
+         		if(!isNaN(hargaTawaran)) {
+	         		swal("Selamat!", "Harga yang anda tawarkan boleh!", "success");
 
-         		$("#kuantitas").attr("value", $("#qty").val());
-         		$("#harga-tawar").val($("#input-tawaran").val())
-         		$("#form").submit();
+	         		$("#kuantitas").attr("value", $("#qty").val());
+	         		$("#harga-tawar").val($("#input-tawaran").val());
+	         		$("#status").val("true");
+	         		$("#form").submit();
+         		} else {
+         			sweetAlert("Oops...", "Harga yang anda tawarkan tidak valid", "error");
+         		}
          	}
          });
 
