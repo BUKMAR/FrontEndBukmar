@@ -26,20 +26,34 @@
 						</ul>
 							<form class="navbar-form navbar-left" role="search">
 						<div class="input-group">
-						<div class="input-group-btn">
-		        <button type="button" style="width: 150px; border-radius: 0px;" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			          Kategori produk &nbsp;
-			          <b class="caret"></b>
-			        </button>
-			        <div class="dropdown-menu">
-			          <a class="dropdown-item" href="#">Action</a>
-			          <a class="dropdown-item" href="#">Another action</a>
-			          <a class="dropdown-item" href="#">Something else here</a>
-			          <div role="separator" class="dropdown-divider"></div>
-			          <a class="dropdown-item" href="#">Separated link</a>
-			        </div>
-			      </div>
-				      <input type="text" class="form-control" style="width: 630px; border-radius: 0px;" placeholder="Cari Sembako di Bukmar... ">
+							<div class="input-group-btn">
+				        		<button type="button" style="width: 150px; border-radius: 0px;" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					         	Kategori produk &nbsp;
+					          	<b class="caret"></b>
+					        	</button>
+					        	<div class="dropdown-menu">
+						          <a class="dropdown-item" href="#">Action</a>
+						          <a class="dropdown-item" href="#">Another action</a>
+						          <a class="dropdown-item" href="#">Something else here</a>
+						          <div role="separator" class="dropdown-divider"></div>
+						          <a class="dropdown-item" href="#">Separated link</a>
+					        	</div>
+			      			</div>
+							<!-- <div class="input-group-btn">
+			        <button type="button" style="width: 150px; border-radius: 0px;" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Kategori produk &nbsp;
+				          <b class="caret"></b>
+				        </button>
+				        <div class="dropdown-menu">
+				          <a class="dropdown-item" href="#">Action</a>
+				          <a class="dropdown-item" href="#">Another action</a>
+				          <a class="dropdown-item" href="#">Something else here</a>
+				          <div role="separator" class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="#">Separated link</a>
+				        </div>
+				      </div> -->
+
+				      <input type="text" class="form-control" style="width: 750px; border-radius: 0px;" placeholder="Cari Sembako di Bukmar... ">
 				      <span class="input-group-btn">
 				        <button class="btn btn-default" style="border-radius: 0px;" type="button">
 				        	<span class="glyphicon glyphicon-search"></span>

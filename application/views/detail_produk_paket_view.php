@@ -112,59 +112,7 @@
   	<div id="skippy">
 	</div>
 	<header>
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<!--
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					-->
-					<a class="navbar-brand" href="#" style="margin-top: -5px; margin-left: -30px;"><img src="<?php echo base_url("assets/images/BUK.png"); ?>" class="img-responsive" alt="Logo" style="width: 150px; height: 40px;"></a>
-				</div>
-		
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse navbar-ex1-collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="#"></a></li>
-					</ul>
-					<form class="navbar-form navbar-left" role="search">
-						<div class="input-group">
-						<div class="input-group-btn">
-		        <button type="button" style="width: 150px; border-radius: 0px;" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			          Kategori produk &nbsp;
-			          <b class="caret"></b>
-			        </button>
-			        <div class="dropdown-menu">
-			          <a class="dropdown-item" href="#">Action</a>
-			          <a class="dropdown-item" href="#">Another action</a>
-			          <a class="dropdown-item" href="#">Something else here</a>
-			          <div role="separator" class="dropdown-divider"></div>
-			          <a class="dropdown-item" href="#">Separated link</a>
-			        </div>
-			      </div>
-				      <input type="text" class="form-control" style="width: 700px; border-radius: 0px;" placeholder="Cari Sembako di Bukmar... ">
-				      <span class="input-group-btn">
-				        <button class="btn btn-default" style="border-radius: 0px;" type="button">
-				        	<span class="glyphicon glyphicon-search"></span>
-				        </button>
-				      </span>
-				    </div><!-- /input-group -->
-					</form>
-					<ul class="nav navbar-nav navbar-right">
-					  <li class="divider-vertical"></li>
-						<li><a href="#"><span class="glyphicon glyphicon-shopping-cart fa-3x" aria-hidden="true"></span> <span class="badge" style="margin-top: -30px; margin-left: -10px;">4</span> </a></li>
-						<li class="divider-vertical"></li>
-						<li><a href="#">Masuk <span class="glyphicon glyphicon-log-in fa-3x"></span></a></li>
-						<li class="divider-vertical"></li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div>
-		</nav>
+		<?php require_once(APPPATH .'views/templates/first_nav.php'); ?>
 		<?php require_once(APPPATH .'views/templates/navigasi.php'); ?>
 	</header><!-- /header -->
 
@@ -182,10 +130,19 @@
 				<li class="active">Current</li>
 			</ol>
 
+								<!-- Required input text -->
+								<form id="form" action="<?php echo base_url("index.php/home/tambah_ke_keranjang"); ?>" method="POST">
+									<input type="hidden" id="stok" value="<?php echo $barang_paket['stok']; ?>"/>
+									<input type="hidden" 
+									name="id-barang" value="<?php echo $barang_paket['id_barang_paket']; ?>"/>
+									<input type="hidden" id="kuantitas" name="kuantitas" value="1" />
+									<input type="hidden" id="status" name="status" value="false" />
+								</form>
+
 			<div class="row">
 				<!-- bagian content -->
 				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-					<a class="text-success" style="font-size: 20px; font-weight: bold; text-decoration: none; line-height: 12px;" href="#" >Milo Complete Mix 960g</a>
+					<a class="text-success" style="font-size: 20px; font-weight: bold; text-decoration: none; line-height: 12px;" href="#" ><?php echo $barang_paket['nama_paket']; ?></a>
 					<br>
 					<br>
 						<div class="row">
@@ -197,8 +154,8 @@
 
 								<!-- bagian detail gambar produk -->
 								<div class="clearfix">
-									<a href="<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_big1.jpg"); ?>" class='jqzoom' rel='gal1'>
-				                    <img src="<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_big1.jpg"); ?>" height="400" class="img-responsive" alt="Image" width="500">
+									<a href="<?php echo base_url($barang_paket['foto_barang']); ?>" class='jqzoom' rel='gal1'>
+				                    <img src="<?php echo base_url($barang_paket['foto_barang']); ?>" height="400" class="img-responsive" alt="Image" width="500">
 				                </a>
 								</div>
 								<br>
@@ -206,20 +163,8 @@
 
 									<ul id="thumblist" class="clearfix" >
 					               <li>
-					               	<a rel="{gallery: 'gal1', smallimage: '<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_small1.jpg"); ?>',largeimage: '<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_big1.jpg"); ?>'}">
-					               		<img class='imgThum-small' src=' <?php echo base_url("assets/jqzoom/demos/imgProd/thumbs/triumph_thumb1.jpg"); ?>'>
-					               	</a>
-					               </li>
-
-					               <li>
-					               	<a rel="{gallery: 'gal1', smallimage: '<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_small2.jpg"); ?>',largeimage: '<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_big2.jpg"); ?>'}">
-					               		<img class='imgThum-small' src=' <?php echo base_url("assets/jqzoom/demos/imgProd/thumbs/triumph_thumb2.jpg"); ?>'>
-					               	</a>
-					               </li>
-
-					               <li>
-					               	<a rel="{gallery: 'gal1', smallimage: '<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_small3.jpg"); ?>',largeimage: '<?php echo base_url("assets/jqzoom/demos/imgProd/triumph_big3.jpg"); ?>'}">
-					               		<img class='imgThum-small' src=' <?php echo base_url("assets/jqzoom/demos/imgProd/thumbs/triumph_thumb3.jpg"); ?>'>
+					               	<a rel="{gallery: 'gal1', smallimage: '<?php echo base_url($barang_paket['foto_barang']); ?>',largeimage: '<?php echo base_url($barang_paket['foto_barang']); ?>'}">
+					               		<img class='imgThum-small' src='<?php echo base_url($barang_paket['foto_barang']); ?>'>
 					               	</a>
 					               </li>
 
@@ -244,22 +189,15 @@
 													<tbody>
 														<tr>
 															<td> <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> &nbsp; Lihat </td>
-															<td> 100 </td>
-															<td> <span class="glyphicon glyphicon-scale" aria-hidden="true"></span> &nbsp; Berat </td>
-															<td> 960 </td>
-															
-														</tr>
-														<tr>
-															<td> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> &nbsp; Tanggal Pengiriman </td>
-															<td> 12/09/2016 </td>
+															<td><?php echo $barang_paket['dilihat']; ?></td>
 															<td> <span class="glyphicon glyphicon-flag" aria-hidden="true"></span> &nbsp; Stok Barang </td>
-															<td> 10 </td>
+															<td><?php echo $barang_paket['stok']; ?></td>
 														</tr>
 														<tr>
 															<td> <span class="glyphicon glyphicon-tags" aria-hidden="true"></span> &nbsp; Kondisi </td>
 															<td> Baru </td>
 															<td> <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> &nbsp; Pemesanan Min. </td>
-															<td> 2 pics </td>
+															<td> 1 pics </td>
 														</tr>
 													</tbody>
 												</table>
@@ -270,118 +208,82 @@
 								<span style="margin-top: 10px;">
 										<p style="text-align: left; font-size: 20px;">Deskripsi Produk</p>
 										<p style="color: #606060;">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+											<?php echo $barang_paket['keterangan']; ?>
 										</p>
 								</span>
 							</div> <!-- end content -->
 						</div> <!-- end row content -->
-						
-						<!-- bagian testimoni -->
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div class="panel panel-default">
-									<div class="panel-body">
-										<label><span class="glyphicon glyphicon-pencil"></span> &nbsp; Tinggalkan Komentar </label>
-										<textarea name="comentar" id="inputComentar" placeholder="Add a command..." class="form-control" rows="3" required="required"></textarea>
-									</div>
-									<div class="panel-footer">
-										<div class="row">
-											<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-
-											</div>
-											<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-												<button type="button" class="btn btn-block btn-success"> <span class="glyphicon glyphicon-comment"></span> Command</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								
-							</div>
-						</div>
-						<!-- enc testimoni -->
-						
-
 				</div>
 				
 				<!-- bagian tombol beli -->
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-					<p class="text-danger" style="font-size: 26px; text-align: center; font-weight: bold;">Rp 78.000,-</p>
+					<p class="text-danger" style="font-size: 26px; font-weight: bold;">
+					<?php 
+						echo "Rp. ". number_format($barang_paket['harga_jual'], 0, ".", ".");
+					?>
+					</p>
+					<?php if(!empty($barang_paket['diskon'])) { ?>
 					<p class="text-default" style="font-weight: 500; text-align: center; margin-top: -15px; color: #ccc;"><del>Rp. 20.000</del> <span class="red-label">Diskon 33%</span> </p>
-					<p class="text-default" style="text-align: center; font-size: 10px;"><i>Perubahan Harga Terakhir: 1-09-2016, 11:40 WIB</i></p>
+					<?php } ?>
 					<div class="row">
 						<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-							<span>
-								<label>Kuantitas</label>
-							</span>
+							<p style="font-size: 17px;">Kuantitas</p>
 							<div class="input-group">
-						      <span class="input-group-btn">
-						        <button class="btn btn-default" type="button">-</button>
-						      </span>
-						      <input type="text" class="form-control" style="text-align: center;" placeholder="Qty" value="1">
-						      <span class="input-group-btn">
-						        <button class="btn btn-default" type="button">+</button>
-						      </span>
-						   </div><!-- /input-group -->
-				   	</div>
+								<span class="input-group-btn">
+									<button id="btn-min" class="btn btn-default" type="button">-</button>
+								</span>
+								<input type="text" id="qty" name="qty" class="form-control" style="text-align: center;" placeholder="Qty" value="1">
+								<span class="input-group-btn">
+									<button id="btn-plus" class="btn btn-default" type="button">+</button>
+								</span>
+							</div><!-- /input-group -->
+				   		</div>
 					</div>
 					<br>
-					<button type="button" class="btn btn-warning btn-block"> BELI </button>
-					<button type="button" class="btn btn-success btn-block"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Tambahkan ke Keranjang </button>
+					<button id="btn-beli" type="button" class="btn btn-warning btn-block"> BELI </button>
+					<button id="btn-masukkan-ke-keranjang" type="button" class="btn btn-success btn-block"> <span class="glyphicon glyphicon-shopping-cart"></span> &nbsp; Tambahkan ke Keranjang </button>
 					<button type="button" class="btn btn-block"> <span class="glyphicon glyphicon-heart"></span> &nbsp; Tambahkan Ke Wishlist </button>
 				</div>
 			</div>
-
-
-			<!-- produk / jenis lainnya -->
-			<div class="alert alert-success">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				<strong>Produk / Sejenis </strong>
-			</div>
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<div class="row">
-					<?php for ($i = 0; $i < 6; $i++): ?>
-						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-		  					<div class="panel panel-default">
-		  						<div class="panel-body">
-		  							<div class="row">
-		  								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			  								<a href="<?php echo base_url('index.php/home/detail_produk'); ?>" title="" style="text-decoration:none">
-			  									<img data-src="<?php echo base_url("assets/images/blue.jpg"); ?>" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTdhMjNkZGY1ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1N2EyM2RkZjVmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjY5NTMxMjUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" class="img-responsive" alt="Image" width="500">
-			  								</div>
-			  								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top: 5px;">
-			  									<h4><small>Nama Barang</small></h4>
-			  									<p style="margin-top: -4px;">
-			  										<h4 style="color: red;">Rp. 50.000,-</h4>
-			  									</p>
-			  									<p style="margin-top: -4px;">
-			  										<h5><small><s>Rp. 50.000</s></small></h5>
-			  										<h5 style="margin-left: 60px; margin-top: -25px;"><small>80%</small></h5>
-			  									</p>
-			  								</a>
-		  								</div>
-		  							</div>
-		  						</div>
-		  					</div>
-		  				</div>
-		  			<?php endfor ?>
-					</div> <!-- end row content produk terkait  -->
-				</div>
-			</div>
-	  		<!-- end content produk -->
-
 		</div>
 	</content>
+<script type="text/javascript">
+      $(document).ready(function() {
+         $(".jqzoom").jqzoom({
+         	zoomType: 'standard',
+         	lens: true,
+         	preloadImages: false,
+         	alwaysOn: false
+         });
 
+         $("#btn-plus").click(function() {
+         	var qty = parseInt($("#qty").val()) + 1;
+
+         	if(qty <= $("#stok").val()) 
+         		$("#qty").val(qty);
+         });
+
+         $("#btn-min").click(function() {
+         	var qty = parseInt($("#qty").val()) - 1;
+
+         	if(qty > 0) 
+         		$("#qty").val(qty);
+         });
+
+         $("#btn-masukkan-ke-keranjang").click(function(event) {
+         	$("#form").submit();
+         });
+
+         $("#btn-beli").click(function(event) {
+	        $("#kuantitas").attr("value", $("#qty").val());
+	     	$("#status").val("true");
+	        $("#form").submit();
+         });
+
+         $("#kuantitas").attr("value", "1");
+      });
+
+    </script>
 	<?php require_once(APPPATH .'views/templates/footer.php'); ?>
 	
   </body>

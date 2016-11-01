@@ -62,7 +62,15 @@ header {
     display: inline;
   }
 
+  #tab-produk {
+    display: none;
+  }
+
   #carousel-id {
+    display: none;
+  }
+
+  #deskripsi {
     display: none;
   }
 
@@ -103,6 +111,10 @@ header {
   }
 
   #second-form {
+    display: none;
+  }
+
+  #accordion {
     display: none;
   }
 

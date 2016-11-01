@@ -38,6 +38,24 @@
  			return $query->result_array();
  		}
 
+ 		public function fetch_all_by_limit($limit) {
+ 			$this->db->select("`barang_paket`.`id_barang_paket`,
+								`barang_paket`.`nama_paket`,
+								`barang_paket`.`keterangan`,
+								`barang_paket`.`stok`,
+								`barang_paket`.`foto_barang`,
+								`barang_paket`.`harga_jual`,
+								`diskon_barang_paket`.`diskon`");
+ 			$this->db->limit($limit);
+ 			$this->db->from("barang_paket");
+ 			$this->db->join("`diskon_barang_paket`",
+ 				"`barang_paket`.`id_barang_paket`=`diskon_barang_paket`.`id_barang_paket`", "left");
+ 			$query = $this->db->get();
+
+ 			return $query->result_array();
+ 		}
+
+
  		public function fetch_by_id($id_barang_paket) {
  			$this->db->select("*");
  			$this->db->from("barang_paket");
