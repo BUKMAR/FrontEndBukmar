@@ -187,7 +187,22 @@ class Home extends CI_Controller {
 
 				$barang_paket = $barang_paket_model->fetch_by_id($id_barang);
 
-				echo json_encode($barang_paket);
+				$data = array(
+				   	'id' => $id_barang,
+				    'name' => $barang['nama_paket'],
+				    'qty' => $kuantitas,
+				    'price' => $harga_tawar,
+				    'options' => array()
+				);
+
+				if($this->shopping_cart->ifExist($id_barang)) 
+					$this->shopping_cart->updateCart($id_barang, $kuantitas);
+				else 
+					$this->shopping_cart->addToCart($data);
+
+				$chart = $this->shopping_cart->fetch_all();
+
+				redirect(site_url());
 			}
 		} else {
 			$id_barang = $this->input->post("id-barang");
@@ -221,8 +236,23 @@ class Home extends CI_Controller {
 				$barang_paket_model = new Barang_Paket_Model();
 
 				$barang_paket = $barang_paket_model->fetch_by_id($id_barang);
+				
+				$data = array(
+				   	'id' => $id_barang,
+				    'name' => $barang['nama_paket'],
+				    'qty' => $kuantitas,
+				    'price' => $harga_tawar,
+				    'options' => array()
+				);
 
-				echo json_encode($barang_paket);
+				if($this->shopping_cart->ifExist($id_barang)) 
+					$this->shopping_cart->updateCart($id_barang, $kuantitas);
+				else 
+					$this->shopping_cart->addToCart($data);
+
+				$chart = $this->shopping_cart->fetch_all();
+
+				//redirect(site_url('home/troli'));
 			}
 		}
 	}
