@@ -17,6 +17,9 @@
 			<div class="side-body">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<legend><h1><small><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Daftar Barang Paket</small></h1></legend>
+					 <a href="<?php echo base_url('index.php/admin/home/barang_paket'); ?>" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>Tambah Barang</a>
+					 <br/>
+					 <br/>
 					 <div class="table-responsive" style="border: 1px solid #dedede; padding: 35px; border-top-right-radius: 7px;
                             border-top-left-radius: 7px;
                             border-bottom-right-radius: 7px;
@@ -89,7 +92,7 @@
 		                          data: {id: idBarang},
 		                          success: function() {              
 		                            swal("Dihapus!", "Barang berhasil dihapus", "success");
-		                            table.ajax.reload();
+		                            location.reload();
 		                          }
 		                        });
 		                      } else {

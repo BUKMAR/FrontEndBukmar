@@ -40,7 +40,7 @@ class Barang_Paket extends CI_Controller {
 
 			$date_time = new DateTime();
 
-			$id_barang_paket = "BG"+ $date_time->getTimestamp();
+			$id_barang_paket = "PKT". $date_time->getTimestamp();
 
 			$data_barang = array(
 				"id_barang_paket" => $id_barang_paket,
@@ -59,7 +59,7 @@ class Barang_Paket extends CI_Controller {
 
 			$id_barang_paket = $barang_paket_paket_model->insert($data_barang);
 
-			redirect(site_url() ."/admin/home");
+			redirect(site_url() ."/admin/barang_paket/daftar_barang_paket");
 		}
 	}
 
@@ -165,11 +165,7 @@ class Barang_Paket extends CI_Controller {
 	             		   <button class='btn btn-sm btn-danger brg-delete'
 	             		   data-brg-id='". $barang_paket->id_barang_paket ."'
 	             		   data-brg-nama-paket='". $barang_paket->nama_paket ."'>
-	             		   <span class='glyphicon glyphicon-trash'></span></button>
-
-	             		   <button class='btn btn-sm btn-success'>
-						   <span class='glyphicon glyphicon-zoom-in'></span>
-	             		   </button>";
+	             		   <span class='glyphicon glyphicon-trash'></span></button>";
 
 	        $data[] = $row;
 	        $i++;

@@ -41,7 +41,7 @@
  		public function fetch_by_id($id_barang_paket) {
  			$this->db->select("*");
  			$this->db->from("barang_paket");
- 			$this->db->where("id_barang_paket=$id_barang_paket");
+ 			$this->db->where("id_barang_paket='$id_barang_paket'");
 
  			$query = $this->db->get();
 
