@@ -113,7 +113,7 @@
 	</div>
 	<header>
 		<?php require_once(APPPATH .'views/templates/first_nav.php'); ?>
-		<?php require_once(APPPATH .'views/templates/navigasi.php'); ?>
+		<!-- <?php require_once(APPPATH .'views/templates/navigasi.php'); ?> 
 	</header><!-- /header -->
 
 	<!-- body content -->

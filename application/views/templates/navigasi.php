@@ -45,7 +45,7 @@
 						<?php 
 							if(isset($barang_paket)) {
 								$i = 1;
-								/*
+
 								foreach($barang_paket as $item) {
 									if($i < count($barang_paket)) { ?>
 										<li class="col-sm-3">
@@ -120,7 +120,7 @@
 
 									$i++;
 								}
-								*/
+
 							} else {
 								print_r($barang_paket);
 							}
