@@ -41,6 +41,7 @@ class Home extends CI_Controller {
 
 			$barang_satuan = $barang_satuan_model->fetch_all();
 			$barang_paket = $this->load_nav_barang_paket();
+			$this->data['barang_paket'] = $barang_paket;
 			//pagination stuff
 			$jumlah_halaman = ceil(count($barang_satuan) / 16);
 
@@ -236,7 +237,7 @@ class Home extends CI_Controller {
 				$barang_paket_model = new Barang_Paket_Model();
 
 				$barang_paket = $barang_paket_model->fetch_by_id($id_barang);
-				
+
 				$data = array(
 				   	'id' => $id_barang,
 				    'name' => $barang['nama_paket'],
@@ -258,8 +259,15 @@ class Home extends CI_Controller {
 	}
 
 	public function detail_produk_paket() {
+		$this->load->model("Barang_satuan_model");
 		$this->load->model("Barang_paket_model");
 		$this->load->model("Member_model");
+
+		$barang_satuan_model = new Barang_Satuan_Model();
+
+		$barang_satuan = $barang_satuan_model->fetch_all();
+		$barang_paket = $this->load_nav_barang_paket();
+		$this->data['barang_paket'] = $barang_paket;
 
 		if($this->is_member_logged_in()) {		
 			$member_model = new Member_Model();
@@ -302,6 +310,9 @@ class Home extends CI_Controller {
 		$this->load->model("Foto_barang_satuan_model");
 		$this->load->model("Member_model");
 		$this->load->model("Member_model");
+		$barang_satuan = $barang_satuan_model->fetch_all();
+		$barang_paket = $this->load_nav_barang_paket();
+		$this->data['barang_paket'] = $barang_paket;
 
 		if($this->is_member_logged_in()) {		
 			$member_model = new Member_Model();
