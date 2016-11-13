@@ -419,36 +419,14 @@
                 <div id="dropdown-lvl1" class="panel-collapse collapse">
                     <div class="panel-body">
                         <ul class="nav navbar-nav">
-                           <!--  <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li> -->
-
-                            <!-- Dropdown level 2 Masukan Barang -->
-                            <li class="panel panel-default" id="dropdown">
-                                <a data-toggle="collapse" href="#masukan-barang">
-                                    Masukan Barang <span class="caret"></span>
+                            <li>
+                                <a href="<?php echo base_url(); ?>index.php/admin/home/input_tambah_barang">
+                                  Tambah Barang <span class="caret"></span>
                                 </a>
-                                <div id="masukan-barang" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul class="nav navbar-nav">
-                                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/barang_paket">Barang Paket</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/barang_satuan">Barang Satuan</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </li>
 
-                            <li class="panel panel-default" id="dropdown">
-                                <a data-toggle="collapse" href="#daftar-barang">
-                                  </span> Daftar Barang <span class="caret"></span>
-                                </a>
-                                <div id="daftar-barang" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul class="nav navbar-nav">
-                                            <li><a href="<?php echo base_url(); ?>index.php/admin/barang_paket/daftar_barang_paket">Barang Paket</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/barang_satuan/daftar_barang_satuan">Barang Satuan</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                            <li>
+                                <a href="<?php echo base_url(); ?>index.php/admin/home/daftar_barang">Daftar Barang <span class="caret"></a>
                             </li>
 
                             <!-- Dropdown level 2 Diskon Diskon Barang -->
@@ -459,26 +437,18 @@
                                 <div id="diskon-barang" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="<?php echo base_url();?>index.php/admin/daftar_diskon_barang_paket">Diskon Barang Paket</a></li>
-                                            <li><a href="<?php echo base_url();?>index.php/admin/daftar_barang_satuan">Diskon Barang Satuan</a></li>
+                                            <li><a href="<?php echo base_url();?>index.php/admin/daftar_diskon_barang">Daftar Diskon Barang</a></li>
+                                            <li><a href="<?php echo base_url();?>index.php/admin/masukkan_diskon_barang">Masukkan Diskon Barang</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
 
                             <!-- Dropdown level 2 Stok Barang -->
-                            <li class="panel panel-default" id="dropdown">
+                            <li>
                                 <a data-toggle="collapse" href="#stok-barang">
                                    </span> Stok Barang <span class="caret"></span>
                                 </a>
-                                <div id="stok-barang" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <ul class="nav navbar-nav">
-                                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/stok_barang_paket">Stok Barang Paket</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/stok_barang_satuan">Stok Barang Satuan</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </li>
 
                             <!-- Dropdown level 2 Daftar Kategori Barang -->
@@ -489,8 +459,8 @@
                                 <div id="kategori-barang" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li><a href="<?php echo base_url(); ?>index.php/admin/kategori_barang/input_kategori_barang">Masukan Kategori Barang</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/admin/kategori_barang/daftar_kategori_barang">Daftar Kategori Barang</a></li>
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/kategori_barang/input_kategori_barang">Masukan Kategori Barang</a></li>
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/kategori_barang/daftar_kategori_barang">Daftar Kategori Barang</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -504,6 +474,19 @@
                 </div>
             </li>
 
+                            <li class="panel panel-default" id="dropdown">
+                                <a data-toggle="collapse" href="#dropdown-transaksi">
+                                    <span class="glyphicon glyphicon-list"></span> Transaksi <span class="caret"></span>
+                                </a>
+                                <!-- Dropdown level 1 -->
+                                <div id="dropdown-transaksi" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li><a href="<?php echo base_url(); ?>index.php/admin/home/daftar_transaksi">Daftar transaksi</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
             <!-- Dropdown input data member dan list data member-->
             <li class="panel panel-default" id="dropdown">
                 <a data-toggle="collapse" href="#dropdown-member">

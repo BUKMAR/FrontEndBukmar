@@ -57,10 +57,9 @@ class Shopping_Cart {
 	public function ifExist($id) {
 		$i =1;
 
-	    foreach ($this->ci->cart->contents() as $item) {
+	    foreach ($this->ci->cart->contents() as $item) 
 	    	if($item['id'] == $id) 
 	    		return true;
-	    }
 
 	    return false;
 	}

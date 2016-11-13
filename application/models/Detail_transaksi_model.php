@@ -7,6 +7,7 @@
 		private $column_search = 
 		array('id_detail_transaksi', 'id_transaksi','id_barang_satuan','id_barang_paket','quantity', 'subtotal'); //set column field database for datatable orderable)); //set column field database for datatable searchable 
 		private $order = array('id_detail_transaksi' => 'asc'); // default order 
+		private $id_transaksi = '';
 
 		public function __construct() {
 			parent::__construct();
@@ -53,8 +54,69 @@
  				return $tmp;
  		}
 
-	    private function _get_datatables_query() {
-	        $this->db->from("detail_transaksi");
+ 		public function sum_total_pembelian($id_transaksi) {
+			$this->db->select("SUM(`detail_transaksi`.`subtotal`) AS `total`");
+ 			$this->db->from("`detail_transaksi`");
+ 			$this->db->where("`detail_transaksi`.`id_transaksi`='$id_transaksi'");
+
+ 			$query = $this->db->get();
+
+ 			$tmp = $query->result_array();
+
+ 			if(count($tmp) > 0)
+ 				return $tmp[0];
+ 			else 
+ 				return $tmp;
+ 		}
+
+ 		public function fetch_by_id_transaksi($id_transaksi) {
+ 			$this->db->select("*");
+ 			$this->db->from("detail_transaksi");
+ 			$this->db->where("id_transaksi='$id_transaksi'");
+
+ 			$query = $this->db->get();
+
+ 			$tmp = $query->result_array();
+
+ 			return $tmp;
+ 		}
+
+ 		public function fetch_faktur($id_transaksi) {
+	    	$this->db->select("`detail_transaksi`.`id_transaksi`, 
+								`detail_transaksi`.`id_barang_satuan`,
+								`barang_satuan`.`nama_barang`,
+								`barang_satuan`.`harga_jual`,
+								`detail_transaksi`.`quantitas`,
+								`detail_transaksi`.`subtotal`,
+								`diskon`.`diskon`");
+	        $this->db->from("`detail_transaksi`,
+								`barang_satuan`,
+								`diskon`");
+	        $this->db->where("`detail_transaksi`.`id_transaksi`='$id_transaksi'
+								AND
+									`barang_satuan`.`id_barang_satuan`=`detail_transaksi`.`id_barang_satuan`");
+	        $this->db->group_by("`detail_transaksi`.`id_barang_satuan`");
+
+ 			$query = $this->db->get();
+
+ 			$tmp = $query->result_array();
+
+ 			return $tmp;
+ 		}
+
+	    private function _get_datatables_query($id_transaksi) {
+	    	$this->db->select("`detail_transaksi`.`id_transaksi`,
+								`detail_transaksi`.`id_barang_satuan`,
+								`barang_satuan`.`nama_barang`,
+								`barang_satuan`.`harga_jual`,
+								`detail_transaksi`.`quantitas`,
+								`detail_transaksi`.`subtotal`");
+	        $this->db->from("`detail_transaksi`,
+								`barang_satuan`");
+	        $this->db->where("`detail_transaksi`.`id_transaksi`='$id_transaksi'
+								AND
+							  `barang_satuan`.`id_barang_satuan`=`detail_transaksi`.`id_barang_satuan`");
+
 	        $i = 0;
 	        
 	     	// loop column 
@@ -87,8 +149,9 @@
 	        }
 	    }
 	 
-	    function get_datatables() {
-	        $this->_get_datatables_query();
+	    function get_datatables($id_transaksi) {
+	    	$this->id_transaksi = $id_transaksi;
+	        $this->_get_datatables_query($id_transaksi);
 	        
 	        if(isset($_POST['length']) != -1 && isset($_POST['start'])) {
 	        	$this->db->limit($_POST['length'], $_POST['start']);
@@ -100,7 +163,7 @@
 	    }
 	 
 	    function count_filtered() {
-	        $this->_get_datatables_query();
+	        $this->_get_datatables_query($this->id_transaksi);
 	        $query = $this->db->get();
 
 	        return $query->num_rows();

@@ -3,9 +3,9 @@
 
 		private $table = 'transaksi';
 		private $column_order = 
-		array(null, 'id_transaksi','id_member','tgl_transaksi','status_pengiriman', 'alamat_pengiriman', 'waktu_pengiriman'); //set column field database for datatable orderable
+		array(null, 'id_transaksi','nama_member','tgl_transaksi','status_pengiriman', 'alamat_pengiriman', 'waktu_pengiriman'); //set column field database for datatable orderable
 		private $column_search = 
-		array('id_transaksi','id_member','tgl_transaksi','status_pengiriman', 'alamat_pengiriman', 'waktu_pengiriman'); //set column field database for datatable searchable 
+		array('id_transaksi','nama_member','tgl_transaksi','status_pengiriman', 'alamat_pengiriman', 'waktu_pengiriman'); //set column field database for datatable searchable 
 		private $order = array('id_transaksi' => 'asc'); // default order 
 
 		public function __construct() {
@@ -18,6 +18,27 @@
 			$insert_id = $this->db->insert_id();
 
    			return  $insert_id;
+		}
+		
+		public function fetch_header_faktur($id_transaksi) {
+			$this->db->select("`transaksi`.`id_transaksi`,
+								`transaksi`.`id_member`,
+								`member`.`nama_depan`,
+								`member`.`alamat1`,
+								`transaksi`.`tgl_transaksi`,
+								`transaksi`.`alamat_pengiriman`");
+			$this->db->from("`transaksi`,
+								`member`");
+			$this->db->where("`transaksi`.`id_transaksi`='$id_transaksi'
+								AND
+									`transaksi`.`id_member`=`member`.`id_member`");
+			$query = $this->db->get();
+			$tmp = $query->result_array();
+
+			if(count($tmp) > 0) 
+				return $tmp[0];
+			else 
+				return $tmp;
 		}
 
 		public function delete($id) {
@@ -54,7 +75,16 @@
  		}
 
 	    private function _get_datatables_query() {
-	        $this->db->from("transaksi");
+	    	$this->db->select("`transaksi`.`id_transaksi`,
+								`member`.`nama_depan` AS `nama_member`,
+								`transaksi`.`tgl_transaksi`,
+								`transaksi`.`status_pengiriman`,
+								`transaksi`.`alamat_pengiriman`,
+								`transaksi`.`waktu_pengiriman`");
+	        $this->db->from("`transaksi`,
+							`member`");
+	        $this->db->where("`transaksi`.`id_member`=`member`.`id_member`");
+
 	        $i = 0;
 	        
 	     	// loop column 

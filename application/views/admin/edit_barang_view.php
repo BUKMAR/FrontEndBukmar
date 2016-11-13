@@ -16,7 +16,7 @@
 		<div class="container-fluid">
 			<div class="side-body">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<legend><h1><small><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> Edit Barang Non Paket</small></h1></legend>
+				<legend><h1><small><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> Edit Barang "<?php echo $barang['nama_barang']; ?>"</small></h1></legend>
 			</div>
 				<!-- menu tab input barang 1 dan export excel -->
 				<div role="tabpanel">
@@ -24,27 +24,34 @@
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="manual">
 							<div class="row">
-								<input type="hidden" name="id-barang" value="<?php echo $barang_satuan['id_barang_satuan']; ?>" >
+								<input type="hidden" name="id-barang" value="<?php echo $barang['id_barang']; ?>" >
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-									<form action="<?php echo base_url('index.php/admin/barang_satuan/edit_barang_satuan') ?>" method="POST" role="form">
-
+									<form action="<?php echo base_url('index.php/admin/barang/submit_edit_barang') ?>" method="POST" role="form">
+										<input type="hidden" name="id-barang" value="<?php echo $barang['id_barang']; ?>">
 										<div class="form-group">
 											<label>Nama Barang
 											</label>
-											<input value="<?php echo $barang_satuan['nama_barang']; ?>" type="text" name="nama-barang" class="form-control" placeholder="Nama Barang" >
+											<input type="text" name="nama-barang" value="<?php echo $barang['nama_barang']; ?>" class="form-control" placeholder="Nama Barang" >
 										</div>
 
 										<div class="form-group">
-											<label>ID Brand
+											<label>Nama Brand
 											</label>
-											<input type="text" value="<?php echo $barang_satuan['id_brand']; ?>" name="id-brand" class="form-control" placeholder="Nama Barang" >
+											<select name="id-brand" class="form-control" >
+												<option disabled="" selected="selected">Pilih Brand Barang
+												</option>
+												<?php
+													foreach($brands as $item) {
+														echo "<option value='". $item['id_brand'] ."'>". $item['nama_brand'] ."</option>";
+													}
+												?>
+											</select>
 										</div>
 
 										<div class="form-group">
 											<label>Keterangan
 											</label>
-											<textarea name="keterangan" class="form-control" id="keterangan" rows="3" placeholder="Keterangan Produk" required="required"><?php echo $barang_satuan['keterangan']; ?>"
-											</textarea>
+											<textarea name="keterangan" class="form-control" id="keterangan" rows="3" placeholder="Keterangan Produk" required="required"><?php echo $barang['keterangan']; ?></textarea>
 											<script>
 												CKEDITOR.replace( 'keterangan' );
 											</script>
@@ -54,7 +61,7 @@
 										<div class="input-group">
 											<span class="input-group-addon">Rp
 											</span>
-											<input type="text" value="<?php echo $barang_satuan['harga_jual']; ?>" name="harga-jual" id="input" class="form-control" >
+											<input type="text" value="<?php echo $barang['harga_jual']; ?>" name="harga-jual" id="input" class="form-control" >
 										</div><br>
 
 										<label>Harga Beli
@@ -62,7 +69,7 @@
 										<div class="input-group">
 											<span class="input-group-addon">Rp
 											</span>
-											<input type="text" value="<?php echo $barang_satuan['harga_beli']; ?>" name="harga-beli" id="input" class="form-control" >
+											<input type="text" value="<?php echo $barang['harga_beli']; ?>" name="harga-beli" id="input" class="form-control" >
 										</div><br>
 
 										<label>Harga Tawar
@@ -70,12 +77,12 @@
 										<div class="input-group">
 											<span class="input-group-addon">Rp
 											</span>
-											<input type="text" value="<?php echo $barang_satuan['harga_tawar']; ?>" name="harga-tawar" id="input" class="form-control" >
+											<input type="text" name="harga-tawar" value="<?php echo $barang['harga_tawar']; ?>" id="input" class="form-control" >
 										</div><br>
 										<div class="form-group">
 											<label>Stok Barang
 											</label>
-											<input type="text" value="<?php echo $barang_satuan['stok']; ?>" name="stok-barang" id="stok-barang" class="form-control" >
+											<input type="text" name="stok-barang" value="<?php echo $barang['stok']; ?>"  class="form-control" >
 										</div>
 
 										<div class="form-group">
@@ -101,13 +108,13 @@
 										<div class="form-group">
 											<label>Berat Barang
 											</label>
-											<input type="text" name="berat-barang" class="form-control" >
+											<input type="text" name="berat-barang" value="<?php echo $barang['berat']; ?>" class="form-control" >
 										</div>
 
 										<div class="form-group">
 											<label>Tanggal Kadaluarsa
 											</label>
-											<input value="<?php echo date_format(date_create($barang_satuan['tgl_kadaluarsa']), date('d-m-Y')); ?>" required id="tgl" type="date" name="tgl-kadaluarsa" class="form-control" >
+											<input required id="tgl" type="date" value="<?php echo date_format(date_create($barang['tgl_kadaluarsa']), date('d/m/Y')); ?>" name="tgl-kadaluarsa" class="form-control" >
 										</div>
 										<div class="form-group">
 											<label>Kategori Barang
@@ -117,8 +124,7 @@
 												</option>
 												<?php
 													foreach($kategori as $item) {
-
-														if($barang_satuan['id_kategori'] == $item['id_kategori']) {
+														if($barang['id_kategori'] == $item['id_kategori']) {
 															echo "<option selected value='". $item['id_kategori'] ."'>". $item['nama_kategori'] ."</option>";
 														} else {
 															echo "<option value='". $item['id_kategori'] ."'>". $item['nama_kategori'] ."</option>";
@@ -127,23 +133,32 @@
 												?>
 											</select>
 										</div>
-										<div class="form-group" style="display: none;" id="detail">
-										</div>
+										<div class="form-group" style="display: none;" id="detail"></div>
 										<div class="form-group">
 											<label>Kategori Usia
 											</label>
-											<select name="kategori-usia" id="" class="form-control" required="required">
+											<select name="kategori-usia" class="form-control" required="required">
 												<option disabled="" selected="selected">Pilih Kategori Usia
 												</option>
-												<option value="Anak">Anak
+												<option value="Anak" <?php echo $barang['kategori_usia'] == 'Anak' ? 'selected' : ''; ?>>Anak
 												</option>
-												<option value="Remaja">Remaja
+												<option value="Remaja" <?php echo $barang['kategori_usia'] == 'Remaja' ? 'selected' : ''; ?>>Remaja
 												</option>
-												<option value="Dewasa">Dewasa
+												<option value="Dewasa" <?php echo $barang['kategori_usia'] == 'Dewasa' ? 'selected' : ''; ?>>Dewasa
 												</option>
-												<option value="Lanjut Usia">Lanjut Usia
+												<option value="Lanjut Usia" <?php echo $barang['kategori_usia'] == 'Lanjut Usia' ? 'selected' : ''; ?>>Lanjut Usia
 												</option>
-												<option value="Umum">Umum
+												<option value="Umum" <?php echo $barang['kategori_usia'] == 'Umum' ? 'selected' : ''; ?>>Umum
+												</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label>Jenis Barang
+											</label>
+											<select name="jenis-barang" class="form-control" required="required">
+												<option value="Satuan" <?php echo $barang['jenis_barang'] == 'Satuan' ? '' : 'selected';?>>Satuan
+												</option>
+												<option value="Paket" <?php echo $barang['jenis_barang'] == 'Paket' ? '' : 'selected';?>>Paket
 												</option>
 											</select>
 										</div>
@@ -151,6 +166,7 @@
 										</button>
 										<button type="reset" class="btn btn-danger">Batal
 										</button>
+
 									</form>
 								</div>
 							</div>
@@ -193,25 +209,46 @@
 				$("#kategori").change(function() {
 					$("#detail").css("display", "inline");
 					
-    				$.ajax({
-					    type: 'POST',
-					    contentType : 'json',
-					    url: urlKategori + $("#kategori").val(),
-					    success: function(msg){
-					    	var detailKategori = JSON.parse(msg);
-					    	var options = ""
+					$.ajax({
+						type: 'POST',
+						contentType : 'json',
+						url: urlKategori + $("#kategori").val(),
+						success: function(msg){
+						    var detailKategori = JSON.parse(msg);
+						    var options = ""
 
-					    	for(var i = 0; i < detailKategori.length; i++) {
-					    		var itemDetailKategori = detailKategori[i]; 
-					    		
+						    for(var i = 0; i < detailKategori.length; i++) {
+						    	var itemDetailKategori = detailKategori[i]; 
+						    		
 								options += "<option value='"+ itemDetailKategori.id_detail_kategori +"'>"+ itemDetailKategori.nama_detail_kategori +"</option>";
 							}
-							
+								
 							var data_select = "<select class='form-control' name='id-detail-kategori'>"+ options +"</select>";
-							
+								
 							$("#detail").html(data_select +"<br/><br/>");
-					    }
+						}
 					});
+				});
+
+				$("#detail").css("display", "inline");
+				$.ajax({
+					type: 'POST',
+					contentType : 'json',
+					url: urlKategori + $("#kategori").val(),
+					success: function(msg){
+					    var detailKategori = JSON.parse(msg);
+					    var options = ""
+
+					    for(var i = 0; i < detailKategori.length; i++) {
+					    	var itemDetailKategori = detailKategori[i]; 
+					    		
+							options += "<option value='"+ itemDetailKategori.id_detail_kategori +"'>"+ itemDetailKategori.nama_detail_kategori +"</option>";
+						}
+							
+						var data_select = "<select class='form-control' name='id-detail-kategori'>"+ options +"</select>";
+							
+						$("#detail").html(data_select +"<br/><br/>");
+					}
 				});
 			});
 		</script>

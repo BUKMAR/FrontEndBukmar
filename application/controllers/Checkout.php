@@ -35,7 +35,7 @@ class Checkout extends CI_Controller {
 
 		$date = new DateTime();
 		
-		$id_transaksi = $id_member ."/". date("Y-m-d") ."/". $date->getTimeStamp(); 
+		$id_transaksi = $id_member ."/". $date->getTimeStamp(); 
 
 		$this->load->model("Barang_satuan_model");
 		$this->load->model("Barang_paket_model");
@@ -87,6 +87,7 @@ class Checkout extends CI_Controller {
 		}
 
 		$this->shopping_cart->clearAll();
+		
 		redirect(site_url());
 	}
 

@@ -3,9 +3,9 @@
 
 		private $table = 'barang';
 		private $column_order = 
-		array(null, 'id_barang','nama_paket','tgl_upload','harga_jual', 'harga_jual', 'foto'); //set column field database for datatable orderable
+		array(null, 'id_barang','nama_barang','tgl_upload','harga_jual', 'harga_jual', 'foto', 'stok', 'jenis_barang', 'kategori_usia'); //set column field database for datatable orderable
 		private $column_search = 
-		array('id_barang','nama_paket','tgl_upload','harga_jual', 'harga_jual', 'foto'); //set column field database for datatable searchable 
+		array('id_barang','nama_barang','tgl_upload','harga_jual', 'harga_jual', 'foto', 'stok', 'jenis_barang', 'stok', 'kategori_usia'); //set column field database for datatable searchable 
 		private $order = array('id_barang' => 'asc'); // default order 
 
 		public function __construct() {
@@ -30,18 +30,65 @@
 			$this->db->update("barang", $data);
 		}
 
- 		public function fetch_all() {
- 			$this->db->select("*");
+		public function fetch_all_barang() {
+			$this->db->select("*");
  			$this->db->from("barang");
+ 			
  			$query = $this->db->get();
 
  			return $query->result_array();
+		}
+
+ 		public function fetch_all() {
+ 			$this->db->select("	`barang`.`id_barang`,
+								`barang`.`nama_barang`,
+								`barang`.`harga_jual`,
+								`barang`.`harga_tawar`,
+								`diskon`.`diskon`");
+ 			$this->db->from("barang");
+ 			$this->db->join("diskon", "`barang`.`id_barang`=`diskon`.`id_barang`", 'left');
+ 			
+ 			$query = $this->db->get();
+ 			
+ 			$this->load->model("Foto_barang_model");
+
+ 			$foto_barang_model = new Foto_barang_Model();
+
+ 			foreach($query->result() as $item) {
+ 				$foto_barang = $foto_barang_model->fetch_by_id_barang($item->id_barang);
+
+ 				if(isset($foto_barang['foto_barang']))
+					$item->{"foto_barang"} = $foto_barang['foto_barang'];
+
+ 				$data[] = $item;
+ 			}
+
+ 			return $data;
  		}
 
  		public function fetch_by_id($id_barang) {
- 			$this->db->select("*");
- 			$this->db->from("barang");
- 			$this->db->where("id_barang=$id_barang");
+ 			$this->db->select("	`barang`.`id_barang`,
+								`barang`.`nama_barang`,
+								`barang`.`berat`,
+								`barang`.`dilihat`,
+								`barang`.`harga_beli`,
+								`barang`.`harga_jual`,
+								`barang`.`harga_tawar`,
+								`barang`.`id_brand`,
+								`barang`.`id_detail_kategori`,
+								`barang`.`jenis_barang`,
+								`barang`.`kategori_usia`,
+								`barang`.`keterangan`,
+								`barang`.`stok`,
+								`barang`.`tgl_kadaluarsa`,
+								`barang`.`tgl_upload`,
+								`detail_kategori`.`nama_detail_kategori`,
+								`detail_kategori`.`id_kategori`");
+ 			$this->db->from("`barang`,
+							`detail_kategori`");
+ 			$this->db->where("`barang`.`id_barang`='$id_barang'
+								AND
+							  `barang`.`id_detail_kategori`=`detail_kategori`.`id_detail_kategori`");
 
  			$query = $this->db->get();
 

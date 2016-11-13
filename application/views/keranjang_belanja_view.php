@@ -40,7 +40,15 @@
 												?>" class="img-responsive img-fluid" style="width: 100%; height: 500;" alt="Image">
 										</div>
 										<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
-											<p style="margin-top: -25px;"><h3><small><?php echo $item["nama_barang"] ?></small></h3></p>
+											<?php if(isset($item["nama_barang"])) { ?>
+											<p style="margin-top: -25px;">
+												<h3><small><?php echo $item["nama_barang"] ?></small></h3>
+											</p>
+											<?php } else { ?>
+											<p style="margin-top: -25px;">
+												<h3><small><?php echo $item["nama_paket"] ?></small></h3>
+											</p>
+											<?php } ?>
 											<p style="margin-top: -15px;"><h4><small><h3 style="color: #000;">
 												<?php echo "Rp. ". number_format($item['harga_jual'], 0, ".", "."); ?>
 											</h3>
@@ -68,8 +76,16 @@
 												</div>
 											</div>
 											<input type="hidden" id="<?php echo $stok_id; ?>" value="<?php echo $item["stok"]; ?>" />
+											<?php if(isset($item["nama_barang"])) { ?>
 											<input type="hidden" id="<?php echo $nama_barang_id; ?>" value="<?php echo $item["nama_barang"]; ?>" />
+											<?php } else { ?>
+											<input type="hidden" id="<?php echo $nama_barang_id; ?>" value="<?php echo $item["nama_paket"]; ?>" />
+											<?php } ?>
+											<?php if(isset($item["id_barang_satuan"])) { ?>
 											<input type="hidden" id="<?php echo $id_barang_id; ?>" value="<?php echo $item["id_barang_satuan"]; ?>" />
+											<?php } else { ?>
+											<input type="hidden" id="<?php echo $id_barang_id; ?>" value="<?php echo $item["id_barang_paket"]; ?>" />
+											<?php } ?>
 											<!--
 											<p style="text-decoration: none; margin-top: 5px;"><a href=""> <span class="glyphicon glyphicon-heart-empty"></span> Tambahkan ke wishlist </a></p>
 											-->

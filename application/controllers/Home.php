@@ -109,6 +109,7 @@ class Home extends CI_Controller {
 	 	}
 	}
 
+	//revisi
 	public function troli() {
 		$keranjang = $this->shopping_cart->fetch_all();
 
@@ -117,11 +118,13 @@ class Home extends CI_Controller {
 			$total = 0;
 			
 			$this->load->model("Barang_satuan_model");
+			$this->load->model("Barang_paket_model");
 			$this->load->model("Member_model");
 			$this->load->model("Foto_barang_satuan_model");
 				
 			$barang_satuan_model = new Barang_Satuan_Model();
 			$member_model = new Member_Model();
+			$barang_paket_model = new Barang_Paket_Model();
 			$foto_barang_satuan_model = new Foto_Barang_Satuan_Model();
 
 			foreach($keranjang as $item) {
@@ -131,17 +134,28 @@ class Home extends CI_Controller {
 
 				$tmp = $barang_satuan_model->fetch_by_id($id_barang);
 
-				$foto_barang_satuan = $foto_barang_satuan_model->fetch_by_id_barang_satuan($id_barang);
+				if(count($tmp) > 0)	{
+					$foto_barang_satuan = $foto_barang_satuan_model->fetch_by_id_barang_satuan($id_barang);
 
-				$tmp['foto_barang'] = $foto_barang_satuan['foto_barang'];
-				$tmp['qty'] = $qty;
-				$tmp['subtotal'] = $subtotal;
+					$tmp['foto_barang'] = $foto_barang_satuan['foto_barang'];
 
-				$total += $subtotal;
-				$barang[] = $tmp;
+					$tmp['qty'] = $qty;
+					$tmp['subtotal'] = $subtotal;
+
+					$total += $subtotal;
+					$barang[] = $tmp;
+				} else {
+					$tmp = $barang_paket_model->fetch_by_id($id_barang);
+
+					$tmp['qty'] = $qty;
+					$tmp['subtotal'] = $subtotal;
+
+					$total += $subtotal;
+					$barang[] = $tmp;
+				}
 			}
 
-			$member = $member_model->fetch_by_id('M-20160929-1475153193');
+			$member = $member_model->fetch_by_id($this->session->userdata('id_member'));
 
 			$this->data['member'] = $member;
 			$this->data['total'] = $total;
@@ -154,24 +168,27 @@ class Home extends CI_Controller {
 		}
 	}
 
+	//revisi
 	public function tambah_ke_keranjang() {
+		//jika tombol tambah ke keranjang di klik maka ditambah ke keranjang
 		if($this->input->post("status") == "false") {
 			$id_barang = $this->input->post("id-barang");
 			$kuantitas = $this->input->post("kuantitas");
 			$harga_tawar = $this->input->post("harga-tawar");
+			
+			if(!empty($harga_tawar)) {
 
-			$this->load->model("Barang_satuan_model");
-			$barang_satuan_model = new Barang_Satuan_Model();
+				$this->load->model("Barang_satuan_model");
+				$barang_satuan_model = new Barang_Satuan_Model();
 
-			$barang = $barang_satuan_model->fetch_by_id($id_barang);
+				$barang = $barang_satuan_model->fetch_by_id($id_barang);
 
-			if(count($barang) > 0) {
 				$data = array(
-				   	'id' => $id_barang,
-				    'name' => $barang['nama_barang'],
-				    'qty' => $kuantitas,
-				    'price' => $harga_tawar,
-				    'options' => array()
+					'id' => $id_barang,
+					'name' => $barang['nama_barang'],
+					'qty' => $kuantitas,
+					'price' => $harga_tawar,
+					'options' => array()
 				);
 
 				if($this->shopping_cart->ifExist($id_barang)) 
@@ -189,22 +206,22 @@ class Home extends CI_Controller {
 				$barang_paket = $barang_paket_model->fetch_by_id($id_barang);
 
 				$data = array(
-				   	'id' => $id_barang,
-				    'name' => $barang['nama_paket'],
-				    'qty' => $kuantitas,
-				    'price' => $harga_tawar,
-				    'options' => array()
+					'id' => $id_barang,
+					'name' => $barang_paket['nama_paket'],
+					'qty' => $kuantitas,
+					'price' => $barang_paket['harga_jual'],
+					'options' => array()
 				);
 
 				if($this->shopping_cart->ifExist($id_barang)) 
 					$this->shopping_cart->updateCart($id_barang, $kuantitas);
 				else 
 					$this->shopping_cart->addToCart($data);
-
-				$chart = $this->shopping_cart->fetch_all();
+				
 
 				redirect(site_url());
 			}
+		//jika tombol beli diklik maka langsung ke halaman checkout
 		} else {
 			$id_barang = $this->input->post("id-barang");
 			$kuantitas = $this->input->post("kuantitas");
@@ -242,7 +259,7 @@ class Home extends CI_Controller {
 				   	'id' => $id_barang,
 				    'name' => $barang['nama_paket'],
 				    'qty' => $kuantitas,
-				    'price' => $harga_tawar,
+				    'price' => $barang_paket['harga_jual'],
 				    'options' => array()
 				);
 
@@ -251,9 +268,7 @@ class Home extends CI_Controller {
 				else 
 					$this->shopping_cart->addToCart($data);
 
-				$chart = $this->shopping_cart->fetch_all();
-
-				//redirect(site_url('home/troli'));
+				redirect(site_url('home/troli'));
 			}
 		}
 	}
@@ -310,6 +325,9 @@ class Home extends CI_Controller {
 		$this->load->model("Foto_barang_satuan_model");
 		$this->load->model("Member_model");
 		$this->load->model("Member_model");
+
+		$barang_satuan_model = new Barang_Satuan_Model();
+
 		$barang_satuan = $barang_satuan_model->fetch_all();
 		$barang_paket = $this->load_nav_barang_paket();
 		$this->data['barang_paket'] = $barang_paket;
@@ -359,11 +377,13 @@ class Home extends CI_Controller {
 				$total = 0;
 				
 				$this->load->model("Barang_satuan_model");
+				$this->load->model("Barang_paket_model");
 				$this->load->model("Member_model");
 				$this->load->model("Foto_barang_satuan_model");
 				$this->load->model("Diskon_model");
 					
 				$barang_satuan_model = new Barang_Satuan_Model();
+				$barang_paket_model = new Barang_Paket_Model();
 				$member_model = new Member_Model();
 				$foto_barang_satuan_model = new Foto_Barang_Satuan_Model();
 				$diskon_model = new Diskon_Model();
@@ -375,22 +395,45 @@ class Home extends CI_Controller {
 
 					$tmp = $barang_satuan_model->fetch_by_id($id_barang);
 
-					$foto_barang_satuan = $foto_barang_satuan_model->fetch_by_id_barang_satuan($id_barang);
+					//jika barang satuan
+					if(count($tmp) > 0) {
+						$foto_barang_satuan = $foto_barang_satuan_model->fetch_by_id_barang_satuan($id_barang);
 
-					$tmp['foto_barang'] = $foto_barang_satuan['foto_barang'];
-					$diskon = $diskon_model->fetch_by_id($id_barang);
+						$tmp['foto_barang'] = $foto_barang_satuan['foto_barang'];
+						$diskon = $diskon_model->fetch_by_id($id_barang);
 
-					if(count($diskon) > 0)
-						$tmp['diskon'] = $diskon['diskon'];
-					else
-						$tmp['diskon'] = 0;
-					
-					$tmp['qty'] = $qty;
-					$tmp['tawaran'] = $item['price'];
-					$tmp['subtotal'] = $subtotal;
+						if(count($diskon) > 0)
+							$tmp['diskon'] = $diskon['diskon'];
+						else
+							$tmp['diskon'] = 0;
+						
+						$tmp['qty'] = $qty;
+						$tmp['tawaran'] = $item['price'];
+						$tmp['subtotal'] = $subtotal;
 
-					$total += $subtotal;
-					$barang[] = $tmp;
+						$total += $subtotal;
+						$barang[] = $tmp;
+					//jika barang paket
+					} else {
+						$barang_paket = $barang_paket_model->fetch_by_id($id_barang);
+
+						$tmp['foto_barang'] = $barang_paket['foto_barang'];
+						$diskon = $diskon_model->fetch_by_id($id_barang);
+
+						if(count($diskon) > 0)
+							$tmp['diskon'] = $diskon['diskon'];
+						else
+							$tmp['diskon'] = 0;
+						
+						$tmp['nama_barang'] = $barang_paket['nama_paket'];
+						$tmp['harga_jual'] = $barang_paket['harga_jual'];
+						$tmp['qty'] = $qty;
+						$tmp['tawaran'] = 0;
+						$tmp['subtotal'] = $subtotal;
+
+						$total += $subtotal;
+						$barang[] = $tmp;
+					}
 				}
 
 				$id_member = $this->session->userdata('id_member');
@@ -404,7 +447,7 @@ class Home extends CI_Controller {
 				$this->load->view("cekout_view", $this->data);
 			} 
 		} else {
-				$this->load->view('cekout_view');
+				redirect('home/login');
 		}
 	}
 

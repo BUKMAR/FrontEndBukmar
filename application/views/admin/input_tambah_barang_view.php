@@ -16,7 +16,7 @@
 		<div class="container-fluid">
 			<div class="side-body">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<legend><h1><small><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> Tambah Barang Non Paket</small></h1></legend>
+				<legend><h1><small><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> Tambah Barang</small></h1></legend>
 			</div>
 				<!-- menu tab input barang 1 dan export excel -->
 				<div role="tabpanel">
@@ -37,8 +37,8 @@
 						<div role="tabpanel" class="tab-pane active" id="manual">
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-									<form action="<?php echo base_url('index.php/admin/barang_satuan/submit_tambah_barang') ?>" method="POST" enctype="multipart/form-data" role="form">
-
+									<form action="<?php echo base_url('index.php/admin/barang/submit_tambah_barang') ?>" method="POST" enctype="multipart/form-data" role="form">
+										
 										<div class="form-group">
 											<label>Nama Barang
 											</label>
@@ -49,7 +49,7 @@
 											<label>Nama Brand
 											</label>
 											<select name="id-brand" class="form-control" >
-												<option disabled="" selected="selected">Pilih Kategori Barang
+												<option disabled="" selected="selected">Pilih Brand Barang
 												</option>
 												<?php
 													foreach($brands as $item) {
@@ -145,7 +145,7 @@
 										<div class="form-group">
 											<label>Kategori Usia
 											</label>
-											<select name="kategori-usia" id="" class="form-control" required="required">
+											<select name="kategori-usia" class="form-control" required="required">
 												<option disabled="" selected="selected">Pilih Kategori Usia
 												</option>
 												<option value="Anak">Anak
@@ -157,6 +157,16 @@
 												<option value="Lanjut Usia">Lanjut Usia
 												</option>
 												<option value="Umum">Umum
+												</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label>Jenis Barang
+											</label>
+											<select name="jenis-barang" class="form-control" required="required">
+												<option value="Satuan">Satuan
+												</option>
+												<option value="Paket">Paket
 												</option>
 											</select>
 										</div>
@@ -204,7 +214,7 @@
 				$("#kategori").change(function() {
 					$("#detail").css("display", "inline");
 
-					var detailUrl = '<?php echo base_url('index.php/admin/barang_satuan/ajax_fetch_detail_kategori?id_kategori='); ?>' + $("#kategori").val();
+					var detailUrl = '<?php echo base_url('index.php/admin/barang/ajax_fetch_detail_kategori?id_kategori='); ?>' + $("#kategori").val();
     				$.ajax({
 					    type: 'POST',
 					    contentType : 'json',
